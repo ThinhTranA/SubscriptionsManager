@@ -34,7 +34,9 @@ class HomeViewController: UIViewController {
         imageView.image = UIImage(systemName: "creditcard")
         return imageView
     }()
-
+    
+    private let bottomBar = BottomTabView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -43,6 +45,12 @@ class HomeViewController: UIViewController {
         view.addSubview(infoLabel)
         view.addSubview(creditCard2Image)
         view.addSubview(creditCard1Image)
+        
+        setupBottomBarView()
+    }
+    
+    private func setupBottomBarView(){
+        view.addSubview(bottomBar)
     }
     
     override func viewDidLayoutSubviews() {
@@ -79,6 +87,13 @@ class HomeViewController: UIViewController {
         let infoLabelCenter = CGPoint(x: view.center.x, y: creditCard1Image.center.y + creditCardHeight/2 + 24)
         infoLabel.center = infoLabelCenter
         infoLabel.sizeToFit()
+        
+        bottomBar.frame = CGRect(
+            x: 0,
+            y: view.height-BottomTabView.tabHeight,
+            width: view.width,
+            height: BottomTabView.tabHeight
+        )
     }
     
 
