@@ -26,13 +26,19 @@ class HomeViewController: UIViewController {
     private let creditCard1Image: UIImageView = {
        let imageView = UIImageView()
         imageView.image = UIImage(systemName: "creditcard")
-       // imageView.tintColor = .blue
         return imageView
     }()
     private let creditCard2Image: UIImageView = {
        let imageView = UIImageView()
         imageView.image = UIImage(systemName: "creditcard")
         return imageView
+    }()
+    
+    let myData = ["first", "sercond", "third"]
+    private let subsTableView: UITableView = {
+        let tableView = UITableView(frame: .zero, style: .grouped)
+        tableView.register(SubscriptionViewCell.self, forCellReuseIdentifier: SubscriptionViewCell.identifier)
+        return tableView
     }()
     
     private let bottomBar = BottomTabView()
@@ -42,11 +48,20 @@ class HomeViewController: UIViewController {
         
         view.backgroundColor = .systemBackground
         view.addSubview(titleLabel)
+        
+        subsTableView.delegate = self
+        subsTableView.dataSource = self
+        view.addSubview(subsTableView)
+        
+        setupEmptySubPlaceholder()
+        setupBottomBarView()
+    }
+    
+    private func setupEmptySubPlaceholder(){
+        return
         view.addSubview(infoLabel)
         view.addSubview(creditCard2Image)
         view.addSubview(creditCard1Image)
-        
-        setupBottomBarView()
     }
     
     private func setupBottomBarView(){
@@ -94,30 +109,45 @@ class HomeViewController: UIViewController {
             width: view.width,
             height: BottomTabView.tabHeight
         )
+        
+        subsTableView.frame = view.bounds
     }
-    
-
 
 }
 
-extension UIView {
-    func setAnchorPoint(_ point: CGPoint) {
-        var newPoint = CGPoint(x: bounds.size.width * point.x, y: bounds.size.height * point.y)
-        var oldPoint = CGPoint(x: bounds.size.width * layer.anchorPoint.x, y: bounds.size.height * layer.anchorPoint.y);
-
-        newPoint = newPoint.applying(transform)
-        oldPoint = oldPoint.applying(transform)
-
-        var position = layer.position
-
-        position.x -= oldPoint.x
-        position.x += newPoint.x
-
-        position.y -= oldPoint.y
-        position.y += newPoint.y
-
-        layer.position = position
-        layer.anchorPoint = point
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return myData.count
     }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: SubscriptionViewCell.identifier, for: indexPath)
+                as? SubscriptionViewCell else {
+            return UITableViewCell()
+        }
+        
+        let text = myData[indexPath.row]
+        cell.configure(with: SubscriptionViewCellViewModel(
+            name: text,
+            cost: "$90",
+            perMonth: "10$ per month",
+            expiredDate: Date.now.addingTimeInterval(40000))
+        )
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let text = myData[indexPath.row]
+        print("\(text) row selected")
+        // TODO:
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
+    
+    
 }
 

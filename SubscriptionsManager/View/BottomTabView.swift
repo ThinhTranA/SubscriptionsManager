@@ -9,6 +9,7 @@ import UIKit
 
 protocol BotomTabViewDelegate: AnyObject {
     func openSettings()
+    func addSubscription()
 }
 
 class BottomTabView: UIView {
@@ -34,6 +35,15 @@ class BottomTabView: UIView {
         imageView.layer.masksToBounds = true
         imageView.contentMode = .scaleAspectFill
         imageView.image = UIImage(systemName: "gear")
+        imageView.tintColor = .white
+        return imageView
+    }()
+    
+    private let sortImageView: UIImageView = {
+       let imageView = UIImageView()
+        imageView.layer.masksToBounds = true
+        imageView.contentMode = .scaleAspectFill
+        imageView.image = UIImage(systemName: "arrow.up.arrow.down.circle")
         imageView.tintColor = .white
         return imageView
     }()
@@ -68,6 +78,7 @@ class BottomTabView: UIView {
     
     private func addSubViews(){
         addSubview(settingImageView)
+        addSubview(sortImageView)
         addSubview(addSubButton)
     }
     
@@ -75,11 +86,18 @@ class BottomTabView: UIView {
         let tapSettings = UITapGestureRecognizer(target: self, action: #selector(didTapSettings))
         settingImageView.isUserInteractionEnabled = true
         settingImageView.addGestureRecognizer(tapSettings)
+        
+        addSubButton.addTarget(self, action: #selector(didTapAddSubscription), for: .touchUpInside)
     }
     
     @objc func didTapSettings(){
         print("did tap settings")
         delegate?.openSettings()
+    }
+    
+    @objc func didTapAddSubscription(){
+        print("did tap add sub")
+        delegate?.addSubscription()
     }
     
     
@@ -91,8 +109,11 @@ class BottomTabView: UIView {
         super.layoutSubviews()
         let tabHeight = BottomTabView.tabHeight
         
+        let tabImageButtonSize = 40.0
+        settingImageView.frame = CGRect(x:8, y: height - tabHeight + 4, width: tabImageButtonSize, height: tabImageButtonSize)
+        
         let settingImageSize = 40.0
-        settingImageView.frame = CGRect(x:4, y: height - tabHeight + 4, width: settingImageSize, height: settingImageSize)
+        sortImageView.frame = CGRect(x:width - tabImageButtonSize - 8, y: height - tabHeight + 4, width: settingImageSize, height: settingImageSize)
         
         let addSubButtonSize = 56.0
         addSubButton.frame = CGRect(x:(width-addSubButtonSize)/2, y: height - tabHeight - addSubButtonSize/2, width: addSubButtonSize, height: addSubButtonSize)
