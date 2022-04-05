@@ -82,6 +82,18 @@ class BottomTabView: UIView {
         addSubview(addSubButton)
     }
     
+    // Allow addSubButton which is outside of view bounds to be tapped.
+    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        //This might get called more than once when button tapped, this is normal
+        //https://stackoverflow.com/questions/6550107/why-is-hittestwithevent-called-three-times-for-each-touch
+        let translatedPoint = addSubButton.convert(point, from: self)
+        
+        if (addSubButton.bounds.contains(translatedPoint)) {
+            return addSubButton.hitTest(translatedPoint, with: event)
+        }
+        return super.hitTest(point, with: event)
+    }
+    
     private func configureButtons(){
         let tapSettings = UITapGestureRecognizer(target: self, action: #selector(didTapSettings))
         settingImageView.isUserInteractionEnabled = true
