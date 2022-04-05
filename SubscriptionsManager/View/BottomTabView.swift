@@ -91,12 +91,10 @@ class BottomTabView: UIView {
     }
     
     @objc func didTapSettings(){
-        print("did tap settings")
         delegate?.openSettings()
     }
     
     @objc func didTapAddSubscription(){
-        print("did tap add sub")
         delegate?.addSubscription()
     }
     

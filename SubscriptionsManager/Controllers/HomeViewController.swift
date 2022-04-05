@@ -66,6 +66,7 @@ class HomeViewController: UIViewController {
     
     private func setupBottomBarView(){
         view.addSubview(bottomBar)
+        bottomBar.delegate = self
     }
     
     override func viewDidLayoutSubviews() {
@@ -113,6 +114,24 @@ class HomeViewController: UIViewController {
         subsTableView.frame = view.bounds
     }
 
+}
+
+extension HomeViewController: BotomTabViewDelegate {
+    func openSettings() {
+        print("open settings")
+        
+    }
+    
+    func addSubscription() {
+        print("add sub")
+        let vc = SubscriptionViewController()
+        vc.title = "Add Subscription"
+        
+        let navVC = UINavigationController(rootViewController: vc)
+        present(navVC, animated: true)
+    }
+    
+    
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
