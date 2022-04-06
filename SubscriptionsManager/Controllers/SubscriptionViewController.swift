@@ -12,8 +12,10 @@ class SubscriptionViewController: UIViewController {
     private let tableView: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
         table.separatorInset = UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 24)
-        table.register(EntryTableViewCell.self, forCellReuseIdentifier: EntryTableViewCell.identifier)
         table.backgroundColor = .red
+        
+        table.register(SubscriptionHeader .self, forHeaderFooterViewReuseIdentifier: SubscriptionHeader.identifier)
+        table.register(EntryTableViewCell.self, forCellReuseIdentifier: EntryTableViewCell.identifier)
         return table
     }()
     
@@ -69,6 +71,16 @@ extension SubscriptionViewController: UITableViewDelegate, UITableViewDataSource
             placeHolder: model.title))
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: SubscriptionHeader.identifier)
+        return header
+    }
+    
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        200
     }
     
     
