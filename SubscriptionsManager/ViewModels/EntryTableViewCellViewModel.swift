@@ -10,4 +10,6 @@ import Foundation
 
 struct EntryTableViewCellViewModel {
     let name: String
+    let value: String
+    let placeHolder: String?
 }

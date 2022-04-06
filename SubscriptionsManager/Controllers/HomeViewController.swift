@@ -59,6 +59,8 @@ class HomeViewController: UIViewController {
     
     private func setupEmptySubPlaceholder(){
         return
+        
+        //TODO: use actual image instead of credit card system image
         view.addSubview(infoLabel)
         view.addSubview(creditCard2Image)
         view.addSubview(creditCard1Image)

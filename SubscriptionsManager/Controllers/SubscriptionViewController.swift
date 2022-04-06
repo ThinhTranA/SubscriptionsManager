@@ -11,7 +11,9 @@ class SubscriptionViewController: UIViewController {
     
     private let tableView: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
+        table.separatorInset = UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 24)
         table.register(EntryTableViewCell.self, forCellReuseIdentifier: EntryTableViewCell.identifier)
+        table.backgroundColor = .red
         return table
     }()
     
@@ -19,13 +21,11 @@ class SubscriptionViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
-        
         addSectionsData()
-        
         view.addSubview(tableView)
         tableView.delegate = self
         tableView.dataSource = self
+        
     }
     
     func addSectionsData(){
@@ -63,7 +63,10 @@ extension SubscriptionViewController: UITableViewDelegate, UITableViewDataSource
             return UITableViewCell()
         }
         
-        cell.configure(with: EntryTableViewCellViewModel(name: model.title))
+        cell.configure(with: EntryTableViewCellViewModel(
+            name: model.title,
+            value: model.value,
+            placeHolder: model.title))
         
         return cell
     }
