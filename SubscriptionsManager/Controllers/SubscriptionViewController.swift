@@ -6,12 +6,13 @@
 //
 
 import UIKit
-
+//TODO: consider using UIStackView & UISrollView
 class SubscriptionViewController: UIViewController {
     
     private let tableView: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
         table.separatorInset = UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 24)
+       // table.separatorColor = .red
         table.backgroundColor = .red
         
         table.register(SubscriptionHeader .self, forHeaderFooterViewReuseIdentifier: SubscriptionHeader.identifier)

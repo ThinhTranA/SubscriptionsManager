@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Eureka
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -19,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         
        // window.rootViewController = HomeViewController()
-        window.rootViewController = SubscriptionViewController()
+        window.rootViewController = AddUpdateSubViewController()
         self.window = window
         self.window?.makeKeyAndVisible()
     }

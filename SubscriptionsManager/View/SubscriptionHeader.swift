@@ -14,12 +14,14 @@ class SubscriptionHeader: UITableViewHeaderFooterView {
        let button = UIButton()
         let image = UIImage(systemName: "chevron.down")!
         button.setImage(image, for: .normal)
+        button.tintColor = .init(white: 1, alpha: 0.9)
         return button
     }()
     
     private let saveBtn: UIButton = {
        let button = UIButton()
         button.setTitle("Save", for: .normal)
+        button.layer.cornerRadius = 16
         button.backgroundColor = .orange
         return button
     }()
@@ -33,6 +35,7 @@ class SubscriptionHeader: UITableViewHeaderFooterView {
     
     private let nameLabel: UILabel = {
         let label = UILabel()
+        label.textColor = .init(white: 1, alpha: 0.9)
         label.text = "Select Tesla"
         return label
     }()
@@ -47,6 +50,7 @@ class SubscriptionHeader: UITableViewHeaderFooterView {
         return label
     }()
     
+    
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
         contentView.addSubview(cancelBtn)
@@ -56,14 +60,16 @@ class SubscriptionHeader: UITableViewHeaderFooterView {
         contentView.addSubview(currencyLabel)
         contentView.addSubview(imageView)
         
+        cancelBtn.addTarget(self, action: #selector(didTapCancelBtn), for: .touchUpInside)
+        saveBtn.addTarget(self, action: #selector(didTapSaveBtn), for: .touchUpInside)
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
         nameLabel.sizeToFit()
         nameLabel.frame = CGRect(x: (width - nameLabel.width)/2, y: nameLabel.height, width: nameLabel.width, height: nameLabel.height)
-        cancelBtn.frame = CGRect(x: 8, y: cancelBtn.height, width: cancelBtn.width, height: cancelBtn.height)
-        saveBtn.frame = CGRect(x: width-saveBtn.width-8, y: saveBtn.height, width: saveBtn.width, height: saveBtn.height)
+        cancelBtn.frame = CGRect(x: 8, y: nameLabel.height-8, width: 50, height: 30)
+        saveBtn.frame = CGRect(x: width-saveBtn.width-8, y: nameLabel.height - 8, width: 50, height: 32)
         
         imageView.frame = CGRect(x: (width-imageView.width)/2, y: nameLabel.bottom, width: width, height: height)
     }
@@ -76,5 +82,12 @@ class SubscriptionHeader: UITableViewHeaderFooterView {
         nameLabel.text = viewModel.name
         //
     }
+    
+    @objc func didTapSaveBtn(){
+        print("save button tapped")
+    }
 
+    @objc func didTapCancelBtn(){
+        print("cancel button tapped")
+    }
 }
