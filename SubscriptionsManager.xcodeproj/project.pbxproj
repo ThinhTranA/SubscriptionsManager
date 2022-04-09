@@ -10,6 +10,8 @@
 		6BBEB00D21F2213D28824692 /* Pods_SubscriptionsManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDB0910380CA349C4F94E1C7 /* Pods_SubscriptionsManager.framework */; };
 		E502771027FFCCC400B3C4F5 /* MTextRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E502770F27FFCCC400B3C4F5 /* MTextRow.swift */; };
 		E502771327FFCF8F00B3C4F5 /* MDateRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E502771227FFCF8F00B3C4F5 /* MDateRow.swift */; };
+		E52C61272800F88300909C9C /* MTriplePickerInputRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52C61262800F88300909C9C /* MTriplePickerInputRow.swift */; };
+		E52C61292800F9D000909C9C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52C61282800F9D000909C9C /* Constants.swift */; };
 		E547E1D727F2790C000A9E8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E547E1D627F2790C000A9E8F /* AppDelegate.swift */; };
 		E547E1D927F2790C000A9E8F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E547E1D827F2790C000A9E8F /* SceneDelegate.swift */; };
 		E547E1DB27F2790C000A9E8F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E547E1DA27F2790C000A9E8F /* HomeViewController.swift */; };
@@ -33,6 +35,8 @@
 		DA12B6304B760CE8CB769294 /* Pods-SubscriptionsManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SubscriptionsManager.release.xcconfig"; path = "Target Support Files/Pods-SubscriptionsManager/Pods-SubscriptionsManager.release.xcconfig"; sourceTree = "<group>"; };
 		E502770F27FFCCC400B3C4F5 /* MTextRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTextRow.swift; sourceTree = "<group>"; };
 		E502771227FFCF8F00B3C4F5 /* MDateRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDateRow.swift; sourceTree = "<group>"; };
+		E52C61262800F88300909C9C /* MTriplePickerInputRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTriplePickerInputRow.swift; sourceTree = "<group>"; };
+		E52C61282800F9D000909C9C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E547E1D327F2790C000A9E8F /* SubscriptionsManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SubscriptionsManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E547E1D627F2790C000A9E8F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E547E1D827F2790C000A9E8F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +92,7 @@
 			children = (
 				E502770F27FFCCC400B3C4F5 /* MTextRow.swift */,
 				E502771227FFCF8F00B3C4F5 /* MDateRow.swift */,
+				E52C61262800F88300909C9C /* MTriplePickerInputRow.swift */,
 			);
 			path = Forms;
 			sourceTree = "<group>";
@@ -153,6 +158,7 @@
 				E547E1D827F2790C000A9E8F /* SceneDelegate.swift */,
 				E547E1DF27F2790C000A9E8F /* Assets.xcassets */,
 				E55C808127F45EAA0035CDC3 /* Extensions.swift */,
+				E52C61282800F9D000909C9C /* Constants.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -300,11 +306,13 @@
 				E547E1D727F2790C000A9E8F /* AppDelegate.swift in Sources */,
 				E5A62B6A27F90697004FA950 /* SubscriptionViewCellViewModel.swift in Sources */,
 				E59B478F27FC3BE800B76E10 /* EntryTableViewCell.swift in Sources */,
+				E52C61272800F88300909C9C /* MTriplePickerInputRow.swift in Sources */,
 				E5604BE727FF1CB500B2107F /* AddUpdateSubViewController.swift in Sources */,
 				E502771327FFCF8F00B3C4F5 /* MDateRow.swift in Sources */,
 				E5A62B6F27F926B4004FA950 /* SubscriptionSection.swift in Sources */,
 				E5A62B6C27F92482004FA950 /* SubscriptionViewController.swift in Sources */,
 				E547E1D927F2790C000A9E8F /* SceneDelegate.swift in Sources */,
+				E52C61292800F9D000909C9C /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

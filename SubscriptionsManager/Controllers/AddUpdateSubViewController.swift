@@ -44,9 +44,39 @@ class AddUpdateSubViewController: FormViewController {
                 $0.value = Date()
             }
         }
-        <<< MTextRow(){
+        <<< MTriplePickerInputRow<String, Int, String>() {
+            $0.firstOptions = { return ["Every"]}
+            $0.secondOptions = { a in
+                //print("a: \(a)")
+                return [1, 2, 3]}
+            $0.thirdOptions = { b, c in
+//                print("b:\(b)")
+//                print("c: \(c)")
+                return ["week(s)","month(s)","year"]}
             $0.title = "Billing Cycle"
-            $0.placeholder = "Choose" // TODO Add a picker
+            $0.value = .init(a: "Every", b: 1, c: "week(s)")
+        }.onChange{
+            if($0.selectedC == $0.value?.c){
+                return
+            }
+            $0.selectedC = $0.value?.c
+            $0.value = .init(a: $0.value?.a ?? "Every", b: 1, c: $0.value?.c ?? "week(s)")
+            switch $0.value?.c {
+            case "week(s)":
+                $0.secondOptions = { _ in
+                return [1,2,3,4,5,6]
+            }
+            case "month(s)":
+                $0.secondOptions = { _ in
+                return [1,2,3,4,5,6,7,8,9,10,11,12]
+            }
+            case "year":
+                $0.secondOptions = { _ in
+                return [1]
+            }
+            default:
+                break
+            }
         }
         <<< MTextRow(){
             $0.title = "Remind"
@@ -58,5 +88,10 @@ class AddUpdateSubViewController: FormViewController {
         }
         
         //https://github.com/xmartlabs/Eureka/blob/master/README.md#row-catalog
+    }
+    
+    override func valueHasBeenChanged(for: BaseRow, oldValue: Any?, newValue: Any?) {
+        print("old value\(oldValue)")
+        print("new value \(newValue)")
     }
 }

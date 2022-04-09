@@ -16,12 +16,9 @@ public final class MDateRow: _DateRow, RowType {
     override public func updateCell() {
         super.updateCell()
         cell.backgroundColor = .clear
-        cell.textLabel?.textColor = .init(white: 1, alpha: 0.9)
-        cell.detailTextLabel?.textColor = .init(white: 1, alpha: 0.9)
+        cell.textLabel?.textColor = M.Colors.white
+        cell.textLabel?.font = M.Fonts.rowTitle
+        cell.detailTextLabel?.textColor = M.Colors.white
         
-//
-//        cell.titleLabel?.textColor = .init(white: 1, alpha: 0.9)
-//        cell.titleLabel?.font = .systemFont(ofSize: 16, weight: .semibold)
-//        cell.textField.textColor = .white
     }
 }

@@ -16,8 +16,13 @@ public final class MTextRow: _TextRow, RowType {
     override public func updateCell() {
         super.updateCell()
         cell.backgroundColor = .clear
-        cell.titleLabel?.textColor = .init(white: 1, alpha: 0.9)
-        cell.titleLabel?.font = .systemFont(ofSize: 16, weight: .semibold)
+        cell.titleLabel?.textColor = M.Colors.white
+        cell.titleLabel?.font = M.Fonts.rowTitle
         cell.textField.textColor = .white
+        
+        cell.textField.attributedPlaceholder = NSAttributedString (
+            string: placeholder ?? "",
+            attributes: [NSAttributedString.Key.foregroundColor: M.Colors.greyWhite]
+        )
     }
 }
