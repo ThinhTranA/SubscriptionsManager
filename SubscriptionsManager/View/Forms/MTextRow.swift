@@ -25,4 +25,6 @@ public final class MTextRow: _TextRow, RowType {
             attributes: [NSAttributedString.Key.foregroundColor: M.Colors.greyWhite]
         )
     }
+    
+
 }

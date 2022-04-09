@@ -32,7 +32,5 @@ public final class MTriplePickerInputRow<A, B, C>: _TriplePickerInputRow<A, B, C
         cell.textLabel?.font = M.Fonts.rowTitle
         
     }
-    
-  
 
 }
