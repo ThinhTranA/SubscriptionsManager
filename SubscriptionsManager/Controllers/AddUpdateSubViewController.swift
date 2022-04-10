@@ -47,11 +47,8 @@ class AddUpdateSubViewController: FormViewController {
         <<< MTriplePickerInputRow<String, Int, String>() {
             $0.firstOptions = { return ["Every"]}
             $0.secondOptions = { a in
-                //print("a: \(a)")
                 return [1, 2, 3]}
             $0.thirdOptions = { b, c in
-//                print("b:\(b)")
-//                print("c: \(c)")
                 return ["week(s)","month(s)","year"]}
             $0.title = "Billing Cycle"
             $0.value = .init(a: "Every", b: 1, c: "week(s)")
@@ -78,9 +75,22 @@ class AddUpdateSubViewController: FormViewController {
                 break
             }
         }
-        <<< MTextRow(){
+        <<< MTriplePickerInputRow<String, String, String>() {
+            $0.firstOptions = { return ["Never", "Same", "1", "2", "3", "4", "5", "6","7"]}
+            $0.secondOptions = { a in
+                return ["", "Day(s)"]}
+            $0.thirdOptions = { b, c in
+                return ["", "before"]}
             $0.title = "Remind"
-            $0.placeholder = "Choose" // TODO: add picker
+            $0.value = .init(a: "Never", b: "", c: "")
+        }.onChange{
+            switch $0.value?.a {
+                case "Never":
+                    $0.value = .init(a: "Never", b: "", c: "")
+            default:
+                $0.value = .init(a: $0.value?.a ?? "Same", b: "Day(s)", c: "before")
+            }
+            
         }
         <<< MTextRow(){
             $0.title = "Currency"
