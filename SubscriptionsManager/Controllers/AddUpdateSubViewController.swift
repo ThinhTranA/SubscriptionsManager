@@ -94,41 +94,28 @@ class AddUpdateSubViewController: FormViewController {
         
         if row is MTriplePickerInputRow<String, Int, String>
             || row is MDateRow {
-            let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.width, height: 42 ))
-            toolbar.barStyle = UIBarStyle.black
-            toolbar.tintColor = UIColor.white
-         
-            let doneBtn = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(didTapCancel))
             
-            let cancelBtn = UIButton(frame: CGRect(x: 0, y: 0, width: 32, height: 32))
-            let cancelImage = UIImage(systemName: "multiply")
-            cancelBtn.setImage(cancelImage, for: .normal)
-            cancelBtn.layer.cornerRadius = 16
-            cancelBtn.backgroundColor = .clear
-            cancelBtn.addTarget(self, action: #selector(didTapCancel), for: .touchUpInside)
-            let cancelBtnItem = UIBarButtonItem(customView: cancelBtn)
+            let view = FormPickerInputAccessoryView(frame: CGRect(x: 0, y: 0, width: view.width, height: 42))
+            view.delegate = self
+            view.configure(withTitle: row.title ?? "")
             
-            let label = UILabel()
-            label.text = "Billing Cycle"
-            label.sizeToFit()
-            
-            toolbar.setItems([cancelBtnItem,doneBtn], animated: true)
-            toolbar.clipsToBounds = true
-            toolbar.layer.cornerRadius = 12
-            toolbar.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-            
-            return toolbar
+            return view
         }
         return super.inputAccessoryView(for: row)
     }
     
-    @objc func didTapCancel(){
-        print("tap cancel")
-        tableView.endEditing(false)
-    }
     
     override func valueHasBeenChanged(for: BaseRow, oldValue: Any?, newValue: Any?) {
         print("old value\(oldValue)")
         print("new value \(newValue)")
+    }
+}
+
+extension AddUpdateSubViewController: FormPickerInputAccessoryViewDelegate {
+    func didTapDone() {
+        tableView.endEditing(false)
+    }
+    func didTapCancel() {
+        tableView.endEditing(false)
     }
 }

@@ -22,6 +22,7 @@
 		E5604BE727FF1CB500B2107F /* AddUpdateSubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5604BE627FF1CB500B2107F /* AddUpdateSubViewController.swift */; };
 		E59B478F27FC3BE800B76E10 /* EntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59B478E27FC3BE800B76E10 /* EntryTableViewCell.swift */; };
 		E59B479127FC3CB900B76E10 /* EntryTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59B479027FC3CB900B76E10 /* EntryTableViewCellViewModel.swift */; };
+		E59F2C5228026BC6001DD28C /* FormPickerInputAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59F2C5128026BC6001DD28C /* FormPickerInputAccessoryView.swift */; };
 		E5A62B6727F90579004FA950 /* SubscriptionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A62B6627F90579004FA950 /* SubscriptionViewCell.swift */; };
 		E5A62B6A27F90697004FA950 /* SubscriptionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A62B6927F90697004FA950 /* SubscriptionViewCellViewModel.swift */; };
 		E5A62B6C27F92482004FA950 /* SubscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A62B6B27F92482004FA950 /* SubscriptionViewController.swift */; };
@@ -49,6 +50,7 @@
 		E5604BE627FF1CB500B2107F /* AddUpdateSubViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUpdateSubViewController.swift; sourceTree = "<group>"; };
 		E59B478E27FC3BE800B76E10 /* EntryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryTableViewCell.swift; sourceTree = "<group>"; };
 		E59B479027FC3CB900B76E10 /* EntryTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryTableViewCellViewModel.swift; sourceTree = "<group>"; };
+		E59F2C5128026BC6001DD28C /* FormPickerInputAccessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormPickerInputAccessoryView.swift; sourceTree = "<group>"; };
 		E5A62B6627F90579004FA950 /* SubscriptionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionViewCell.swift; sourceTree = "<group>"; };
 		E5A62B6927F90697004FA950 /* SubscriptionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionViewCellViewModel.swift; sourceTree = "<group>"; };
 		E5A62B6B27F92482004FA950 /* SubscriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionViewController.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 				E502770F27FFCCC400B3C4F5 /* MTextRow.swift */,
 				E502771227FFCF8F00B3C4F5 /* MDateRow.swift */,
 				E52C61262800F88300909C9C /* MTriplePickerInputRow.swift */,
+				E59F2C5128026BC6001DD28C /* FormPickerInputAccessoryView.swift */,
 			);
 			path = Forms;
 			sourceTree = "<group>";
@@ -306,6 +309,7 @@
 				E547E1D727F2790C000A9E8F /* AppDelegate.swift in Sources */,
 				E5A62B6A27F90697004FA950 /* SubscriptionViewCellViewModel.swift in Sources */,
 				E59B478F27FC3BE800B76E10 /* EntryTableViewCell.swift in Sources */,
+				E59F2C5228026BC6001DD28C /* FormPickerInputAccessoryView.swift in Sources */,
 				E52C61272800F88300909C9C /* MTriplePickerInputRow.swift in Sources */,
 				E5604BE727FF1CB500B2107F /* AddUpdateSubViewController.swift in Sources */,
 				E502771327FFCF8F00B3C4F5 /* MDateRow.swift in Sources */,
