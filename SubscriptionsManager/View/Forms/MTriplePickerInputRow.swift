@@ -30,7 +30,6 @@ public final class MTriplePickerInputRow<A, B, C>: _TriplePickerInputRow<A, B, C
         super.updateCell()
         cell.textLabel?.textColor = M.Colors.white
         cell.textLabel?.font = M.Fonts.rowTitle
-        
     }
 
 }

@@ -92,9 +92,22 @@ class AddUpdateSubViewController: FormViewController {
             }
             
         }
-        <<< MTextRow(){
+        <<< CurrencyRow(){
             $0.title = "Currency"
-            $0.placeholder = "Choose" // TODO: add picker
+            $0.selectorTitle = "Select currentlcy"
+            $0.options = ["AU","USD"]
+            $0.noValueDisplayText = "Select a currency"
+            
+            $0.presentationMode = .presentModally(
+                  controllerProvider: ControllerProvider.callback {
+                      return CurrencyPickerController()
+                  },
+                  onDismiss: { vc in
+                      vc.dismiss(animated: true)
+                })
+            $0.onChange({ (row) in
+                row.reload()
+            })
         }
         
         //https://github.com/xmartlabs/Eureka/blob/master/README.md#row-catalog
@@ -116,8 +129,8 @@ class AddUpdateSubViewController: FormViewController {
     
     
     override func valueHasBeenChanged(for: BaseRow, oldValue: Any?, newValue: Any?) {
-        print("old value\(oldValue)")
-        print("new value \(newValue)")
+      //  print("old value\(oldValue)")
+      //  print("new value \(newValue)")
     }
 }
 
