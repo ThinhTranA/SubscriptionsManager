@@ -27,10 +27,11 @@
 		E5A62B6A27F90697004FA950 /* SubscriptionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A62B6927F90697004FA950 /* SubscriptionViewCellViewModel.swift */; };
 		E5A62B6C27F92482004FA950 /* SubscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A62B6B27F92482004FA950 /* SubscriptionViewController.swift */; };
 		E5A62B6F27F926B4004FA950 /* SubscriptionSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A62B6E27F926B4004FA950 /* SubscriptionSection.swift */; };
+		E5DF4CF628037F9200AB1671 /* CurrencyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DF4CF528037F9200AB1671 /* CurrencyCell.swift */; };
 		E5E7B51927FDB00E00FAAEA2 /* SubscriptionHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E7B51827FDB00E00FAAEA2 /* SubscriptionHeaderViewModel.swift */; };
 		E5F1B8EF2802F44D003B7BEB /* MPushRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F1B8EE2802F44D003B7BEB /* MPushRow.swift */; };
 		E5F1B8F22802FB75003B7BEB /* CurrencyPickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F1B8F12802FB75003B7BEB /* CurrencyPickerController.swift */; };
-		E5F1B8F42802FE5F003B7BEB /* CurrencyRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F1B8F32802FE5F003B7BEB /* CurrencyRow.swift */; };
+		E5F1B8F42802FE5F003B7BEB /* MCurrencyRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F1B8F32802FE5F003B7BEB /* MCurrencyRow.swift */; };
 		E5F7AFF727FD1A9F00487466 /* SubscriptionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F7AFF627FD1A9F00487466 /* SubscriptionHeader.swift */; };
 /* End PBXBuildFile section */
 
@@ -58,10 +59,11 @@
 		E5A62B6927F90697004FA950 /* SubscriptionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionViewCellViewModel.swift; sourceTree = "<group>"; };
 		E5A62B6B27F92482004FA950 /* SubscriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionViewController.swift; sourceTree = "<group>"; };
 		E5A62B6E27F926B4004FA950 /* SubscriptionSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionSection.swift; sourceTree = "<group>"; };
+		E5DF4CF528037F9200AB1671 /* CurrencyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyCell.swift; sourceTree = "<group>"; };
 		E5E7B51827FDB00E00FAAEA2 /* SubscriptionHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionHeaderViewModel.swift; sourceTree = "<group>"; };
 		E5F1B8EE2802F44D003B7BEB /* MPushRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPushRow.swift; sourceTree = "<group>"; };
 		E5F1B8F12802FB75003B7BEB /* CurrencyPickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyPickerController.swift; sourceTree = "<group>"; };
-		E5F1B8F32802FE5F003B7BEB /* CurrencyRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRow.swift; sourceTree = "<group>"; };
+		E5F1B8F32802FE5F003B7BEB /* MCurrencyRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCurrencyRow.swift; sourceTree = "<group>"; };
 		E5F7AFF627FD1A9F00487466 /* SubscriptionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionHeader.swift; sourceTree = "<group>"; };
 		F228FE0B16AAF6ADCF8DF743 /* Pods-SubscriptionsManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SubscriptionsManager.debug.xcconfig"; path = "Target Support Files/Pods-SubscriptionsManager/Pods-SubscriptionsManager.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -98,11 +100,7 @@
 		E502771127FFCE3A00B3C4F5 /* Forms */ = {
 			isa = PBXGroup;
 			children = (
-				E502770F27FFCCC400B3C4F5 /* MTextRow.swift */,
-				E502771227FFCF8F00B3C4F5 /* MDateRow.swift */,
-				E5F1B8EE2802F44D003B7BEB /* MPushRow.swift */,
-				E5F1B8F32802FE5F003B7BEB /* CurrencyRow.swift */,
-				E52C61262800F88300909C9C /* MTriplePickerInputRow.swift */,
+				E5CF1108280383DC00CF51C1 /* Rows */,
 				E59F2C5128026BC6001DD28C /* FormPickerInputAccessoryView.swift */,
 			);
 			path = Forms;
@@ -153,10 +151,10 @@
 		E547E1EB27F279CA000A9E8F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E5DF4CF428037F5200AB1671 /* Cells */,
 				E502771127FFCE3A00B3C4F5 /* Forms */,
 				E547E1E127F2790C000A9E8F /* LaunchScreen.storyboard */,
 				E55C807E27F45DD60035CDC3 /* BottomTabView.swift */,
-				E5A62B6627F90579004FA950 /* SubscriptionViewCell.swift */,
 				E59B478E27FC3BE800B76E10 /* EntryTableViewCell.swift */,
 				E5F7AFF627FD1A9F00487466 /* SubscriptionHeader.swift */,
 			);
@@ -191,6 +189,27 @@
 				E5A62B6E27F926B4004FA950 /* SubscriptionSection.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		E5CF1108280383DC00CF51C1 /* Rows */ = {
+			isa = PBXGroup;
+			children = (
+				E5F1B8F32802FE5F003B7BEB /* MCurrencyRow.swift */,
+				E502770F27FFCCC400B3C4F5 /* MTextRow.swift */,
+				E502771227FFCF8F00B3C4F5 /* MDateRow.swift */,
+				E5F1B8EE2802F44D003B7BEB /* MPushRow.swift */,
+				E52C61262800F88300909C9C /* MTriplePickerInputRow.swift */,
+			);
+			path = Rows;
+			sourceTree = "<group>";
+		};
+		E5DF4CF428037F5200AB1671 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				E5DF4CF528037F9200AB1671 /* CurrencyCell.swift */,
+				E5A62B6627F90579004FA950 /* SubscriptionViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -318,7 +337,7 @@
 				E5F7AFF727FD1A9F00487466 /* SubscriptionHeader.swift in Sources */,
 				E5F1B8F22802FB75003B7BEB /* CurrencyPickerController.swift in Sources */,
 				E547E1D727F2790C000A9E8F /* AppDelegate.swift in Sources */,
-				E5F1B8F42802FE5F003B7BEB /* CurrencyRow.swift in Sources */,
+				E5F1B8F42802FE5F003B7BEB /* MCurrencyRow.swift in Sources */,
 				E5A62B6A27F90697004FA950 /* SubscriptionViewCellViewModel.swift in Sources */,
 				E59B478F27FC3BE800B76E10 /* EntryTableViewCell.swift in Sources */,
 				E59F2C5228026BC6001DD28C /* FormPickerInputAccessoryView.swift in Sources */,
@@ -329,6 +348,7 @@
 				E5A62B6C27F92482004FA950 /* SubscriptionViewController.swift in Sources */,
 				E547E1D927F2790C000A9E8F /* SceneDelegate.swift in Sources */,
 				E52C61292800F9D000909C9C /* Constants.swift in Sources */,
+				E5DF4CF628037F9200AB1671 /* CurrencyCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

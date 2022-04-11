@@ -92,19 +92,11 @@ class AddUpdateSubViewController: FormViewController {
             }
             
         }
-        <<< CurrencyRow(){
+        <<< MCurrencyRow(){
             $0.title = "Currency"
             $0.selectorTitle = "Select currentlcy"
             $0.options = ["AU","USD"]
             $0.noValueDisplayText = "Select a currency"
-            
-            $0.presentationMode = .presentModally(
-                  controllerProvider: ControllerProvider.callback {
-                      return CurrencyPickerController()
-                  },
-                  onDismiss: { vc in
-                      vc.dismiss(animated: true)
-                })
             $0.onChange({ (row) in
                 row.reload()
             })

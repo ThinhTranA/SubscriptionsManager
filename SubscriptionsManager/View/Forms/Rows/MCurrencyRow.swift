@@ -10,24 +10,29 @@ import Eureka
 
 //MARK: Row
 
-open class _CurrencyRow<Cell: CellType>: OptionsRow<Cell>, PresenterRowType where Cell: BaseCell, Cell.Value == String {
+open class _MCurrencyRow<Cell: CellType>: OptionsRow<Cell>, PresenterRowType where Cell: BaseCell, Cell.Value == String {
     
-    //public typealias PresenterRow = CurrencyPickerController
+    public typealias PresenterRow = CurrencyPickerController
     
     /// Defines how the view controller will be presented, pushed, etc.
-    public var presentationMode: PresentationMode<CurrencyPickerController>?
+    public var presentationMode: PresentationMode<PresenterRow>?
     
     /// Will be called before the presentation occurs.
-    public var onPresentCallback: ((FormViewController, CurrencyPickerController) -> Void)?
+    public var onPresentCallback: ((FormViewController, PresenterRow) -> Void)?
 
     
     public required init(tag: String?) {
         super.init(tag: tag)
-        presentationMode = .presentModally(controllerProvider: ControllerProvider.callback { return CurrencyPickerController() }, onDismiss: { [weak self] vc in
-            self?.select()
-            vc.dismiss(animated: true)
+        presentationMode = .presentModally(
+            controllerProvider: ControllerProvider.callback {
+                return CurrencyPickerController()
+            },
+            onDismiss: { vc in
+                vc.dismiss(animated: true)
             })
-        self.displayValueFor = nil
+        
+        // TODO: Display country code value & flag
+        //displayValueFor =
     }
 
     
@@ -41,7 +46,6 @@ open class _CurrencyRow<Cell: CellType>: OptionsRow<Cell>, PresenterRowType wher
         }
         deselect()
         
-        super.customDidSelect()
         guard let presentationMode = presentationMode else { return }
         if let controller = presentationMode.makeController() {
             controller.row = self
@@ -51,7 +55,6 @@ open class _CurrencyRow<Cell: CellType>: OptionsRow<Cell>, PresenterRowType wher
         } else {
             presentationMode.present(nil, row: self, presentingController: self.cell.formViewController()!)
         }
-     
     }
     
     /**
@@ -71,26 +74,22 @@ open class _CurrencyRow<Cell: CellType>: OptionsRow<Cell>, PresenterRowType wher
         
         cell.accessoryType = .none
         cell.editingAccessoryView = .none
+        cell.backgroundColor = .clear
+        cell.textLabel?.textColor = M.Colors.white
+        cell.textLabel?.font = M.Fonts.rowTitle
         
-//        if let image = self.value {
-//            let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
-//            imageView.contentMode = .scaleAspectFill
-//            imageView.image = image
-//            imageView.clipsToBounds = true
-//
-//            cell.accessoryView = imageView
-//            cell.editingAccessoryView = imageView
-//        } else {
-//            cell.accessoryView = nil
-//            cell.editingAccessoryView = nil
-//        }
+        if(value == nil){
+            cell.detailTextLabel?.textColor = M.Colors.greyWhite
+        }else {
+            cell.detailTextLabel?.textColor = M.Colors.white
+        }
     }
     
 
 }
 
 /// A selector row where the user can pick an image
-public final class CurrencyRow : _CurrencyRow<PushSelectorCell<String>>, RowType {
+public final class MCurrencyRow : _MCurrencyRow<PushSelectorCell<String>>, RowType {
     public required init(tag: String?) {
         super.init(tag: tag)
     }
