@@ -22,6 +22,8 @@ open class CurrencyPickerController: UIViewController, TypedRowControllerType, U
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         configureTableView()
+        
+        CurrencyService.shared.getAllCurrencies()
     }
     
     open override func viewDidLayoutSubviews() {
