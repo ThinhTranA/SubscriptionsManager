@@ -17,6 +17,7 @@
 		E547E1DB27F2790C000A9E8F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E547E1DA27F2790C000A9E8F /* HomeViewController.swift */; };
 		E547E1E027F2790C000A9E8F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E547E1DF27F2790C000A9E8F /* Assets.xcassets */; };
 		E547E1E327F2790C000A9E8F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E547E1E127F2790C000A9E8F /* LaunchScreen.storyboard */; };
+		E55A62C72808E40B009A89A4 /* CurrencyPickerHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55A62C62808E40B009A89A4 /* CurrencyPickerHeader.swift */; };
 		E55C807F27F45DD60035CDC3 /* BottomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55C807E27F45DD60035CDC3 /* BottomTabView.swift */; };
 		E55C808227F45EAA0035CDC3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55C808127F45EAA0035CDC3 /* Extensions.swift */; };
 		E5604BE727FF1CB500B2107F /* AddUpdateSubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5604BE627FF1CB500B2107F /* AddUpdateSubViewController.swift */; };
@@ -49,6 +50,7 @@
 		E547E1DF27F2790C000A9E8F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E547E1E227F2790C000A9E8F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E547E1E427F2790C000A9E8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E55A62C62808E40B009A89A4 /* CurrencyPickerHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyPickerHeader.swift; sourceTree = "<group>"; };
 		E55C807E27F45DD60035CDC3 /* BottomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomTabView.swift; sourceTree = "<group>"; };
 		E55C808127F45EAA0035CDC3 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		E5604BE627FF1CB500B2107F /* AddUpdateSubViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUpdateSubViewController.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 				E55C807E27F45DD60035CDC3 /* BottomTabView.swift */,
 				E59B478E27FC3BE800B76E10 /* EntryTableViewCell.swift */,
 				E5F7AFF627FD1A9F00487466 /* SubscriptionHeader.swift */,
+				E55A62C62808E40B009A89A4 /* CurrencyPickerHeader.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -349,6 +352,7 @@
 				E547E1D927F2790C000A9E8F /* SceneDelegate.swift in Sources */,
 				E52C61292800F9D000909C9C /* Constants.swift in Sources */,
 				E5DF4CF628037F9200AB1671 /* CurrencyCell.swift in Sources */,
+				E55A62C72808E40B009A89A4 /* CurrencyPickerHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

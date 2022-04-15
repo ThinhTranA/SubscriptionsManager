@@ -8,14 +8,15 @@
 import UIKit
 import Eureka
 
-open class CurrencyPickerController: UIViewController, TypedRowControllerType, UINavigationControllerDelegate {
+open class CurrencyPickerController: UIViewController, TypedRowControllerType, UINavigationControllerDelegate, CurrencyPickerHeaderDelegate {
     
     public var row: RowOf<String>!
     
     public var onDismissCallback: ((UIViewController) -> Void)?
     
     let tableView: UITableView = UITableView()
-    let currencies: [String] = ["AU", "USD", "EU"]
+    var currencies: [String] = [String]()
+    let allCurrencies: [String] = ["AU", "USD", "EU", "VND"]
 
     open override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,9 +30,29 @@ open class CurrencyPickerController: UIViewController, TypedRowControllerType, U
     
     func configureTableView(){
         view.addSubview(tableView)
+        currencies = allCurrencies
+        tableView.separatorStyle = .none
+        tableView.register(CurrencyPickerHeader.self, forHeaderFooterViewReuseIdentifier: CurrencyPickerHeader.identifier)
         tableView.register(CurrencyCell.self, forCellReuseIdentifier: CurrencyCell.identifier)
         tableView.delegate = self
         tableView.dataSource = self
+        
+    }
+    
+    public func cancel() {
+        dismiss(animated: true)
+    }
+    
+    public func filterCurrency(with word: String) {
+        print(word)
+        if(word != ""){
+            currencies = allCurrencies.filter{ row in
+                row.lowercased().contains(word.lowercased())
+            }
+        } else {
+            currencies = allCurrencies
+        }
+        tableView.reloadData()
     }
 }
 
@@ -58,6 +79,20 @@ extension CurrencyPickerController: UITableViewDelegate, UITableViewDataSource {
         guard let callback = self.onDismissCallback else{ return }
         callback(self)
     }
+    
+    public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: CurrencyPickerHeader.identifier) as? CurrencyPickerHeader {
+            header.delegate = self
+            return header
+        }
+        return nil
+    }
+    
+    
+    public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        56
+    }
+    
     
     
 }
