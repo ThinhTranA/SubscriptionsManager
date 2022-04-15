@@ -51,8 +51,6 @@ class CurrencyCell: UITableViewCell {
     func configure(with currency: Currency){
         codeLb.text = currency.code
         nameLb.text = currency.name
-        
-        print(currency.countryCode)
         let flag = Flag(countryCode: currency.countryCode)!
         flagImg.image = flag.image(style: .circle)
     }

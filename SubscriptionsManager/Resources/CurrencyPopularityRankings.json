@@ -1,0 +1,998 @@
+[
+ {
+   "rank": 1,
+   "symbol": "USD",
+   "currencyName": "United States Dollars",
+   "popularity": "47.334%"
+ },
+ {
+   "rank": 2,
+   "symbol": "EUR",
+   "currencyName": "Euro",
+   "popularity": "30.852%"
+ },
+ {
+   "rank": 3,
+   "symbol": "GBP",
+   "currencyName": "United Kingdom Pounds",
+   "popularity": "21.357%"
+ },
+ {
+   "rank": 4,
+   "symbol": "INR",
+   "currencyName": "India Rupees",
+   "popularity": "13.310%"
+ },
+ {
+   "rank": 5,
+   "symbol": "AUD",
+   "currencyName": "Australia Dollars",
+   "popularity": "9.985%"
+ },
+ {
+   "rank": 6,
+   "symbol": "CAD",
+   "currencyName": "Canada Dollars",
+   "popularity": "9.668%"
+ },
+ {
+   "rank": 7,
+   "symbol": "ZAR",
+   "currencyName": "South Africa Rand",
+   "popularity": "4.163%"
+ },
+ {
+   "rank": 8,
+   "symbol": "NZD",
+   "currencyName": "New Zealand Dollars",
+   "popularity": "3.544%"
+ },
+ {
+   "rank": 9,
+   "symbol": "JPY",
+   "currencyName": "Japan Yen",
+   "popularity": "3.276%"
+ },
+ {
+   "rank": 10,
+   "symbol": "SGD",
+   "currencyName": "Singapore Dollars",
+   "popularity": "3.126%"
+ },
+ {
+   "rank": 11,
+   "symbol": "CNY",
+   "currencyName": "China Yuan Renminbi",
+   "popularity": "3.076%"
+ },
+ {
+   "rank": 12,
+   "symbol": "CHF",
+   "currencyName": "Switzerland Francs",
+   "popularity": "2.515%"
+ },
+ {
+   "rank": 13,
+   "symbol": "MYR",
+   "currencyName": "Malaysia Ringgits",
+   "popularity": "2.441%"
+ },
+ {
+   "rank": 14,
+   "symbol": "HUF",
+   "currencyName": "Hungary Forint",
+   "popularity": "2.427%"
+ },
+ {
+   "rank": 15,
+   "symbol": "HKD",
+   "currencyName": "Hong Kong Dollars",
+   "popularity": "2.293%"
+ },
+ {
+   "rank": 16,
+   "symbol": "AED",
+   "currencyName": "United Arab Emirates Dirhams",
+   "popularity": "1.968%"
+ },
+ {
+   "rank": 17,
+   "symbol": "THB",
+   "currencyName": "Thailand Baht",
+   "popularity": "1.886%"
+ },
+ {
+   "rank": 18,
+   "symbol": "KRW",
+   "currencyName": "Korea (South) Won",
+   "popularity": "1.838%"
+ },
+ {
+   "rank": 19,
+   "symbol": "SEK",
+   "currencyName": "Sweden Kronor",
+   "popularity": "1.659%"
+ },
+ {
+   "rank": 20,
+   "symbol": "PHP",
+   "currencyName": "Philippines Pesos",
+   "popularity": "1.531%"
+ },
+ {
+   "rank": 21,
+   "symbol": "ILS",
+   "currencyName": "Israel New Shekels",
+   "popularity": "1.511%"
+ },
+ {
+   "rank": 22,
+   "symbol": "TRY",
+   "currencyName": "Turkey Lira",
+   "popularity": "1.184%"
+ },
+ {
+   "rank": 23,
+   "symbol": "PLN",
+   "currencyName": "Poland Zlotych",
+   "popularity": "1.152%"
+ },
+ {
+   "rank": 24,
+   "symbol": "MXN",
+   "currencyName": "Mexico Pesos",
+   "popularity": "1.102%"
+ },
+ {
+   "rank": 25,
+   "symbol": "NOK",
+   "currencyName": "Norway Kroner",
+   "popularity": "1.073%"
+ },
+ {
+   "rank": 26,
+   "symbol": "DKK",
+   "currencyName": "Denmark Kroner",
+   "popularity": "1.063%"
+ },
+ {
+   "rank": 27,
+   "symbol": "KWD",
+   "currencyName": "Kuwait Dinars",
+   "popularity": "0.980%"
+ },
+ {
+   "rank": 28,
+   "symbol": "BRL",
+   "currencyName": "Brazil Reals",
+   "popularity": "0.945%"
+ },
+ {
+   "rank": 29,
+   "symbol": "IDR",
+   "currencyName": "Indonesia Rupiahs",
+   "popularity": "0.918%"
+ },
+ {
+   "rank": 30,
+   "symbol": "TWD",
+   "currencyName": "Taiwan New Dollars",
+   "popularity": "0.770%"
+ },
+ {
+   "rank": 31,
+   "symbol": "SAR",
+   "currencyName": "Saudi Arabia Riyals",
+   "popularity": "0.699%"
+ },
+ {
+   "rank": 32,
+   "symbol": "PKR",
+   "currencyName": "Pakistan Rupees",
+   "popularity": "0.672%"
+ },
+ {
+   "rank": 33,
+   "symbol": "CZK",
+   "currencyName": "Czech Republic Koruny",
+   "popularity": "0.628%"
+ },
+ {
+   "rank": 34,
+   "symbol": "IQD",
+   "currencyName": "Iraq Dinars",
+   "popularity": "0.626%"
+ },
+ {
+   "rank": 35,
+   "symbol": "RUB",
+   "currencyName": "Russia Rubles",
+   "popularity": "0.615%"
+ },
+ {
+   "rank": 36,
+   "symbol": "KES",
+   "currencyName": "Kenya Shillings",
+   "popularity": "0.615%"
+ },
+ {
+   "rank": 37,
+   "symbol": "JOD",
+   "currencyName": "Jordan Dinars",
+   "popularity": "0.615%"
+ },
+ {
+   "rank": 38,
+   "symbol": "CLP",
+   "currencyName": "Chile Pesos",
+   "popularity": "0.571%"
+ },
+ {
+   "rank": 39,
+   "symbol": "ARS",
+   "currencyName": "Argentina Pesos",
+   "popularity": "0.532%"
+ },
+ {
+   "rank": 40,
+   "symbol": "EGP",
+   "currencyName": "Egypt Pounds",
+   "popularity": "0.507%"
+ },
+ {
+   "rank": 41,
+   "symbol": "VND",
+   "currencyName": "Vietnam Dong",
+   "popularity": "0.457%"
+ },
+ {
+   "rank": 42,
+   "symbol": "QAR",
+   "currencyName": "Qatar Riyals",
+   "popularity": "0.450%"
+ },
+ {
+   "rank": 43,
+   "symbol": "XAU",
+   "currencyName": "Gold Ounces",
+   "popularity": "0.423%"
+ },
+ {
+   "rank": 44,
+   "symbol": "RON",
+   "currencyName": "Romania New Lei",
+   "popularity": "0.418%"
+ },
+ {
+   "rank": 45,
+   "symbol": "COP",
+   "currencyName": "Colombia Pesos",
+   "popularity": "0.412%"
+ },
+ {
+   "rank": 46,
+   "symbol": "OMR",
+   "currencyName": "Oman Rials",
+   "popularity": "0.382%"
+ },
+ {
+   "rank": 47,
+   "symbol": "BGN",
+   "currencyName": "Bulgaria Leva",
+   "popularity": "0.376%"
+ },
+ {
+   "rank": 48,
+   "symbol": "XAG",
+   "currencyName": "Silver Ounces",
+   "popularity": "0.362%"
+ },
+ {
+   "rank": 49,
+   "symbol": "TND",
+   "currencyName": "Tunisia Dinars",
+   "popularity": "0.337%"
+ },
+ {
+   "rank": 50,
+   "symbol": "MAD",
+   "currencyName": "Morocco Dirhams",
+   "popularity": "0.330%"
+ },
+ {
+   "rank": 51,
+   "symbol": "BHD",
+   "currencyName": "Bahrain Dinars",
+   "popularity": "0.290%"
+ },
+ {
+   "rank": 52,
+   "symbol": "ISK",
+   "currencyName": "Iceland Kronur",
+   "popularity": "0.256%"
+ },
+ {
+   "rank": 53,
+   "symbol": "LKR",
+   "currencyName": "Sri Lanka Rupees",
+   "popularity": "0.237%"
+ },
+ {
+   "rank": 54,
+   "symbol": "HRK",
+   "currencyName": "Croatia Kuna",
+   "popularity": "0.235%"
+ },
+ {
+   "rank": 55,
+   "symbol": "GEL",
+   "currencyName": "Georgia Lari",
+   "popularity": "0.225%"
+ },
+ {
+   "rank": 56,
+   "symbol": "UAH",
+   "currencyName": "Ukraine Hryvnia",
+   "popularity": "0.219%"
+ },
+ {
+   "rank": 57,
+   "symbol": "IRR",
+   "currencyName": "Iran Rials",
+   "popularity": "0.204%"
+ },
+ {
+   "rank": 58,
+   "symbol": "NGN",
+   "currencyName": "Nigeria Nairas",
+   "popularity": "0.192%"
+ },
+ {
+   "rank": 59,
+   "symbol": "XAF",
+   "currencyName": "Coopération financière en Afrique centrale BEAC",
+   "popularity": "0.190%"
+ },
+ {
+   "rank": 60,
+   "symbol": "SKK",
+   "currencyName": "Slovakia Koruny (obsolete)",
+   "popularity": "0.161%"
+ },
+ {
+   "rank": 61,
+   "symbol": "LVL",
+   "currencyName": "Latvia Lati",
+   "popularity": "0.161%"
+ },
+ {
+   "rank": 62,
+   "symbol": "LTL",
+   "currencyName": "Lithuania Litai",
+   "popularity": "0.140%"
+ },
+ {
+   "rank": 63,
+   "symbol": "BDT",
+   "currencyName": "Bangladesh Taka",
+   "popularity": "0.136%"
+ },
+ {
+   "rank": 64,
+   "symbol": "MUR",
+   "currencyName": "Mauritius Rupees",
+   "popularity": "0.131%"
+ },
+ {
+   "rank": 65,
+   "symbol": "CYP",
+   "currencyName": "Cyprus Pounds (obsolete)",
+   "popularity": "0.129%"
+ },
+ {
+   "rank": 66,
+   "symbol": "ALL",
+   "currencyName": "Albania Leke",
+   "popularity": "0.127%"
+ },
+ {
+   "rank": 67,
+   "symbol": "FJD",
+   "currencyName": "Fiji Dollars",
+   "popularity": "0.126%"
+ },
+ {
+   "rank": 68,
+   "symbol": "MTL",
+   "currencyName": "Malta Liri (obsolete)",
+   "popularity": "0.116%"
+ },
+ {
+   "rank": 69,
+   "symbol": "PEN",
+   "currencyName": "Peru Nuevos Soles",
+   "popularity": "0.115%"
+ },
+ {
+   "rank": 70,
+   "symbol": "XOF",
+   "currencyName": "Communauté Africaine Financière Francs BEAC",
+   "popularity": "0.115%"
+ },
+ {
+   "rank": 71,
+   "symbol": "BOB",
+   "currencyName": "Bolivia Bolivianos",
+   "popularity": "0.113%"
+ },
+ {
+   "rank": 72,
+   "symbol": "BYR",
+   "currencyName": "Belarus Rubles",
+   "popularity": "0.109%"
+ },
+ {
+   "rank": 73,
+   "symbol": "UYU",
+   "currencyName": "Uruguay Pesos",
+   "popularity": "0.107%"
+ },
+ {
+   "rank": 74,
+   "symbol": "BAM",
+   "currencyName": "Bosnia and Herzegovena Convertible Marka",
+   "popularity": "0.105%"
+ },
+ {
+   "rank": 75,
+   "symbol": "UZS",
+   "currencyName": "Uzbekistan Sums",
+   "popularity": "0.105%"
+ },
+ {
+   "rank": 76,
+   "symbol": "KZT",
+   "currencyName": "Kazakhstan Tenge",
+   "popularity": "0.099%"
+ },
+ {
+   "rank": 77,
+   "symbol": "MKD",
+   "currencyName": "Macedonia Denars",
+   "popularity": "0.095%"
+ },
+ {
+   "rank": 78,
+   "symbol": "MDL",
+   "currencyName": "Moldova Lei",
+   "popularity": "0.088%"
+ },
+ {
+   "rank": 79,
+   "symbol": "AMD",
+   "currencyName": "Armenia Drams",
+   "popularity": "0.088%"
+ },
+ {
+   "rank": 80,
+   "symbol": "KGS",
+   "currencyName": "Kyrgyzstan Sums",
+   "popularity": "0.085%"
+ },
+ {
+   "rank": 81,
+   "symbol": "TJS",
+   "currencyName": "Tajikistan Somoni",
+   "popularity": "0.083%"
+ },
+ {
+   "rank": 82,
+   "symbol": "TMT",
+   "currencyName": "Turkmenistan New Manats",
+   "popularity": "0.083%"
+ },
+ {
+   "rank": 83,
+   "symbol": "VEF",
+   "currencyName": "Venezuela Bolivares",
+   "popularity": "0.080%"
+ },
+ {
+   "rank": 84,
+   "symbol": "DOP",
+   "currencyName": "Dominican Republic Pesos",
+   "popularity": "0.078%"
+ },
+ {
+   "rank": 85,
+   "symbol": "JMD",
+   "currencyName": "Jamaica Dollars",
+   "popularity": "0.074%"
+ },
+ {
+   "rank": 86,
+   "symbol": "DZD",
+   "currencyName": "Algeria Dinars",
+   "popularity": "0.074%"
+ },
+ {
+   "rank": 87,
+   "symbol": "XPF",
+   "currencyName": "Comptoirs Français du Pacifique Francs",
+   "popularity": "0.074%"
+ },
+ {
+   "rank": 88,
+   "symbol": "UGX",
+   "currencyName": "Uganda Shillings",
+   "popularity": "0.072%"
+ },
+ {
+   "rank": 89,
+   "symbol": "CRC",
+   "currencyName": "Costa Rica Colones",
+   "popularity": "0.064%"
+ },
+ {
+   "rank": 90,
+   "symbol": "ZMK",
+   "currencyName": "Zambia Kwacha",
+   "popularity": "0.064%"
+ },
+ {
+   "rank": 91,
+   "symbol": "BND",
+   "currencyName": "Brunei Dollars",
+   "popularity": "0.054%"
+ },
+ {
+   "rank": 92,
+   "symbol": "LYD",
+   "currencyName": "Libya Dinars",
+   "popularity": "0.052%"
+ },
+ {
+   "rank": 93,
+   "symbol": "XCD",
+   "currencyName": "Eastern Caribbean Dollars",
+   "popularity": "0.052%"
+ },
+ {
+   "rank": 94,
+   "symbol": "TRL",
+   "currencyName": "Turkey Lira (obsolete)",
+   "popularity": "0.049%"
+ },
+ {
+   "rank": 95,
+   "symbol": "BBD",
+   "currencyName": "Barbados Dollars",
+   "popularity": "0.047%"
+ },
+ {
+   "rank": 96,
+   "symbol": "TTD",
+   "currencyName": "Trinidad and Tobago Dollars",
+   "popularity": "0.044%"
+ },
+ {
+   "rank": 97,
+   "symbol": "LBP",
+   "currencyName": "Lebanon Pounds",
+   "popularity": "0.041%"
+ },
+ {
+   "rank": 98,
+   "symbol": "SYP",
+   "currencyName": "Syria Pounds",
+   "popularity": "0.041%"
+ },
+ {
+   "rank": 99,
+   "symbol": "KHR",
+   "currencyName": "Cambodia Riels",
+   "popularity": "0.036%"
+ },
+ {
+   "rank": 100,
+   "symbol": "NPR",
+   "currencyName": "Nepal Rupees",
+   "popularity": "0.036%"
+ },
+ {
+   "rank": 101,
+   "symbol": "ROL",
+   "currencyName": "Romania Lei (obsolete)",
+   "popularity": "0.034%"
+ },
+ {
+   "rank": 102,
+   "symbol": "GTQ",
+   "currencyName": "Guatemala Quetzales",
+   "popularity": "0.034%"
+ },
+ {
+   "rank": 103,
+   "symbol": "XPD",
+   "currencyName": "Palladium Ounces",
+   "popularity": "0.034%"
+ },
+ {
+   "rank": 104,
+   "symbol": "MOP",
+   "currencyName": "Macau Patacas",
+   "popularity": "0.031%"
+ },
+ {
+   "rank": 105,
+   "symbol": "PYG",
+   "currencyName": "Paraguay Guarani",
+   "popularity": "0.030%"
+ },
+ {
+   "rank": 106,
+   "symbol": "XPT",
+   "currencyName": "Platinum Ounces",
+   "popularity": "0.028%"
+ },
+ {
+   "rank": 107,
+   "symbol": "BWP",
+   "currencyName": "Botswana Pulas",
+   "popularity": "0.027%"
+ },
+ {
+   "rank": 108,
+   "symbol": "TZS",
+   "currencyName": "Tanzania Shillings",
+   "popularity": "0.027%"
+ },
+ {
+   "rank": 109,
+   "symbol": "ANG",
+   "currencyName": "Netherlands Antilles Guilders",
+   "popularity": "0.024%"
+ },
+ {
+   "rank": 110,
+   "symbol": "BSD",
+   "currencyName": "Bahamas Dollars",
+   "popularity": "0.024%"
+ },
+ {
+   "rank": 111,
+   "symbol": "HNL",
+   "currencyName": "Honduras Lempiras",
+   "popularity": "0.022%"
+ },
+ {
+   "rank": 112,
+   "symbol": "NAD",
+   "currencyName": "Namibia Dollars",
+   "popularity": "0.022%"
+ },
+ {
+   "rank": 113,
+   "symbol": "ETB",
+   "currencyName": "Ethiopia Birr",
+   "popularity": "0.021%"
+ },
+ {
+   "rank": 114,
+   "symbol": "ZWL",
+   "currencyName": "Zimbabwe Dollars",
+   "popularity": "0.021%"
+ },
+ {
+   "rank": 115,
+   "symbol": "BMD",
+   "currencyName": "Bermuda Dollars",
+   "popularity": "0.020%"
+ },
+ {
+   "rank": 116,
+   "symbol": "CUP",
+   "currencyName": "Cuba Pesos",
+   "popularity": "0.020%"
+ },
+ {
+   "rank": 117,
+   "symbol": "NIO",
+   "currencyName": "Nicaragua Cordobas",
+   "popularity": "0.019%"
+ },
+ {
+   "rank": 118,
+   "symbol": "MWK",
+   "currencyName": "Malawi Kwachas",
+   "popularity": "0.019%"
+ },
+ {
+   "rank": 119,
+   "symbol": "PAB",
+   "currencyName": "Panama Balboa",
+   "popularity": "0.018%"
+ },
+ {
+   "rank": 120,
+   "symbol": "VUV",
+   "currencyName": "Vanuatu Vatu",
+   "popularity": "0.017%"
+ },
+ {
+   "rank": 121,
+   "symbol": "HTG",
+   "currencyName": "Haiti Gourdes",
+   "popularity": "0.017%"
+ },
+ {
+   "rank": 122,
+   "symbol": "XDR",
+   "currencyName": "International Monetary Fund Special Drawing Rights",
+   "popularity": "0.017%"
+ },
+ {
+   "rank": 123,
+   "symbol": "GYD",
+   "currencyName": "Guyana Dollars",
+   "popularity": "0.017%"
+ },
+ {
+   "rank": 124,
+   "symbol": "PGK",
+   "currencyName": "Papua New Guinea Kina",
+   "popularity": "0.016%"
+ },
+ {
+   "rank": 125,
+   "symbol": "WST",
+   "currencyName": "Samoa Tala",
+   "popularity": "0.016%"
+ },
+ {
+   "rank": 126,
+   "symbol": "LAK",
+   "currencyName": "Laos Kips",
+   "popularity": "0.015%"
+ },
+ {
+   "rank": 127,
+   "symbol": "BZD",
+   "currencyName": "Belize Dollars",
+   "popularity": "0.015%"
+ },
+ {
+   "rank": 128,
+   "symbol": "YER",
+   "currencyName": "Yemen Rials",
+   "popularity": "0.015%"
+ },
+ {
+   "rank": 129,
+   "symbol": "GMD",
+   "currencyName": "Gambia Dalasi",
+   "popularity": "0.015%"
+ },
+ {
+   "rank": 130,
+   "symbol": "KYD",
+   "currencyName": "Cayman Islands Dollars",
+   "popularity": "0.014%"
+ },
+ {
+   "rank": 131,
+   "symbol": "MNT",
+   "currencyName": "Mongolia Tugrik",
+   "popularity": "0.013%"
+ },
+ {
+   "rank": 132,
+   "symbol": "KPW",
+   "currencyName": "Korea (North) Won",
+   "popularity": "0.013%"
+ },
+ {
+   "rank": 133,
+   "symbol": "SVC",
+   "currencyName": "El Salvador Colones",
+   "popularity": "0.013%"
+ },
+ {
+   "rank": 134,
+   "symbol": "SDG",
+   "currencyName": "Sudan Dinars",
+   "popularity": "0.013%"
+ },
+ {
+   "rank": 135,
+   "symbol": "MGA",
+   "currencyName": "Madagascar Ariary",
+   "popularity": "0.013%"
+ },
+ {
+   "rank": 136,
+   "symbol": "FKP",
+   "currencyName": "Falkland Islands Pounds",
+   "popularity": "0.012%"
+ },
+ {
+   "rank": 137,
+   "symbol": "CVE",
+   "currencyName": "Cape Verde Escudos",
+   "popularity": "0.012%"
+ },
+ {
+   "rank": 138,
+   "symbol": "AOA",
+   "currencyName": "Angola Kwanza",
+   "popularity": "0.011%"
+ },
+ {
+   "rank": 139,
+   "symbol": "SCR",
+   "currencyName": "Seychelles Rupees",
+   "popularity": "0.009%"
+ },
+ {
+   "rank": 140,
+   "symbol": "MMK",
+   "currencyName": "Myanmar (Burma) Kyats",
+   "popularity": "0.009%"
+ },
+ {
+   "rank": 141,
+   "symbol": "GNF",
+   "currencyName": "Guinea Francs",
+   "popularity": "0.009%"
+ },
+ {
+   "rank": 142,
+   "symbol": "SLL",
+   "currencyName": "Sierra Leone Leones",
+   "popularity": "0.009%"
+ },
+ {
+   "rank": 143,
+   "symbol": "AWG",
+   "currencyName": "Aruba Guilders",
+   "popularity": "0.009%"
+ },
+ {
+   "rank": 144,
+   "symbol": "MVR",
+   "currencyName": "Maldive Islands Rufiyaa",
+   "popularity": "0.008%"
+ },
+ {
+   "rank": 145,
+   "symbol": "RWF",
+   "currencyName": "Rwanda Francs",
+   "popularity": "0.008%"
+ },
+ {
+   "rank": 146,
+   "symbol": "SBD",
+   "currencyName": "Solomon Islands Dollars",
+   "popularity": "0.007%"
+ },
+ {
+   "rank": 147,
+   "symbol": "TOP",
+   "currencyName": "Tonga Pa'anga",
+   "popularity": "0.007%"
+ },
+ {
+   "rank": 148,
+   "symbol": "GIP",
+   "currencyName": "Gibraltar Pounds",
+   "popularity": "0.007%"
+ },
+ {
+   "rank": 149,
+   "symbol": "DJF",
+   "currencyName": "Djibouti Francs",
+   "popularity": "0.006%"
+ },
+ {
+   "rank": 150,
+   "symbol": "SOS",
+   "currencyName": "Somalia Shillings",
+   "popularity": "0.006%"
+ },
+ {
+   "rank": 151,
+   "symbol": "LRD",
+   "currencyName": "Liberia Dollars",
+   "popularity": "0.005%"
+ },
+ {
+   "rank": 152,
+   "symbol": "MRO",
+   "currencyName": "Mauritania Ouguiyas",
+   "popularity": "0.005%"
+ },
+ {
+   "rank": 153,
+   "symbol": "BIF",
+   "currencyName": "Burundi Francs",
+   "popularity": "0.005%"
+ },
+ {
+   "rank": 154,
+   "symbol": "GHS",
+   "currencyName": "Ghana Cedis",
+   "popularity": "0.005%"
+ },
+ {
+   "rank": 155,
+   "symbol": "BTN",
+   "currencyName": "Bhutan Ngultrum",
+   "popularity": "0.005%"
+ },
+ {
+   "rank": 156,
+   "symbol": "SRD",
+   "currencyName": "Suriname Dollars",
+   "popularity": "0.005%"
+ },
+ {
+   "rank": 157,
+   "symbol": "SZL",
+   "currencyName": "Swaziland Emalangeni",
+   "popularity": "0.005%"
+ },
+ {
+   "rank": 158,
+   "symbol": "LSL",
+   "currencyName": "Lesotho Maloti",
+   "popularity": "0.005%"
+ },
+ {
+   "rank": 159,
+   "symbol": "SHP",
+   "currencyName": "St. Helena Pounds",
+   "popularity": "0.005%"
+ },
+ {
+   "rank": 160,
+   "symbol": "KMF",
+   "currencyName": "Comoros Francs",
+   "popularity": "0.004%"
+ },
+ {
+   "rank": 161,
+   "symbol": "STD",
+   "currencyName": "Sao Tome and Principe Dobras",
+   "popularity": "0.004%"
+ },
+ {
+   "rank": 162,
+   "symbol": "ERN",
+   "currencyName": "Eritrea Nakfa",
+   "popularity": "0.004%"
+ },
+ {
+   "rank": 163,
+   "symbol": "MZN",
+   "currencyName": "Mozambique Meticais",
+   "popularity": "0.003%"
+ },
+ {
+   "rank": 164,
+   "symbol": "AZN",
+   "currencyName": "Azerbaijan Manats",
+   "popularity": "0.003%"
+ },
+ {
+   "rank": 165,
+   "symbol": "AFN",
+   "currencyName": "Afghanistan Afghanis",
+   "popularity": "0.000%"
+ },
+ {
+   "rank": 166,
+   "symbol": "CSD",
+   "currencyName": "Serbia Dinars",
+   "popularity": "0.000%"
+ }
+]

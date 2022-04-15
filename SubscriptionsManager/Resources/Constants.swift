@@ -15,6 +15,7 @@ struct M {
     }
     
     struct Fonts {
+        static let modalTitle = UIFont.systemFont(ofSize: 20, weight: .semibold)
         static let rowTitle = UIFont.systemFont(ofSize: 16, weight: .semibold)
     }
 }

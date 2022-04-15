@@ -11,13 +11,35 @@ class CurrencyService {
     static let shared = CurrencyService()
     
     func getAllCurrencies() -> [Currency]{
+        //
         let json = readLocalFile(forName: "Currencies")!
-        return parse(jsonData: json)
+        let currencies: [Currency] = parse(jsonData: json)
+        let currencyRankings = getCurrencyRankings()
+        
+        var currenciesWithRank = currencies.map{ cc -> Currency in
+           let ccRank = currencyRankings.first(where: {$0.symbol == cc.code})
+            var currency = cc
+            currency.display = ccRank?.rank ?? 200
+            return currency
+        }
+        
+        currenciesWithRank.sort{
+            $0.display < $1.display
+        }
+        
+        return currenciesWithRank
     }
     
-    private func parse(jsonData: Data) -> [Currency] {
+    func getCurrencyRankings() -> [CurrencyRanking]{
+        //Source: https://www.xe.com/popularity.php
+        let jsonRanks = readLocalFile(forName: "CurrencyPopularityRankings")!
+        let currencyRanks : [CurrencyRanking] = parse(jsonData: jsonRanks)
+        return currencyRanks
+    }
+    
+    private func parse<T>(jsonData: Data) -> [T] where T: Decodable {
         do {
-            let currencyList = try JSONDecoder().decode([Currency].self,
+            let currencyList = try JSONDecoder().decode([T].self,
                                                        from: jsonData)
             return currencyList
         

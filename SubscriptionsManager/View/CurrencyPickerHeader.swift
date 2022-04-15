@@ -21,19 +21,21 @@ class CurrencyPickerHeader: UITableViewHeaderFooterView, UISearchBarDelegate {
     private let titleLb: UILabel = {
        let lb = UILabel()
         lb.text = "Select a currency"
-        lb.font = .systemFont(ofSize: 22, weight: .semibold)
+        lb.font = M.Fonts.modalTitle
         return lb
     }()
     private let cancelBtn: UIButton = {
         let btn = UIButton()
         let img = UIImage(systemName: "xmark", withConfiguration: .none)
         btn.setImage(img, for: .normal)
+        btn.tintColor = .black
         return btn
     }()
     private let searchBtn: UIButton = {
         let btn = UIButton()
         let img = UIImage(systemName: "magnifyingglass", withConfiguration: .none)
         btn.setImage(img, for: .normal)
+        btn.tintColor = .black
         return btn
     }()
     private let doneBtn: UIButton = {
