@@ -1,0 +1,20 @@
+PODS:
+  - Eureka (5.3.5)
+  - FlagKit (2.2)
+
+DEPENDENCIES:
+  - Eureka
+  - FlagKit
+
+SPEC REPOS:
+  trunk:
+    - Eureka
+    - FlagKit
+
+SPEC CHECKSUMS:
+  Eureka: 7b39a479d074620d43028a0e2bfc3e0d667724df
+  FlagKit: eca7dc89064b0c986302ba9acefad1bf80a435b1
+
+PODFILE CHECKSUM: 664c2c22dfd6c2ca2e16cb3c692d9b6c3dcc3667
+
+COCOAPODS: 1.11.2

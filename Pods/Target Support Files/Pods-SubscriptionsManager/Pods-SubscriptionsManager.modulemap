@@ -1,0 +1,6 @@
+framework module Pods_SubscriptionsManager {
+  umbrella header "Pods-SubscriptionsManager-umbrella.h"
+
+  export *
+  module * { export * }
+}
