@@ -15,15 +15,14 @@ open class CurrencyPickerController: UIViewController, TypedRowControllerType, U
     public var onDismissCallback: ((UIViewController) -> Void)?
     
     let tableView: UITableView = UITableView()
-    var currencies: [String] = [String]()
-    let allCurrencies: [String] = ["AU", "USD", "EU", "VND"]
+    var currencies: [Currency] = [Currency]()
+    let allCurrencies: [Currency] = CurrencyService.shared.getAllCurrencies()
 
     open override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         configureTableView()
         
-        CurrencyService.shared.getAllCurrencies()
     }
     
     open override func viewDidLayoutSubviews() {
@@ -48,8 +47,8 @@ open class CurrencyPickerController: UIViewController, TypedRowControllerType, U
     public func filterCurrency(with word: String) {
         print(word)
         if(word != ""){
-            currencies = allCurrencies.filter{ row in
-                row.lowercased().contains(word.lowercased())
+            currencies = allCurrencies.filter{ currency in
+                currency.name.lowercased().contains(word.lowercased())
             }
         } else {
             currencies = allCurrencies
@@ -74,9 +73,13 @@ extension CurrencyPickerController: UITableViewDelegate, UITableViewDataSource {
         return UITableViewCell()
     }
     
+    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 56
+    }
+    
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let currency = currencies[indexPath.row]
-        row.value = currency
+        row.value = currency.code
         row.updateCell()
         guard let callback = self.onDismissCallback else{ return }
         callback(self)

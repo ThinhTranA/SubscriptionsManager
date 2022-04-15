@@ -6,15 +6,27 @@
 //
 
 import UIKit
+import FlagKit
 
 class CurrencyCell: UITableViewCell {
     static let identifier = "CurrencyCell"
     
-    let currencyLabel: UILabel = UILabel()
+    let codeLb: UILabel = {
+       let lb = UILabel()
+        lb.layer.opacity = 0.4
+        return lb
+    }()
+    let nameLb: UILabel = UILabel()
+    let flagImg: UIImageView = {
+        let flagImg = UIImageView()
+        return flagImg
+    }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        addSubview(currencyLabel)
+        addSubview(codeLb)
+        addSubview(nameLb)
+        addSubview(flagImg)
     }
     
     required init?(coder: NSCoder) {
@@ -22,17 +34,27 @@ class CurrencyCell: UITableViewCell {
     }
     
     override func layoutSubviews() {
-        currencyLabel.sizeToFit()
-        currencyLabel.frame = CGRect(x: 8, y: (contentView.height-currencyLabel.height)/2, width: currencyLabel.width, height: currencyLabel.height)
+        codeLb.sizeToFit()
+        nameLb.sizeToFit()
+        flagImg.sizeToFit()
+        
+        flagImg.frame = CGRect(x: 12, y: (height-32)/2, width: 32, height: 32)
+        codeLb.frame = CGRect(x: flagImg.right+12, y: (height-codeLb.height)/2, width: codeLb.width, height: codeLb.height)
+        nameLb.frame = CGRect(x:codeLb.right+16, y: (height-nameLb.height)/2, width: nameLb.width, height: nameLb.height)
     }
     
     override func prepareForReuse() {
-        currencyLabel.text = nil
+        codeLb.text = nil
     }
     
     
-    func configure(with currency: String){
-        currencyLabel.text = currency
+    func configure(with currency: Currency){
+        codeLb.text = currency.code
+        nameLb.text = currency.name
+        
+        print(currency.countryCode)
+        let flag = Flag(countryCode: currency.countryCode)!
+        flagImg.image = flag.image(style: .circle)
     }
 
 }

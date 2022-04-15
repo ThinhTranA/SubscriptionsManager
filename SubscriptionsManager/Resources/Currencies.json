@@ -848,7 +848,7 @@
    {
       "code":"USD",
       "name":"US Dollar",
-      "locale":"en_US_POSIX",
+      "locale":"en_US",
       "display":1
    },
    {
