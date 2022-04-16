@@ -17,11 +17,9 @@ class AddUpdateSubViewController: FormViewController {
         form +++ Section() { section in
             section.header = {
                 var header = HeaderFooterView<UIView>(.callback({
-                    let view = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
-                    view.backgroundColor = .green
-                    return view
+                    return AddUpdateSubHeader.init(frame: CGRect(x: 0, y: 0, width: 100, height: 220))
                 }))
-                header.height = { 100 }
+                header.height = { 220 }
                 return header
             }()
         }

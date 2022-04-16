@@ -80,7 +80,7 @@ class CurrencyPickerHeader: UITableViewHeaderFooterView, UISearchBarDelegate {
         doneBtn.sizeToFit()
         searchBar.sizeToFit()
         
-        let horizontalMargin = 8.0
+        let horizontalMargin = 16.0
         cancelBtn.frame = CGRect(x: horizontalMargin, y: (height-cancelBtn.height)/2, width: cancelBtn.width, height: cancelBtn.height)
         titleLb.frame = CGRect(x: (width-titleLb.width)/2, y: (height-titleLb.height)/2, width: titleLb.width, height: titleLb.height)
         searchBtn.frame = CGRect(x: width-searchBtn.width-horizontalMargin, y: (height-searchBtn.height)/2, width: searchBtn.width, height: searchBtn.height)

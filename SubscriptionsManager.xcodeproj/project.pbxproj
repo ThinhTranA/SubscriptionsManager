@@ -11,6 +11,7 @@
 		E502771027FFCCC400B3C4F5 /* MTextRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E502770F27FFCCC400B3C4F5 /* MTextRow.swift */; };
 		E502771327FFCF8F00B3C4F5 /* MDateRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E502771227FFCF8F00B3C4F5 /* MDateRow.swift */; };
 		E515F8D6280A1C8800F58862 /* CurrencyPopularityRankings.json in Resources */ = {isa = PBXBuildFile; fileRef = E515F8D5280A1C8800F58862 /* CurrencyPopularityRankings.json */; };
+		E5162D37280ACA320075EA15 /* AddUpdateSubHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5162D36280ACA320075EA15 /* AddUpdateSubHeader.swift */; };
 		E52C61272800F88300909C9C /* MTriplePickerInputRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52C61262800F88300909C9C /* MTriplePickerInputRow.swift */; };
 		E52C61292800F9D000909C9C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52C61282800F9D000909C9C /* Constants.swift */; };
 		E547E1D727F2790C000A9E8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E547E1D627F2790C000A9E8F /* AppDelegate.swift */; };
@@ -30,7 +31,6 @@
 		E59F2C5228026BC6001DD28C /* FormPickerInputAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59F2C5128026BC6001DD28C /* FormPickerInputAccessoryView.swift */; };
 		E5A62B6727F90579004FA950 /* SubscriptionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A62B6627F90579004FA950 /* SubscriptionViewCell.swift */; };
 		E5A62B6A27F90697004FA950 /* SubscriptionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A62B6927F90697004FA950 /* SubscriptionViewCellViewModel.swift */; };
-		E5A62B6C27F92482004FA950 /* SubscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A62B6B27F92482004FA950 /* SubscriptionViewController.swift */; };
 		E5A62B6F27F926B4004FA950 /* SubscriptionSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A62B6E27F926B4004FA950 /* SubscriptionSection.swift */; };
 		E5DF4CF628037F9200AB1671 /* CurrencyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DF4CF528037F9200AB1671 /* CurrencyCell.swift */; };
 		E5E7B51927FDB00E00FAAEA2 /* SubscriptionHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E7B51827FDB00E00FAAEA2 /* SubscriptionHeaderViewModel.swift */; };
@@ -46,6 +46,7 @@
 		E502770F27FFCCC400B3C4F5 /* MTextRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTextRow.swift; sourceTree = "<group>"; };
 		E502771227FFCF8F00B3C4F5 /* MDateRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDateRow.swift; sourceTree = "<group>"; };
 		E515F8D5280A1C8800F58862 /* CurrencyPopularityRankings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CurrencyPopularityRankings.json; sourceTree = "<group>"; };
+		E5162D36280ACA320075EA15 /* AddUpdateSubHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUpdateSubHeader.swift; sourceTree = "<group>"; };
 		E52C61262800F88300909C9C /* MTriplePickerInputRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTriplePickerInputRow.swift; sourceTree = "<group>"; };
 		E52C61282800F9D000909C9C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E547E1D327F2790C000A9E8F /* SubscriptionsManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SubscriptionsManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,7 +68,6 @@
 		E59F2C5128026BC6001DD28C /* FormPickerInputAccessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormPickerInputAccessoryView.swift; sourceTree = "<group>"; };
 		E5A62B6627F90579004FA950 /* SubscriptionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionViewCell.swift; sourceTree = "<group>"; };
 		E5A62B6927F90697004FA950 /* SubscriptionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionViewCellViewModel.swift; sourceTree = "<group>"; };
-		E5A62B6B27F92482004FA950 /* SubscriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionViewController.swift; sourceTree = "<group>"; };
 		E5A62B6E27F926B4004FA950 /* SubscriptionSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionSection.swift; sourceTree = "<group>"; };
 		E5DF4CF528037F9200AB1671 /* CurrencyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyCell.swift; sourceTree = "<group>"; };
 		E5E7B51827FDB00E00FAAEA2 /* SubscriptionHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionHeaderViewModel.swift; sourceTree = "<group>"; };
@@ -153,7 +153,6 @@
 			children = (
 				E547E1DA27F2790C000A9E8F /* HomeViewController.swift */,
 				E5F1B8F12802FB75003B7BEB /* CurrencyPickerController.swift */,
-				E5A62B6B27F92482004FA950 /* SubscriptionViewController.swift */,
 				E5604BE627FF1CB500B2107F /* AddUpdateSubViewController.swift */,
 			);
 			path = Controllers;
@@ -169,6 +168,7 @@
 				E59B478E27FC3BE800B76E10 /* EntryTableViewCell.swift */,
 				E5F7AFF627FD1A9F00487466 /* SubscriptionHeader.swift */,
 				E55A62C62808E40B009A89A4 /* CurrencyPickerHeader.swift */,
+				E5162D36280ACA320075EA15 /* AddUpdateSubHeader.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -367,12 +367,12 @@
 				E5A62B6A27F90697004FA950 /* SubscriptionViewCellViewModel.swift in Sources */,
 				E59B478F27FC3BE800B76E10 /* EntryTableViewCell.swift in Sources */,
 				E59F2C5228026BC6001DD28C /* FormPickerInputAccessoryView.swift in Sources */,
+				E5162D37280ACA320075EA15 /* AddUpdateSubHeader.swift in Sources */,
 				E5686C6728097E96007ED8BB /* CurrencyService.swift in Sources */,
 				E52C61272800F88300909C9C /* MTriplePickerInputRow.swift in Sources */,
 				E5604BE727FF1CB500B2107F /* AddUpdateSubViewController.swift in Sources */,
 				E502771327FFCF8F00B3C4F5 /* MDateRow.swift in Sources */,
 				E5A62B6F27F926B4004FA950 /* SubscriptionSection.swift in Sources */,
-				E5A62B6C27F92482004FA950 /* SubscriptionViewController.swift in Sources */,
 				E547E1D927F2790C000A9E8F /* SceneDelegate.swift in Sources */,
 				E52C61292800F9D000909C9C /* Constants.swift in Sources */,
 				E5DF4CF628037F9200AB1671 /* CurrencyCell.swift in Sources */,

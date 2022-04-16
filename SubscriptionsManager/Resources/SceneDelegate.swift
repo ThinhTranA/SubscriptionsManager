@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let window = UIWindow(windowScene: windowScene)
         
-       // window.rootViewController = HomeViewController()
+        //window.rootViewController = HomeViewController()
         window.rootViewController = AddUpdateSubViewController()
         self.window = window
         self.window?.makeKeyAndVisible()
