@@ -17,13 +17,33 @@ class AddUpdateSubHeader: UIView, UITextFieldDelegate {
     }()
     
     let costTxtField: UITextField = {
-        let txtField = UITextField()
-        txtField.placeholder = "0,00 USD"
+        let txtField = UITextField(frame: CGRect(x: 0, y: 0, width: 120, height: 48))
+        txtField.placeholder = "0,00"
         txtField.backgroundColor = .orange
         txtField.font = .systemFont(ofSize: 32, weight: .semibold)
         txtField.textAlignment = .center
         txtField.keyboardType = .numberPad
+        let viewForDoneButtonOnKeyboard = UIToolbar()
+        viewForDoneButtonOnKeyboard.sizeToFit()
+        let btnDoneOnKeyboard = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(doneBtnFromKeyboardClicked))
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        viewForDoneButtonOnKeyboard.items = [flexibleSpace,btnDoneOnKeyboard]
+    
+        
+        txtField.inputAccessoryView = viewForDoneButtonOnKeyboard
         return txtField
+    }()
+    
+    @objc func doneBtnFromKeyboardClicked(){
+        costTxtField.resignFirstResponder()
+        costTxtField.sizeToFit()
+    }
+    
+    let currencyUnitLb: UILabel = {
+        let lb = UILabel()
+        lb.text = "AUD"
+        lb.font = .systemFont(ofSize: 32, weight: .semibold)
+        return lb
     }()
     
     override init(frame: CGRect) {
@@ -32,6 +52,7 @@ class AddUpdateSubHeader: UIView, UITextFieldDelegate {
         clipsToBounds = true
         addSubview(logoImg)
         addSubview(costTxtField)
+        addSubview(currencyUnitLb)
     }
     
     required init?(coder: NSCoder) {
@@ -46,15 +67,25 @@ class AddUpdateSubHeader: UIView, UITextFieldDelegate {
         logoImg.frame = CGRect(x: (width-logoImgWidth)/2, y: (height-logoImgHeight)/2-24, width: logoImgWidth, height: logoImgHeight)
         
         costTxtField.sizeToFit()
+        currencyUnitLb.sizeToFit()
         costTxtField.delegate = self
-        costTxtField.frame = CGRect(x: (width-128)/2, y: logoImg.bottom+16, width: 128, height: 48)
+        costTxtField.frame = CGRect(x: (width-costTxtField.width-currencyUnitLb.width)/2, y: logoImg.bottom+16, width: costTxtField.width, height: costTxtField.height)
+    
+        currencyUnitLb.frame = CGRect(x: costTxtField.right+4, y: logoImg.bottom+16, width: currencyUnitLb.width, height: currencyUnitLb.height)
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        //costTxtField.frame.size.width = costTxtField.intrinsicContentSize.width
+        costTxtField.sizeToFit()
+        
+        
         let allowedCharacters = CharacterSet.decimalDigits
         let characterSet = CharacterSet(charactersIn: string)
         return allowedCharacters.isSuperset(of: characterSet)
     }
+    
+
     
     
 }
