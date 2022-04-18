@@ -66,7 +66,9 @@ extension CurrencyPickerController: UITableViewDelegate, UITableViewDataSource {
         if let cell = tableView.dequeueReusableCell(withIdentifier: CurrencyCell.identifier, for: indexPath)
             as? CurrencyCell
         {
-            cell.configure(with: currencies[indexPath.row])
+            let currency = currencies[indexPath.row]
+            
+            cell.configure(with: currency, row.value == currency.code)
             return cell
         }
         

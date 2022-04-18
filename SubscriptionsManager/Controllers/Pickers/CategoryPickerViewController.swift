@@ -67,7 +67,8 @@ extension CategoryPickerViewController: UITableViewDelegate, UITableViewDataSour
         if let cell = tableView.dequeueReusableCell(withIdentifier: CategoryCell.identifier, for: indexPath)
             as? CategoryCell
         {
-            cell.configure(with: categories[indexPath.row])
+            let cVM = categories[indexPath.row]
+            cell.configure(with: cVM, row.value == cVM.category)
             return cell
         }
         
