@@ -27,17 +27,21 @@ class AddUpdateSubViewController: FormViewController {
             $0.title = "Name"
             $0.placeholder = "Add a name"
             $0.value = "Netflix"
+            $0.tag = "Name"
         }
         <<< MTextRow(){
             $0.title = "Description"
+            $0.tag = "Description"
             $0.placeholder = "Add a description"
         }
         <<< MCategoryRow(){
             $0.title = "Category"
+            $0.tag = "Category"
             $0.noValueDisplayText = "Choose a Cagetory"
         }
         <<< MDateRow(){
             $0.title = "Next Bill"
+            $0.tag = "NextBill"
             if $0.value == nil {
                 $0.value = Date()
             }
@@ -49,6 +53,7 @@ class AddUpdateSubViewController: FormViewController {
             $0.thirdOptions = { b, c in
                 return ["week(s)","month(s)","year"]}
             $0.title = "Billing Cycle"
+            $0.tag = "BillingCycle"
             $0.value = .init(a: "Every", b: 1, c: "week(s)")
         }.onChange{
             if($0.selectedC == $0.value?.c){
@@ -80,6 +85,7 @@ class AddUpdateSubViewController: FormViewController {
             $0.thirdOptions = { b, c in
                 return ["", "before"]}
             $0.title = "Remind"
+            $0.title = "Remind"
             $0.value = .init(a: "Never", b: "", c: "")
         }.onChange{
             switch $0.value?.a {
@@ -92,6 +98,7 @@ class AddUpdateSubViewController: FormViewController {
         }
         <<< MCurrencyRow(){
             $0.title = "Currency"
+            $0.tag = "Currency"
             $0.selectorTitle = "Select currency"
             $0.noValueDisplayText = "Select a currency"
             $0.onChange({ (row) in
@@ -100,6 +107,9 @@ class AddUpdateSubViewController: FormViewController {
         }
         
         //https://github.com/xmartlabs/Eureka/blob/master/README.md#row-catalog
+        
+        let formValues = form.values()
+        print(formValues)
     }
     
     override func inputAccessoryView(for row: BaseRow) -> UIView? {
@@ -119,8 +129,10 @@ class AddUpdateSubViewController: FormViewController {
     
     override func valueHasBeenChanged(for: BaseRow, oldValue: Any?, newValue: Any?) {
       //  print("old value\(oldValue)")
-      //  print("new value \(newValue)")
+        //print("new value \(newValue)")
+        print(form.values())
     }
+    
 }
 
 extension AddUpdateSubViewController: FormPickerInputAccessoryViewDelegate {
