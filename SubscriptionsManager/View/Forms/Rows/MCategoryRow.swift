@@ -10,9 +10,9 @@ import Eureka
 
 //MARK: Row
 
-open class _MCurrencyRow<Cell: CellType>: OptionsRow<Cell>, PresenterRowType where Cell: BaseCell, Cell.Value == String {
+open class _MCategoryRow<Cell: CellType>: OptionsRow<Cell>, PresenterRowType where Cell: BaseCell, Cell.Value == String {
     
-    public typealias PresenterRow = CurrencyPickerController
+    public typealias PresenterRow = CategoryPickerViewController
     
     /// Defines how the view controller will be presented, pushed, etc.
     public var presentationMode: PresentationMode<PresenterRow>?
@@ -25,7 +25,7 @@ open class _MCurrencyRow<Cell: CellType>: OptionsRow<Cell>, PresenterRowType whe
         super.init(tag: tag)
         presentationMode = .presentModally(
             controllerProvider: ControllerProvider.callback {
-                return CurrencyPickerController()
+                return CategoryPickerViewController()
             },
             onDismiss: { vc in
                 vc.dismiss(animated: true)
@@ -59,7 +59,7 @@ open class _MCurrencyRow<Cell: CellType>: OptionsRow<Cell>, PresenterRowType whe
      */
     open override func prepare(for segue: UIStoryboardSegue) {
         super.prepare(for: segue)
-        guard let rowVC = segue.destination as? CurrencyPickerController else { return }
+        guard let rowVC = segue.destination as? CategoryPickerViewController else { return }
         rowVC.title = selectorTitle ?? rowVC.title
         rowVC.onDismissCallback = presentationMode?.onDismissCallback ?? rowVC.onDismissCallback
         onPresentCallback?(cell.formViewController()!, rowVC)
@@ -86,7 +86,7 @@ open class _MCurrencyRow<Cell: CellType>: OptionsRow<Cell>, PresenterRowType whe
 }
 
 /// A selector row where the user can pick an image
-public final class MCurrencyRow : _MCurrencyRow<PushSelectorCell<String>>, RowType {
+public final class MCategoryRow : _MCategoryRow<PushSelectorCell<String>>, RowType {
     public required init(tag: String?) {
         super.init(tag: tag)
     }

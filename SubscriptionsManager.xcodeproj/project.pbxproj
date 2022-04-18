@@ -26,6 +26,11 @@
 		E5610B3E2809772900166399 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5610B3D2809772900166399 /* Currency.swift */; };
 		E5686C6728097E96007ED8BB /* CurrencyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5686C6628097E96007ED8BB /* CurrencyService.swift */; };
 		E57E19B42809755400780332 /* Currencies.json in Resources */ = {isa = PBXBuildFile; fileRef = E57E19B32809755400780332 /* Currencies.json */; };
+		E582D83E280CD872004741B5 /* CategoryPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E582D83D280CD872004741B5 /* CategoryPickerViewController.swift */; };
+		E582D842280CD922004741B5 /* CategoryPickerHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E582D841280CD922004741B5 /* CategoryPickerHeader.swift */; };
+		E582D844280CD9E5004741B5 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E582D843280CD9E5004741B5 /* CategoryCell.swift */; };
+		E582D846280CDB34004741B5 /* MCategoryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E582D845280CDB34004741B5 /* MCategoryRow.swift */; };
+		E582D848280CDF43004741B5 /* CategoryRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E582D847280CDF43004741B5 /* CategoryRowViewModel.swift */; };
 		E59B478F27FC3BE800B76E10 /* EntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59B478E27FC3BE800B76E10 /* EntryTableViewCell.swift */; };
 		E59B479127FC3CB900B76E10 /* EntryTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59B479027FC3CB900B76E10 /* EntryTableViewCellViewModel.swift */; };
 		E59F2C5228026BC6001DD28C /* FormPickerInputAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59F2C5128026BC6001DD28C /* FormPickerInputAccessoryView.swift */; };
@@ -63,6 +68,11 @@
 		E5610B3D2809772900166399 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		E5686C6628097E96007ED8BB /* CurrencyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyService.swift; sourceTree = "<group>"; };
 		E57E19B32809755400780332 /* Currencies.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Currencies.json; sourceTree = "<group>"; };
+		E582D83D280CD872004741B5 /* CategoryPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPickerViewController.swift; sourceTree = "<group>"; };
+		E582D841280CD922004741B5 /* CategoryPickerHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPickerHeader.swift; sourceTree = "<group>"; };
+		E582D843280CD9E5004741B5 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		E582D845280CDB34004741B5 /* MCategoryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCategoryRow.swift; sourceTree = "<group>"; };
+		E582D847280CDF43004741B5 /* CategoryRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRowViewModel.swift; sourceTree = "<group>"; };
 		E59B478E27FC3BE800B76E10 /* EntryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryTableViewCell.swift; sourceTree = "<group>"; };
 		E59B479027FC3CB900B76E10 /* EntryTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		E59F2C5128026BC6001DD28C /* FormPickerInputAccessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormPickerInputAccessoryView.swift; sourceTree = "<group>"; };
@@ -152,8 +162,8 @@
 			isa = PBXGroup;
 			children = (
 				E547E1DA27F2790C000A9E8F /* HomeViewController.swift */,
-				E5F1B8F12802FB75003B7BEB /* CurrencyPickerController.swift */,
 				E5604BE627FF1CB500B2107F /* AddUpdateSubViewController.swift */,
+				E582D83F280CD876004741B5 /* Pickers */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -161,14 +171,12 @@
 		E547E1EB27F279CA000A9E8F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E582D840280CD8F9004741B5 /* Headers */,
 				E5DF4CF428037F5200AB1671 /* Cells */,
 				E502771127FFCE3A00B3C4F5 /* Forms */,
 				E547E1E127F2790C000A9E8F /* LaunchScreen.storyboard */,
 				E55C807E27F45DD60035CDC3 /* BottomTabView.swift */,
 				E59B478E27FC3BE800B76E10 /* EntryTableViewCell.swift */,
-				E5F7AFF627FD1A9F00487466 /* SubscriptionHeader.swift */,
-				E55A62C62808E40B009A89A4 /* CurrencyPickerHeader.swift */,
-				E5162D36280ACA320075EA15 /* AddUpdateSubHeader.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -195,12 +203,33 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		E582D83F280CD876004741B5 /* Pickers */ = {
+			isa = PBXGroup;
+			children = (
+				E5F1B8F12802FB75003B7BEB /* CurrencyPickerController.swift */,
+				E582D83D280CD872004741B5 /* CategoryPickerViewController.swift */,
+			);
+			path = Pickers;
+			sourceTree = "<group>";
+		};
+		E582D840280CD8F9004741B5 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				E5F7AFF627FD1A9F00487466 /* SubscriptionHeader.swift */,
+				E55A62C62808E40B009A89A4 /* CurrencyPickerHeader.swift */,
+				E5162D36280ACA320075EA15 /* AddUpdateSubHeader.swift */,
+				E582D841280CD922004741B5 /* CategoryPickerHeader.swift */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
 		E5A62B6827F90652004FA950 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
 				E5A62B6927F90697004FA950 /* SubscriptionViewCellViewModel.swift */,
 				E59B479027FC3CB900B76E10 /* EntryTableViewCellViewModel.swift */,
 				E5E7B51827FDB00E00FAAEA2 /* SubscriptionHeaderViewModel.swift */,
+				E582D847280CDF43004741B5 /* CategoryRowViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -217,6 +246,7 @@
 		E5CF1108280383DC00CF51C1 /* Rows */ = {
 			isa = PBXGroup;
 			children = (
+				E582D845280CDB34004741B5 /* MCategoryRow.swift */,
 				E5F1B8F32802FE5F003B7BEB /* MCurrencyRow.swift */,
 				E502770F27FFCCC400B3C4F5 /* MTextRow.swift */,
 				E502771227FFCF8F00B3C4F5 /* MDateRow.swift */,
@@ -231,6 +261,7 @@
 			children = (
 				E5DF4CF528037F9200AB1671 /* CurrencyCell.swift */,
 				E5A62B6627F90579004FA950 /* SubscriptionViewCell.swift */,
+				E582D843280CD9E5004741B5 /* CategoryCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -351,8 +382,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E582D846280CDB34004741B5 /* MCategoryRow.swift in Sources */,
+				E582D83E280CD872004741B5 /* CategoryPickerViewController.swift in Sources */,
 				E59B479127FC3CB900B76E10 /* EntryTableViewCellViewModel.swift in Sources */,
 				E55C808227F45EAA0035CDC3 /* Extensions.swift in Sources */,
+				E582D848280CDF43004741B5 /* CategoryRowViewModel.swift in Sources */,
 				E5F1B8EF2802F44D003B7BEB /* MPushRow.swift in Sources */,
 				E5E7B51927FDB00E00FAAEA2 /* SubscriptionHeaderViewModel.swift in Sources */,
 				E502771027FFCCC400B3C4F5 /* MTextRow.swift in Sources */,
@@ -360,11 +394,13 @@
 				E5610B3E2809772900166399 /* Currency.swift in Sources */,
 				E55C807F27F45DD60035CDC3 /* BottomTabView.swift in Sources */,
 				E5A62B6727F90579004FA950 /* SubscriptionViewCell.swift in Sources */,
+				E582D842280CD922004741B5 /* CategoryPickerHeader.swift in Sources */,
 				E5F7AFF727FD1A9F00487466 /* SubscriptionHeader.swift in Sources */,
 				E5F1B8F22802FB75003B7BEB /* CurrencyPickerController.swift in Sources */,
 				E547E1D727F2790C000A9E8F /* AppDelegate.swift in Sources */,
 				E5F1B8F42802FE5F003B7BEB /* MCurrencyRow.swift in Sources */,
 				E5A62B6A27F90697004FA950 /* SubscriptionViewCellViewModel.swift in Sources */,
+				E582D844280CD9E5004741B5 /* CategoryCell.swift in Sources */,
 				E59B478F27FC3BE800B76E10 /* EntryTableViewCell.swift in Sources */,
 				E59F2C5228026BC6001DD28C /* FormPickerInputAccessoryView.swift in Sources */,
 				E5162D37280ACA320075EA15 /* AddUpdateSubHeader.swift in Sources */,

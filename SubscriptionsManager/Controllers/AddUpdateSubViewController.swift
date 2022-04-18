@@ -32,9 +32,9 @@ class AddUpdateSubViewController: FormViewController {
             $0.title = "Description"
             $0.placeholder = "Add a description"
         }
-        <<< MTextRow(){
+        <<< MCategoryRow(){
             $0.title = "Category"
-            $0.placeholder = "Choose a Category" // TODO: Picker
+            $0.noValueDisplayText = "Choose a Cagetory"
         }
         <<< MDateRow(){
             $0.title = "Next Bill"
@@ -92,8 +92,7 @@ class AddUpdateSubViewController: FormViewController {
         }
         <<< MCurrencyRow(){
             $0.title = "Currency"
-            $0.selectorTitle = "Select currentlcy"
-            $0.options = ["AU","USD"]
+            $0.selectorTitle = "Select currency"
             $0.noValueDisplayText = "Select a currency"
             $0.onChange({ (row) in
                 row.reload()
