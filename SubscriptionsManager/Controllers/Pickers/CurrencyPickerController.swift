@@ -45,7 +45,6 @@ open class CurrencyPickerController: UIViewController, TypedRowControllerType, U
     }
     
     public func filterCurrency(with word: String) {
-        print(word)
         if(word != ""){
             currencies = allCurrencies.filter{ currency in
                 currency.name.lowercased().contains(word.lowercased())

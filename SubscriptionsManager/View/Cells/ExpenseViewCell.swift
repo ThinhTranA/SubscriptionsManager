@@ -38,7 +38,7 @@ class ExpenseViewCell: UITableViewCell {
         btn.setTitleColor(UIColor.green.darker(by: 20), for: .normal)
         btn.titleLabel?.font = UIFont.systemFont(ofSize: 12, weight: .semibold)
         btn.layer.cornerRadius = 10
-        btn.backgroundColor = .gray.withAlphaComponent(0.3)
+        btn.backgroundColor = .gray.withAlphaComponent(0.2)
         btn.tintColor = .green
         return btn
     }()
@@ -65,7 +65,7 @@ class ExpenseViewCell: UITableViewCell {
         catLb.frame = CGRect(x: logoImg.right+16, y: nameLb.bottom, width: catLb.width, height: catLb.height)
         
         addBtn.sizeToFit()
-        addBtn.frame = CGRect(x: width-48-horizontalInset, y: (height-20)/2, width: 48, height: 20)
+        addBtn.frame = CGRect(x: width-48-horizontalInset, y: (height-20)/2, width: 48, height: 22)
     }
     
     override func prepareForReuse() {

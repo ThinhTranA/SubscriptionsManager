@@ -125,9 +125,10 @@ extension HomeViewController: BotomTabViewDelegate {
     }
     
     func addSubscription() {
-        print("add sub")
-        let vc = AddUpdateSubViewController()
-        vc.title = "Add Subscription"
+        let vc = AddExpenseViewController()
+        
+//        let vc = AddUpdateSubViewController()
+//        vc.title = "Add Subscription"
         
         let navVC = UINavigationController(rootViewController: vc)
         present(navVC, animated: true)
