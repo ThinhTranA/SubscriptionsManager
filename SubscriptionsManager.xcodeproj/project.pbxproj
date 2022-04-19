@@ -19,6 +19,10 @@
 		E547E1DB27F2790C000A9E8F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E547E1DA27F2790C000A9E8F /* HomeViewController.swift */; };
 		E547E1E027F2790C000A9E8F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E547E1DF27F2790C000A9E8F /* Assets.xcassets */; };
 		E547E1E327F2790C000A9E8F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E547E1E127F2790C000A9E8F /* LaunchScreen.storyboard */; };
+		E5525A60280E0614001B0A05 /* Subscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5525A5F280E0614001B0A05 /* Subscription.swift */; };
+		E5525A62280E16BA001B0A05 /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5525A61280E16BA001B0A05 /* Expense.swift */; };
+		E5525A64280E2C04001B0A05 /* AddExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5525A63280E2C04001B0A05 /* AddExpenseViewController.swift */; };
+		E5525A66280E2C5E001B0A05 /* ExpenseViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5525A65280E2C5E001B0A05 /* ExpenseViewCell.swift */; };
 		E55A62C72808E40B009A89A4 /* CurrencyPickerHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55A62C62808E40B009A89A4 /* CurrencyPickerHeader.swift */; };
 		E55C807F27F45DD60035CDC3 /* BottomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55C807E27F45DD60035CDC3 /* BottomTabView.swift */; };
 		E55C808227F45EAA0035CDC3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55C808127F45EAA0035CDC3 /* Extensions.swift */; };
@@ -61,6 +65,10 @@
 		E547E1DF27F2790C000A9E8F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E547E1E227F2790C000A9E8F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E547E1E427F2790C000A9E8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E5525A5F280E0614001B0A05 /* Subscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subscription.swift; sourceTree = "<group>"; };
+		E5525A61280E16BA001B0A05 /* Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
+		E5525A63280E2C04001B0A05 /* AddExpenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseViewController.swift; sourceTree = "<group>"; };
+		E5525A65280E2C5E001B0A05 /* ExpenseViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseViewCell.swift; sourceTree = "<group>"; };
 		E55A62C62808E40B009A89A4 /* CurrencyPickerHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyPickerHeader.swift; sourceTree = "<group>"; };
 		E55C807E27F45DD60035CDC3 /* BottomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomTabView.swift; sourceTree = "<group>"; };
 		E55C808127F45EAA0035CDC3 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -162,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				E547E1DA27F2790C000A9E8F /* HomeViewController.swift */,
+				E5525A63280E2C04001B0A05 /* AddExpenseViewController.swift */,
 				E5604BE627FF1CB500B2107F /* AddUpdateSubViewController.swift */,
 				E582D83F280CD876004741B5 /* Pickers */,
 			);
@@ -239,6 +248,8 @@
 			children = (
 				E5A62B6E27F926B4004FA950 /* SubscriptionSection.swift */,
 				E5610B3D2809772900166399 /* Currency.swift */,
+				E5525A5F280E0614001B0A05 /* Subscription.swift */,
+				E5525A61280E16BA001B0A05 /* Expense.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -262,6 +273,7 @@
 				E5DF4CF528037F9200AB1671 /* CurrencyCell.swift */,
 				E5A62B6627F90579004FA950 /* SubscriptionViewCell.swift */,
 				E582D843280CD9E5004741B5 /* CategoryCell.swift */,
+				E5525A65280E2C5E001B0A05 /* ExpenseViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -386,6 +398,7 @@
 				E582D83E280CD872004741B5 /* CategoryPickerViewController.swift in Sources */,
 				E59B479127FC3CB900B76E10 /* EntryTableViewCellViewModel.swift in Sources */,
 				E55C808227F45EAA0035CDC3 /* Extensions.swift in Sources */,
+				E5525A62280E16BA001B0A05 /* Expense.swift in Sources */,
 				E582D848280CDF43004741B5 /* CategoryRowViewModel.swift in Sources */,
 				E5F1B8EF2802F44D003B7BEB /* MPushRow.swift in Sources */,
 				E5E7B51927FDB00E00FAAEA2 /* SubscriptionHeaderViewModel.swift in Sources */,
@@ -397,9 +410,12 @@
 				E582D842280CD922004741B5 /* CategoryPickerHeader.swift in Sources */,
 				E5F7AFF727FD1A9F00487466 /* SubscriptionHeader.swift in Sources */,
 				E5F1B8F22802FB75003B7BEB /* CurrencyPickerController.swift in Sources */,
+				E5525A66280E2C5E001B0A05 /* ExpenseViewCell.swift in Sources */,
 				E547E1D727F2790C000A9E8F /* AppDelegate.swift in Sources */,
+				E5525A64280E2C04001B0A05 /* AddExpenseViewController.swift in Sources */,
 				E5F1B8F42802FE5F003B7BEB /* MCurrencyRow.swift in Sources */,
 				E5A62B6A27F90697004FA950 /* SubscriptionViewCellViewModel.swift in Sources */,
+				E5525A60280E0614001B0A05 /* Subscription.swift in Sources */,
 				E582D844280CD9E5004741B5 /* CategoryCell.swift in Sources */,
 				E59B478F27FC3BE800B76E10 /* EntryTableViewCell.swift in Sources */,
 				E59F2C5228026BC6001DD28C /* FormPickerInputAccessoryView.swift in Sources */,

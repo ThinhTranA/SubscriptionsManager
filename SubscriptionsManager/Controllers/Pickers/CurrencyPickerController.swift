@@ -29,7 +29,7 @@ open class CurrencyPickerController: UIViewController, TypedRowControllerType, U
         tableView.frame = view.bounds
     }
     
-    func configureTableView(){
+    private func configureTableView(){
         view.addSubview(tableView)
         currencies = allCurrencies
         tableView.separatorStyle = .none
