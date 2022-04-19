@@ -37,6 +37,7 @@ class AddExpenseViewController: UIViewController {
         title = "Add expenses"
         configureSearchBar()
         configureTableView()
+        configureNavigationBar()
     }
     
     private func configureSearchBar(){
@@ -49,6 +50,34 @@ class AddExpenseViewController: UIViewController {
         popularExpensesTb.tableHeaderView = searchBar
         popularExpensesTb.delegate = self
         popularExpensesTb.dataSource = self
+    }
+    
+    private func configureNavigationBar(){
+        let newBtn = UIButton(frame: CGRect(x: 0, y: 0, width: 56, height: 24))
+        newBtn.setTitle("New", for: .normal)
+        newBtn.setTitleColor(.white, for: .normal)
+        newBtn.titleLabel?.font = .systemFont(ofSize: 14)
+        newBtn.layer.cornerRadius = 14
+        newBtn.clipsToBounds = true
+        newBtn.backgroundColor = .green
+        newBtn.addTarget(self, action: #selector(didTapNewBtn), for: .touchUpInside)
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: newBtn)
+        let closeBtn = UIBarButtonItem(
+            image: UIImage(systemName: "xmark"),
+            style: .done,
+            target: self,
+            action: #selector(didTapCloseBtn))
+        closeBtn.tintColor = .black
+        navigationItem.leftBarButtonItem = closeBtn
+    }
+    
+    @objc func didTapCloseBtn(){
+        dismiss(animated: true)
+    }
+    
+    @objc func didTapNewBtn(){
+        dismiss(animated: true)
     }
     
     override func viewDidLayoutSubviews() {
@@ -92,6 +121,7 @@ extension AddExpenseViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        dismiss(animated: true)
     }
     
 }
