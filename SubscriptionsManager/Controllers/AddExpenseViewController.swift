@@ -84,6 +84,14 @@ class AddExpenseViewController: UIViewController {
         super.viewDidLayoutSubviews()
         popularExpensesTb.frame = view.bounds
     }
+    
+    func didSelectExpense(expense: Expense){
+        let vc = AddUpdateSubViewController()
+        vc.title = "Add Subscription"
+        vc.configure(with: expense)
+        
+        let navVC = UINavigationController(rootViewController: vc)
+        present(navVC, animated: true)    }
 }
 
 extension AddExpenseViewController: UISearchBarDelegate {
@@ -121,7 +129,8 @@ extension AddExpenseViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        dismiss(animated: true)
+        //dismiss(animated: true)
+        didSelectExpense(expense: expenses[indexPath.row])
     }
     
 }

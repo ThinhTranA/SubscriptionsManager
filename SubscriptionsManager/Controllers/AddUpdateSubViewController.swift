@@ -21,9 +21,11 @@ class AddUpdateSubViewController: FormViewController {
         currency: ""
     )
     
+    private var expense1: Expense?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.backgroundColor = .systemPink
+        tableView.backgroundColor = expense1?.color
         
         form +++ Section() { section in
             section.header = {
@@ -146,6 +148,13 @@ class AddUpdateSubViewController: FormViewController {
         //print("new value \(newValue)")
        // print(form.values())
         print(subscription)
+        
+    }
+    
+    func configure(with expense: Expense){
+        expense1  = expense
+        
+        subscription.name = expense.name
     }
     
 }
