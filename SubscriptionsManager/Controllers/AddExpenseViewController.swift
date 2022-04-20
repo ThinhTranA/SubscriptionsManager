@@ -8,6 +8,7 @@
 import UIKit
 
 class AddExpenseViewController: UIViewController {
+    var addUpdateSubDelegate: AddUpdateSubDelegate?
     
     private let searchBar: UISearchBar = {
        let searchBar = UISearchBar()
@@ -87,6 +88,7 @@ class AddExpenseViewController: UIViewController {
     
     func didSelectExpense(expense: Expense){
         let vc = AddUpdateSubViewController()
+        vc.delegate = addUpdateSubDelegate
         vc.title = "Add Subscription"
         vc.configure(with: expense)
         

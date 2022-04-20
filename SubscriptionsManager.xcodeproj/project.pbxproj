@@ -35,6 +35,7 @@
 		E582D844280CD9E5004741B5 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E582D843280CD9E5004741B5 /* CategoryCell.swift */; };
 		E582D846280CDB34004741B5 /* MCategoryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E582D845280CDB34004741B5 /* MCategoryRow.swift */; };
 		E582D848280CDF43004741B5 /* CategoryRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E582D847280CDF43004741B5 /* CategoryRowViewModel.swift */; };
+		E589F5FC2810B07700C71BAD /* SubscriptionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E589F5FB2810B07700C71BAD /* SubscriptionService.swift */; };
 		E59B478F27FC3BE800B76E10 /* EntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59B478E27FC3BE800B76E10 /* EntryTableViewCell.swift */; };
 		E59B479127FC3CB900B76E10 /* EntryTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59B479027FC3CB900B76E10 /* EntryTableViewCellViewModel.swift */; };
 		E59F2C5228026BC6001DD28C /* FormPickerInputAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59F2C5128026BC6001DD28C /* FormPickerInputAccessoryView.swift */; };
@@ -81,6 +82,7 @@
 		E582D843280CD9E5004741B5 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		E582D845280CDB34004741B5 /* MCategoryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCategoryRow.swift; sourceTree = "<group>"; };
 		E582D847280CDF43004741B5 /* CategoryRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRowViewModel.swift; sourceTree = "<group>"; };
+		E589F5FB2810B07700C71BAD /* SubscriptionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionService.swift; sourceTree = "<group>"; };
 		E59B478E27FC3BE800B76E10 /* EntryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryTableViewCell.swift; sourceTree = "<group>"; };
 		E59B479027FC3CB900B76E10 /* EntryTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		E59F2C5128026BC6001DD28C /* FormPickerInputAccessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormPickerInputAccessoryView.swift; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				E5686C6628097E96007ED8BB /* CurrencyService.swift */,
+				E589F5FB2810B07700C71BAD /* SubscriptionService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -420,6 +423,7 @@
 				E59B478F27FC3BE800B76E10 /* EntryTableViewCell.swift in Sources */,
 				E59F2C5228026BC6001DD28C /* FormPickerInputAccessoryView.swift in Sources */,
 				E5162D37280ACA320075EA15 /* AddUpdateSubHeader.swift in Sources */,
+				E589F5FC2810B07700C71BAD /* SubscriptionService.swift in Sources */,
 				E5686C6728097E96007ED8BB /* CurrencyService.swift in Sources */,
 				E52C61272800F88300909C9C /* MTriplePickerInputRow.swift in Sources */,
 				E5604BE727FF1CB500B2107F /* AddUpdateSubViewController.swift in Sources */,

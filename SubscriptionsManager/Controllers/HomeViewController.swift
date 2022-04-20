@@ -9,6 +9,8 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
+    private var subsciptions = SubscriptionService.shared.getAllSubscriptions()
+    
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Subscription"
@@ -34,7 +36,6 @@ class HomeViewController: UIViewController {
         return imageView
     }()
     
-    let myData = ["first", "sercond", "third"]
     private let subsTableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.register(SubscriptionViewCell.self, forCellReuseIdentifier: SubscriptionViewCell.identifier)
@@ -56,6 +57,7 @@ class HomeViewController: UIViewController {
         setupEmptySubPlaceholder()
         setupBottomBarView()
     }
+    
     
     private func setupEmptySubPlaceholder(){
         return
@@ -115,6 +117,13 @@ class HomeViewController: UIViewController {
         
         subsTableView.frame = view.bounds
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("alje")
+        print(SubscriptionService.shared.getAllSubscriptions())
+    }
+    
 
 }
 
@@ -126,21 +135,28 @@ extension HomeViewController: BotomTabViewDelegate {
     
     func addSubscription() {
         let vc = AddExpenseViewController()
-        
-//        let vc = AddUpdateSubViewController()
-//        vc.title = "Add Subscription"
+        vc.addUpdateSubDelegate = self
         
         let navVC = UINavigationController(rootViewController: vc)
+        
         present(navVC, animated: true)
     }
     
     
 }
 
+extension HomeViewController: AddUpdateSubDelegate{
+    func reloadAllSubscriptions() {
+        subsciptions = SubscriptionService.shared.getAllSubscriptions()
+        subsTableView.reloadData()
+    }
+    
+}
+
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return myData.count
+        return subsciptions.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -149,11 +165,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         
-        let text = myData[indexPath.row]
+        let sub = subsciptions[indexPath.row]
         cell.configure(with: SubscriptionViewCellViewModel(
-            name: text,
-            cost: "$90",
-            perMonth: "10$ per month",
+            name: sub.name,
+            cost: "\(sub.price) \(sub.currency)",
+            perMonth: "\(sub.billingCycle)",
             expiredDate: Date.now.addingTimeInterval(40000))
         )
         return cell
@@ -161,7 +177,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let text = myData[indexPath.row]
+        let text = subsciptions[indexPath.row]
         print("\(text) row selected")
         // TODO:
     }

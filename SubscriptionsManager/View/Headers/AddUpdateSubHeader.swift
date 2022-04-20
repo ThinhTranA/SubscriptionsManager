@@ -7,7 +7,14 @@
 
 import UIKit
 
+protocol AddUpdateSubHeaderDelegate: AnyObject {
+    func displayWithPrice(price: Decimal, currency: String)
+}
+
 class AddUpdateSubHeader: UIView, UITextFieldDelegate {
+    var delegate: AddUpdateSubHeaderDelegate?
+    
+    var price: Decimal?
     
     let logoImg: UIImageView = {
        let imgView = UIImageView()
@@ -18,7 +25,7 @@ class AddUpdateSubHeader: UIView, UITextFieldDelegate {
     
     let costTxtField: UITextField = {
         let txtField = UITextField(frame: CGRect(x: 0, y: 0, width: 120, height: 48))
-        txtField.placeholder = "0,00"
+        txtField.placeholder = "0.00"
         txtField.backgroundColor = .orange
         txtField.font = .systemFont(ofSize: 32, weight: .semibold)
         txtField.textAlignment = .center
@@ -41,7 +48,7 @@ class AddUpdateSubHeader: UIView, UITextFieldDelegate {
     
     let currencyUnitLb: UILabel = {
         let lb = UILabel()
-        lb.text = "AUD"
+        lb.text = "$"
         lb.font = .systemFont(ofSize: 32, weight: .semibold)
         return lb
     }()
@@ -72,6 +79,7 @@ class AddUpdateSubHeader: UIView, UITextFieldDelegate {
         costTxtField.frame = CGRect(x: (width-costTxtField.width-currencyUnitLb.width)/2, y: logoImg.bottom+16, width: costTxtField.width, height: costTxtField.height)
     
         currencyUnitLb.frame = CGRect(x: costTxtField.right+4, y: logoImg.bottom+16, width: currencyUnitLb.width, height: currencyUnitLb.height)
+        
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -85,7 +93,17 @@ class AddUpdateSubHeader: UIView, UITextFieldDelegate {
         return allowedCharacters.isSuperset(of: characterSet)
     }
     
-
-    
-    
+    func configure(with price: Decimal, currency: String){
+        if currency.isEmpty{
+            currencyUnitLb.text = "$"
+        } else {
+            currencyUnitLb.text = currency
+        }
+        
+        if price > 0 {
+            costTxtField.text = "\(price)"
+        } else {
+            costTxtField.placeholder = "0.00"
+        }
+    }
 }

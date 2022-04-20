@@ -9,7 +9,13 @@
 import UIKit
 import Eureka
 
+protocol AddUpdateSubDelegate: AnyObject {
+    func reloadAllSubscriptions()
+}
+
 class AddUpdateSubViewController: FormViewController {
+    
+    var delegate: AddUpdateSubDelegate?
     
     private var subscription = Subscription(
         name: "",
@@ -18,19 +24,78 @@ class AddUpdateSubViewController: FormViewController {
         nextBill: Date(),
         billingCycle: (1, "week(s)"),
         remind: ("Never","",""),
-        currency: ""
+        currency: "",
+        price: 0.00
     )
     
-    private var expense1: Expense?
+    private var pendingExpense: Expense?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.backgroundColor = expense1?.color
+        configureNavigationBar()
+        configureSubscriptionForm()
+    }
+    
+    override func inputAccessoryView(for row: BaseRow) -> UIView? {
+        
+        if row is MTriplePickerInputRow<String, Int, String>
+            || row is MDateRow {
+            
+            let view = FormPickerInputAccessoryView(frame: CGRect(x: 0, y: 0, width: view.width, height: 42))
+            view.delegate = self
+            view.configure(withTitle: row.title ?? "")
+            
+            return view
+        }
+        return super.inputAccessoryView(for: row)
+    }
+    
+    private func configureNavigationBar(){
+        let newBtn = UIButton(frame: CGRect(x: 0, y: 0, width: 56, height: 24))
+        newBtn.setTitle("Save", for: .normal)
+        newBtn.setTitleColor(.white, for: .normal)
+        newBtn.titleLabel?.font = .systemFont(ofSize: 14)
+        newBtn.layer.cornerRadius = 14
+        newBtn.clipsToBounds = true
+        newBtn.backgroundColor = .green
+        newBtn.addTarget(self, action: #selector(didTapSaveBtn), for: .touchUpInside)
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: newBtn)
+        let closeBtn = UIBarButtonItem(
+            image: UIImage(systemName: "xmark"),
+            style: .done,
+            target: self,
+            action: #selector(didTapCloseBtn))
+        closeBtn.tintColor = .black
+        navigationItem.leftBarButtonItem = closeBtn
+    }
+    
+    @objc func didTapCloseBtn(){
+        dismiss(animated: true)
+    }
+    
+    @objc func didTapSaveBtn(){
+        SubscriptionService.shared.saveSubscription(subscription)
+        
+        
+        let presentingViewController = self.presentingViewController
+        self.dismiss(animated: false, completion: {
+            presentingViewController?.dismiss(animated: true, completion: nil)
+        })
+        
+        delegate?.reloadAllSubscriptions()
+    }
+    
+    
+    private func configureSubscriptionForm(){
+        tableView.backgroundColor = pendingExpense?.color
         
         form +++ Section() { section in
             section.header = {
-                var header = HeaderFooterView<UIView>(.callback({
-                    return AddUpdateSubHeader.init(frame: CGRect(x: 0, y: 0, width: 100, height: 220))
+                var header = HeaderFooterView<UIView>(.callback({ //[unowned self]
+                    let addUpdateHeader = AddUpdateSubHeader.init(frame: CGRect(x: 0, y: 0, width: 100, height: 220))
+                    addUpdateHeader.configure(with: self.subscription.price, currency: self.subscription.currency)
+                    return addUpdateHeader
                 }))
                 header.height = { 220 }
                 return header
@@ -128,33 +193,12 @@ class AddUpdateSubViewController: FormViewController {
         //https://github.com/xmartlabs/Eureka/blob/master/README.md#row-catalog
     }
     
-    override func inputAccessoryView(for row: BaseRow) -> UIView? {
-        
-        if row is MTriplePickerInputRow<String, Int, String>
-            || row is MDateRow {
-            
-            let view = FormPickerInputAccessoryView(frame: CGRect(x: 0, y: 0, width: view.width, height: 42))
-            view.delegate = self
-            view.configure(withTitle: row.title ?? "")
-            
-            return view
-        }
-        return super.inputAccessoryView(for: row)
-    }
-    
-    
-    override func valueHasBeenChanged(for: BaseRow, oldValue: Any?, newValue: Any?) {
-      //  print("old value\(oldValue)")
-        //print("new value \(newValue)")
-       // print(form.values())
-        print(subscription)
-        
-    }
     
     func configure(with expense: Expense){
-        expense1  = expense
+        pendingExpense  = expense
         
         subscription.name = expense.name
+        subscription.category = expense.category
     }
     
 }

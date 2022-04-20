@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct Subscription{
+struct Subscription: Equatable{
+    let id: String = UUID().uuidString
     var name: String
     var description: String
     var category: String
@@ -15,4 +16,9 @@ struct Subscription{
     var billingCycle: (Int, String)
     var remind: (String, String, String)
     var currency: String
+    var price: Decimal
+    
+    static func == (lhs: Subscription, rhs: Subscription) -> Bool {
+        lhs.id == rhs.id
+    }
 }
