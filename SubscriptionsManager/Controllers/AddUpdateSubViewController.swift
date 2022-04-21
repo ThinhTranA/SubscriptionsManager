@@ -24,7 +24,6 @@ class AddUpdateSubViewController: FormViewController {
         nextBill: Date(),
         billingCycle: (1, "week(s)"),
         remind: ("Never","",""),
-        currency: "",
         price: 0.00
     )
     
@@ -192,7 +191,7 @@ class AddUpdateSubViewController: FormViewController {
             $0.onChange({[unowned self] row in
                 if let currency = row.value {
                     self.subscription.currency = currency
-                    self.subHeader.delegate?.displayWithPrice(price: self.subscription.price, currency: currency)
+                    self.subHeader.configure(with: self.subscription)
                 }
                 row.reload()
             })

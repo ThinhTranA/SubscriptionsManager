@@ -10,7 +10,7 @@ import Eureka
 
 open class CurrencyPickerController: UIViewController, TypedRowControllerType, UINavigationControllerDelegate, CurrencyPickerHeaderDelegate {
     
-    public var row: RowOf<String>!
+    public var row: RowOf<Currency>!
     
     public var onDismissCallback: ((UIViewController) -> Void)?
     
@@ -67,7 +67,7 @@ extension CurrencyPickerController: UITableViewDelegate, UITableViewDataSource {
         {
             let currency = currencies[indexPath.row]
             
-            cell.configure(with: currency, row.value == currency.code)
+            cell.configure(with: currency, row.value == currency)
             return cell
         }
         
@@ -80,7 +80,7 @@ extension CurrencyPickerController: UITableViewDelegate, UITableViewDataSource {
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let currency = currencies[indexPath.row]
-        row.value = currency.code
+        row.value = currency
         row.updateCell()
         guard let callback = self.onDismissCallback else{ return }
         callback(self)

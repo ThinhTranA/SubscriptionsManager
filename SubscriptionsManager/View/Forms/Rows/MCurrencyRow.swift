@@ -10,7 +10,7 @@ import Eureka
 
 //MARK: Row
 
-open class _MCurrencyRow<Cell: CellType>: OptionsRow<Cell>, PresenterRowType where Cell: BaseCell, Cell.Value == String {
+open class _MCurrencyRow<Cell: CellType>: OptionsRow<Cell>, PresenterRowType where Cell: BaseCell, Cell.Value == Currency {
     
     public typealias PresenterRow = CurrencyPickerController
     
@@ -86,9 +86,16 @@ open class _MCurrencyRow<Cell: CellType>: OptionsRow<Cell>, PresenterRowType whe
 }
 
 /// A selector row where the user can pick an image
-public final class MCurrencyRow : _MCurrencyRow<PushSelectorCell<String>>, RowType {
+public final class MCurrencyRow : _MCurrencyRow<PushSelectorCell<Currency>>, RowType {
     public required init(tag: String?) {
         super.init(tag: tag)
+        
+        self.displayValueFor = { [weak self] cur in
+            guard let cur = cur else {
+                return self?.noValueDisplayText
+            }
+            return "\(cur.code)"
+        }
     }
 }
 

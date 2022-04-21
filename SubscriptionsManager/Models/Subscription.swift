@@ -16,7 +16,7 @@ struct Subscription: Equatable{
     var nextBill: Date
     var billingCycle: (Int, String)
     var remind: (String, String, String)
-    var currency: String
+    var currency: Currency?
     var price: Decimal
     
     var color: UIColor?

@@ -8,7 +8,7 @@
 import UIKit
 
 protocol AddUpdateSubHeaderDelegate: AnyObject {
-    func displayWithPrice(price: Decimal, currency: String)
+    func displayWithPrice(price: Decimal, currency: Currency)
 }
 
 class AddUpdateSubHeader: UIView, UITextFieldDelegate {
@@ -88,11 +88,13 @@ class AddUpdateSubHeader: UIView, UITextFieldDelegate {
         return allowedCharacters.isSuperset(of: characterSet)
     }
     
+    
     func configure(with sub: Subscription){
-        if sub.currency.isEmpty{
+        if let currency = sub.currency {
+            currencyUnitLb.text = currency.symbol
+        }
+         else {
             currencyUnitLb.text = "$"
-        } else {
-            currencyUnitLb.text = sub.currency
         }
         
         if sub.price > 0 {
