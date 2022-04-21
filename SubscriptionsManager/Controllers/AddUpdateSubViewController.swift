@@ -92,9 +92,9 @@ class AddUpdateSubViewController: FormViewController {
         
         form +++ Section() { section in
             section.header = {
-                var header = HeaderFooterView<UIView>(.callback({ //[unowned self]
+                var header = HeaderFooterView<UIView>(.callback({
                     let addUpdateHeader = AddUpdateSubHeader.init(frame: CGRect(x: 0, y: 0, width: 100, height: 220))
-                    addUpdateHeader.configure(with: self.subscription.price, currency: self.subscription.currency)
+                    addUpdateHeader.configure(with: self.subscription)
                     return addUpdateHeader
                 }))
                 header.height = { 220 }
@@ -199,6 +199,8 @@ class AddUpdateSubViewController: FormViewController {
         
         subscription.name = expense.name
         subscription.category = expense.category
+        subscription.color = expense.color
+        subscription.logo = expense.logo
     }
     
 }

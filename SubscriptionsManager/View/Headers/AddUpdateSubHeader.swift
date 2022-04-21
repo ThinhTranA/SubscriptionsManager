@@ -18,15 +18,13 @@ class AddUpdateSubHeader: UIView, UITextFieldDelegate {
     
     let logoImg: UIImageView = {
        let imgView = UIImageView()
-        imgView.image = UIImage(systemName: "xmark", withConfiguration: .none)
-        imgView.tintColor = .orange
+        imgView.contentMode = .scaleAspectFit
         return imgView
     }()
     
     let costTxtField: UITextField = {
         let txtField = UITextField(frame: CGRect(x: 0, y: 0, width: 120, height: 48))
         txtField.placeholder = "0.00"
-        txtField.backgroundColor = .orange
         txtField.font = .systemFont(ofSize: 32, weight: .semibold)
         txtField.textAlignment = .center
         txtField.keyboardType = .numberPad
@@ -55,7 +53,6 @@ class AddUpdateSubHeader: UIView, UITextFieldDelegate {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .green
         clipsToBounds = true
         addSubview(logoImg)
         addSubview(costTxtField)
@@ -69,8 +66,8 @@ class AddUpdateSubHeader: UIView, UITextFieldDelegate {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        let logoImgWidth = 80.0
-        let logoImgHeight = 80.0
+        let logoImgWidth = 100.0
+        let logoImgHeight = 100.0
         logoImg.frame = CGRect(x: (width-logoImgWidth)/2, y: (height-logoImgHeight)/2-24, width: logoImgWidth, height: logoImgHeight)
         
         costTxtField.sizeToFit()
@@ -80,30 +77,33 @@ class AddUpdateSubHeader: UIView, UITextFieldDelegate {
     
         currencyUnitLb.frame = CGRect(x: costTxtField.right+4, y: logoImg.bottom+16, width: currencyUnitLb.width, height: currencyUnitLb.height)
         
+        costTxtField.becomeFirstResponder()
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
-        //costTxtField.frame.size.width = costTxtField.intrinsicContentSize.width
         costTxtField.sizeToFit()
-        
         
         let allowedCharacters = CharacterSet.decimalDigits
         let characterSet = CharacterSet(charactersIn: string)
         return allowedCharacters.isSuperset(of: characterSet)
     }
     
-    func configure(with price: Decimal, currency: String){
-        if currency.isEmpty{
+    func configure(with sub: Subscription){
+        if sub.currency.isEmpty{
             currencyUnitLb.text = "$"
         } else {
-            currencyUnitLb.text = currency
+            currencyUnitLb.text = sub.currency
         }
         
-        if price > 0 {
-            costTxtField.text = "\(price)"
+        if sub.price > 0 {
+            costTxtField.text = "\(sub.price)"
         } else {
             costTxtField.placeholder = "0.00"
+        }
+        
+        backgroundColor = sub.color
+        if let imgName = sub.logo {
+            logoImg.image = UIImage(named: imgName)
         }
     }
 }

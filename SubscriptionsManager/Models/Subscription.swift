@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct Subscription: Equatable{
     let id: String = UUID().uuidString
@@ -17,6 +18,9 @@ struct Subscription: Equatable{
     var remind: (String, String, String)
     var currency: String
     var price: Decimal
+    
+    var color: UIColor?
+    var logo: String?
     
     static func == (lhs: Subscription, rhs: Subscription) -> Bool {
         lhs.id == rhs.id
