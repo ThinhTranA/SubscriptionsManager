@@ -120,7 +120,6 @@ class HomeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("alje")
         print(SubscriptionService.shared.getAllSubscriptions())
     }
     

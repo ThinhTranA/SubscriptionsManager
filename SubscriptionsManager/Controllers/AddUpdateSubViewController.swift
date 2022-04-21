@@ -30,6 +30,11 @@ class AddUpdateSubViewController: FormViewController {
     
     private var pendingExpense: Expense?
     
+    private let subHeader: AddUpdateSubHeader = {
+        let addUpdateHeader = AddUpdateSubHeader.init(frame: CGRect(x: 0, y: 0, width: 100, height: 220))
+        return addUpdateHeader
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavigationBar()
@@ -92,10 +97,9 @@ class AddUpdateSubViewController: FormViewController {
         
         form +++ Section() { section in
             section.header = {
-                var header = HeaderFooterView<UIView>(.callback({
-                    let addUpdateHeader = AddUpdateSubHeader.init(frame: CGRect(x: 0, y: 0, width: 100, height: 220))
-                    addUpdateHeader.configure(with: self.subscription)
-                    return addUpdateHeader
+                var header = HeaderFooterView<UIView>(.callback({ [unowned self] in
+                    self.subHeader.configure(with: self.subscription)
+                    return self.subHeader
                 }))
                 header.height = { 220 }
                 return header
@@ -185,7 +189,11 @@ class AddUpdateSubViewController: FormViewController {
             $0.tag = "currency"
             $0.selectorTitle = "Select currency"
             $0.noValueDisplayText = "Select a currency"
-            $0.onChange({ (row) in
+            $0.onChange({[unowned self] row in
+                if let currency = row.value {
+                    self.subscription.currency = currency
+                    self.subHeader.delegate?.displayWithPrice(price: self.subscription.price, currency: currency)
+                }
                 row.reload()
             })
         }

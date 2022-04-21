@@ -20,6 +20,10 @@ class CurrencyService {
            let ccRank = currencyRankings.first(where: {$0.symbol == cc.code})
             var currency = cc
             currency.display = ccRank?.rank ?? 200
+            
+            let locale = Locale(identifier: currency.locale)
+            currency.symbol = locale.currencySymbol 
+            
             return currency
         }
         
@@ -29,6 +33,7 @@ class CurrencyService {
         
         return currenciesWithRank
     }
+    
     
     func getCurrencyRankings() -> [CurrencyRanking]{
         //Source: https://www.xe.com/popularity.php

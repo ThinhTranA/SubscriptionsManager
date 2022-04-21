@@ -11,6 +11,7 @@ struct Currency: Decodable {
     let code: String
     let name: String
     let locale: String
+    var symbol: String?
     var display: Int
     
     var countryCode: String {

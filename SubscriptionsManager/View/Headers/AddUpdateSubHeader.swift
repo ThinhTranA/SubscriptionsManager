@@ -75,7 +75,7 @@ class AddUpdateSubHeader: UIView, UITextFieldDelegate {
         costTxtField.delegate = self
         costTxtField.frame = CGRect(x: (width-costTxtField.width-currencyUnitLb.width)/2, y: logoImg.bottom+16, width: costTxtField.width, height: costTxtField.height)
     
-        currencyUnitLb.frame = CGRect(x: costTxtField.right+4, y: logoImg.bottom+16, width: currencyUnitLb.width, height: currencyUnitLb.height)
+        currencyUnitLb.frame = CGRect(x: costTxtField.right, y: logoImg.bottom+16, width: currencyUnitLb.width, height: currencyUnitLb.height)
         
         costTxtField.becomeFirstResponder()
     }
