@@ -24,6 +24,7 @@ class AddUpdateSubHeader: UIView, UITextFieldDelegate {
     
     let costTxtField: UITextField = {
         let txtField = UITextField(frame: CGRect(x: 0, y: 0, width: 120, height: 48))
+        txtField.textColor = M.Colors.white
         txtField.placeholder = "0.00"
         txtField.font = .systemFont(ofSize: 32, weight: .semibold)
         txtField.textAlignment = .center
@@ -48,6 +49,7 @@ class AddUpdateSubHeader: UIView, UITextFieldDelegate {
         let lb = UILabel()
         lb.text = "$"
         lb.font = .systemFont(ofSize: 32, weight: .semibold)
+        lb.textColor = M.Colors.white
         return lb
     }()
     

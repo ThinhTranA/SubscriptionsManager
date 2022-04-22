@@ -36,6 +36,7 @@ class AddUpdateSubViewController: FormViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+     
         configureNavigationBar()
         configureSubscriptionForm()
     }
@@ -57,11 +58,11 @@ class AddUpdateSubViewController: FormViewController {
     private func configureNavigationBar(){
         let newBtn = UIButton(frame: CGRect(x: 0, y: 0, width: 56, height: 24))
         newBtn.setTitle("Save", for: .normal)
-        newBtn.setTitleColor(.white, for: .normal)
+        newBtn.setTitleColor(pendingExpense?.color, for: .normal)
         newBtn.titleLabel?.font = .systemFont(ofSize: 14)
         newBtn.layer.cornerRadius = 14
-        newBtn.clipsToBounds = true
-        newBtn.backgroundColor = .green
+        newBtn.clipsToBounds = false
+        newBtn.backgroundColor = M.Colors.white
         newBtn.addTarget(self, action: #selector(didTapSaveBtn), for: .touchUpInside)
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: newBtn)
@@ -70,8 +71,11 @@ class AddUpdateSubViewController: FormViewController {
             style: .done,
             target: self,
             action: #selector(didTapCloseBtn))
-        closeBtn.tintColor = .black
+        closeBtn.tintColor = M.Colors.white
         navigationItem.leftBarButtonItem = closeBtn
+        
+        let textAttributes = [NSAttributedString.Key.foregroundColor:M.Colors.white]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
     }
     
     @objc func didTapCloseBtn(){
