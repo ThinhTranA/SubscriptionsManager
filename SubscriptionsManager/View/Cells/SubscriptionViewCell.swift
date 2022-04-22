@@ -17,40 +17,35 @@ class SubscriptionViewCell: UITableViewCell {
         return label
     }()
     
-    private let costLabel: UILabel = {
+    private let dueInLb: UILabel = {
         let label = UILabel()
-        label.textColor = .darkText
+        label.textColor = .gray
         label.font = .systemFont(ofSize: 14, weight: .regular)
         return label
     }()
 
-    private let perMonthLabel: UILabel = {
+    private let costLb: UILabel = {
         let label = UILabel()
         label.textColor = .darkText
-        label.font = .systemFont(ofSize: 16, weight: .semibold)
+        label.font = .systemFont(ofSize: 18, weight: .semibold)
         return label
     }()
     
-    private let expiredLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .darkText
-        label.font = .systemFont(ofSize: 22, weight: .semibold)
-        label.text = "Expired"
-        //label.isHidden = true
-        return label
-    }()
     
     private let logoImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "gear")
-        return imageView
+        let categoryImg = UIImageView()
+        categoryImg.backgroundColor = .lightGray.withAlphaComponent(0.2)
+        categoryImg.layer.cornerRadius = 20
+        categoryImg.contentMode = .scaleAspectFit
+        categoryImg.clipsToBounds = true
+        categoryImg.backgroundColor = .clear
+        return categoryImg
     }()
     
     override func prepareForReuse() {
         nameLabel.text = nil
-        costLabel.text = nil
-        perMonthLabel.text = nil
-        expiredLabel.isHidden = true
+        dueInLb.text = nil
+        costLb.text = nil
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -58,9 +53,8 @@ class SubscriptionViewCell: UITableViewCell {
         contentView.layer.cornerRadius = 8
         contentView.layer.masksToBounds = true
         contentView.addSubview(nameLabel)
-        contentView.addSubview(costLabel)
-        contentView.addSubview(perMonthLabel)
-        contentView.addSubview(expiredLabel)
+        contentView.addSubview(dueInLb)
+        contentView.addSubview(costLb)
         contentView.addSubview(logoImageView)
     }
     
@@ -70,46 +64,39 @@ class SubscriptionViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        logoImageView.sizeToFit()
         nameLabel.sizeToFit()
-        costLabel.sizeToFit()
-        perMonthLabel.sizeToFit()
-        expiredLabel.sizeToFit()
+        dueInLb.sizeToFit()
+        costLb.sizeToFit()
         
-        logoImageView.frame = CGRect(x: 8,y: (contentView.height-60)/2, width: 60, height: 60)
+        logoImageView.frame = CGRect(x: 12, y: (height-40)/2, width: 40, height: 40)
         
-        let logoImageViewRightPos = logoImageView.right+8
+        let logoImageViewRightPos = logoImageView.right+12
         nameLabel.frame = CGRect(
             x: logoImageViewRightPos,
             y: 16,
             width: nameLabel.width,
             height: nameLabel.height)
         
-        costLabel.frame = CGRect(
+        dueInLb.frame = CGRect(
             x: logoImageViewRightPos,
             y: nameLabel.bottom+4,
-            width: costLabel.width,
-            height: costLabel.height)
-        perMonthLabel.frame = CGRect(
-            x: contentView.width - perMonthLabel.width - 8,
-            y: (contentView.height-perMonthLabel.height)/2,
-            width: perMonthLabel.width,
-            height: perMonthLabel.height)
-        expiredLabel.frame = CGRect(
-            x: (contentView.width-expiredLabel.width)/2,
-            y:(contentView.height - expiredLabel.height)/2,
-            width: expiredLabel.width,
-            height: expiredLabel.height)
+            width: dueInLb.width,
+            height: dueInLb.height)
+        costLb.frame = CGRect(
+            x: contentView.width - costLb.width - 12,
+            y: (contentView.height-costLb.height)/2,
+            width: costLb.width,
+            height: costLb.height)
+      
     }
     
 
     func configure(with viewModel: SubscriptionViewCellViewModel) {
         nameLabel.text = viewModel.name
-        costLabel.text = viewModel.cost
-        perMonthLabel.text = viewModel.perMonth
-        
-        if(viewModel.expiredDate < Date.now.addingTimeInterval(60*20) ){ //20 mins
-            expiredLabel.isHidden = false
-        }
+        dueInLb.text = viewModel.dueDate
+        costLb.text = viewModel.cost
+        logoImageView.image = UIImage(named: viewModel.logo)
     }
 
 }

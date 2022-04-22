@@ -9,7 +9,7 @@ import Foundation
 
 struct SubscriptionViewCellViewModel {
     let name: String
+    let logo: String
     let cost: String
-    let perMonth: String
-    let expiredDate: Date
+    let dueDate: String
 }

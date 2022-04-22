@@ -19,7 +19,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let window = UIWindow(windowScene: windowScene)
         
-        window.rootViewController = HomeViewController()
+        let vc = HomeViewController()
+        window.rootViewController = UINavigationController(rootViewController: vc)
        // window.rootViewController = AddUpdateSubViewController()
         //window.rootViewController = AddExpenseViewController()
         self.window = window

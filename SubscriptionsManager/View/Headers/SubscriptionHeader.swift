@@ -8,7 +8,7 @@
 import UIKit
 
 class SubscriptionHeader: UITableViewHeaderFooterView {
-    static let identifier = "TableHeader"
+    static let identifier = "SubscriptionHeader"
     
     private let cancelBtn: UIButton = {
        let button = UIButton()

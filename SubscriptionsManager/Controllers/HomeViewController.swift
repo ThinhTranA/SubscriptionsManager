@@ -46,18 +46,43 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        title = "Expense"
         view.backgroundColor = .systemBackground
         view.addSubview(titleLabel)
         
-        subsTableView.delegate = self
-        subsTableView.dataSource = self
-        view.addSubview(subsTableView)
-        
+        setupNavigationBar()
+        setupTableView()
         setupEmptySubPlaceholder()
         setupBottomBarView()
     }
     
+    private func setupNavigationBar(){
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
+//        let newBtn = UIButton(frame: CGRect(x: 0, y: 0, width: 56, height: 24))
+//        newBtn.setTitle("New", for: .normal)
+//        newBtn.setTitleColor(.white, for: .normal)
+//        newBtn.titleLabel?.font = .systemFont(ofSize: 14)
+//        newBtn.layer.cornerRadius = 14
+//        newBtn.clipsToBounds = true
+//        newBtn.backgroundColor = .green
+//        newBtn.addTarget(self, action: #selector(didTapNewBtn), for: .touchUpInside)
+//
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: newBtn)
+//        let closeBtn = UIBarButtonItem(
+//            image: UIImage(systemName: "xmark"),
+//            style: .done,
+//            target: self,
+//            action: #selector(didTapCloseBtn))
+//        closeBtn.tintColor = .black
+       // navigationItem.leftBarButtonItem = closeBtn
+    }
+    
+    private func setupTableView(){
+        subsTableView.delegate = self
+        subsTableView.dataSource = self
+        view.addSubview(subsTableView)
+    }
     
     private func setupEmptySubPlaceholder(){
         return
@@ -167,9 +192,10 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         let sub = subsciptions[indexPath.row]
         cell.configure(with: SubscriptionViewCellViewModel(
             name: sub.name,
-            cost: "\(sub.price) \(sub.currency)",
-            perMonth: "\(sub.billingCycle)",
-            expiredDate: Date.now.addingTimeInterval(40000))
+            logo: sub.logoDefault,
+            cost: sub.costString,
+            dueDate: "Due in"
+        )
         )
         return cell
     }

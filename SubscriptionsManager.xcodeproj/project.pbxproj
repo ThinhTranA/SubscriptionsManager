@@ -42,6 +42,7 @@
 		E5A62B6727F90579004FA950 /* SubscriptionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A62B6627F90579004FA950 /* SubscriptionViewCell.swift */; };
 		E5A62B6A27F90697004FA950 /* SubscriptionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A62B6927F90697004FA950 /* SubscriptionViewCellViewModel.swift */; };
 		E5A62B6F27F926B4004FA950 /* SubscriptionSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A62B6E27F926B4004FA950 /* SubscriptionSection.swift */; };
+		E5B7BAC52812EFCA00F6A78B /* TotalSubHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B7BAC42812EFCA00F6A78B /* TotalSubHeader.swift */; };
 		E5DF4CF628037F9200AB1671 /* CurrencyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DF4CF528037F9200AB1671 /* CurrencyCell.swift */; };
 		E5E7B51927FDB00E00FAAEA2 /* SubscriptionHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E7B51827FDB00E00FAAEA2 /* SubscriptionHeaderViewModel.swift */; };
 		E5F1B8EF2802F44D003B7BEB /* MPushRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F1B8EE2802F44D003B7BEB /* MPushRow.swift */; };
@@ -89,6 +90,7 @@
 		E5A62B6627F90579004FA950 /* SubscriptionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionViewCell.swift; sourceTree = "<group>"; };
 		E5A62B6927F90697004FA950 /* SubscriptionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionViewCellViewModel.swift; sourceTree = "<group>"; };
 		E5A62B6E27F926B4004FA950 /* SubscriptionSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionSection.swift; sourceTree = "<group>"; };
+		E5B7BAC42812EFCA00F6A78B /* TotalSubHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalSubHeader.swift; sourceTree = "<group>"; };
 		E5DF4CF528037F9200AB1671 /* CurrencyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyCell.swift; sourceTree = "<group>"; };
 		E5E7B51827FDB00E00FAAEA2 /* SubscriptionHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionHeaderViewModel.swift; sourceTree = "<group>"; };
 		E5F1B8EE2802F44D003B7BEB /* MPushRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPushRow.swift; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 				E55A62C62808E40B009A89A4 /* CurrencyPickerHeader.swift */,
 				E5162D36280ACA320075EA15 /* AddUpdateSubHeader.swift */,
 				E582D841280CD922004741B5 /* CategoryPickerHeader.swift */,
+				E5B7BAC42812EFCA00F6A78B /* TotalSubHeader.swift */,
 			);
 			path = Headers;
 			sourceTree = "<group>";
@@ -413,6 +416,7 @@
 				E582D842280CD922004741B5 /* CategoryPickerHeader.swift in Sources */,
 				E5F7AFF727FD1A9F00487466 /* SubscriptionHeader.swift in Sources */,
 				E5F1B8F22802FB75003B7BEB /* CurrencyPickerController.swift in Sources */,
+				E5B7BAC52812EFCA00F6A78B /* TotalSubHeader.swift in Sources */,
 				E5525A66280E2C5E001B0A05 /* ExpenseViewCell.swift in Sources */,
 				E547E1D727F2790C000A9E8F /* AppDelegate.swift in Sources */,
 				E5525A64280E2C04001B0A05 /* AddExpenseViewController.swift in Sources */,
