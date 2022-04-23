@@ -41,13 +41,13 @@ class AddUpdateSubViewController: FormViewController {
         btn.backgroundColor = .white.withAlphaComponent(0.5)
         btn.layer.cornerRadius = 16
         
-        btn.addTarget(self, action: #selector(didTapDeleteBtn), for: .touchUpInside)
+      
         return btn
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(deleteBtn)
+        configureDeleteBtn()
         configureNavigationBar()
         configureSubscriptionForm()
     }
@@ -93,6 +93,11 @@ class AddUpdateSubViewController: FormViewController {
         
         let textAttributes = [NSAttributedString.Key.foregroundColor:M.Colors.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
+    }
+    
+    private func configureDeleteBtn(){
+        view.addSubview(deleteBtn)
+        deleteBtn.addTarget(self, action: #selector(didTapDeleteBtn), for: .touchUpInside)
     }
     
     @objc func didTapCloseBtn(){
