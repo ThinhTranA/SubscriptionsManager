@@ -79,7 +79,11 @@ class AddUpdateSubHeader: UIView, UITextFieldDelegate {
     
         currencyUnitLb.frame = CGRect(x: costTxtField.right, y: logoImg.bottom+16, width: currencyUnitLb.width, height: currencyUnitLb.height)
         
-        costTxtField.becomeFirstResponder()
+        if(costTxtField.text?.isEmpty ?? true) {
+            costTxtField.becomeFirstResponder()
+        }
+            
+      
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {

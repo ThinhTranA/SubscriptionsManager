@@ -212,8 +212,13 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
         let text = subsciptions[indexPath.row]
         print("\(text) row selected")
-        // TODO:
-    }
+        
+        let vc = AddUpdateSubViewController()
+        vc.configure(with: subsciptions[indexPath.row])
+        vc.subscription = subsciptions[indexPath.row]
+        vc.delegate = self
+        let navVC = UINavigationController(rootViewController: vc)
+        present(navVC, animated: true)    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80

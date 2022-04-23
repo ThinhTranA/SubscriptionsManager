@@ -17,7 +17,7 @@ class AddUpdateSubViewController: FormViewController {
     
     var delegate: AddUpdateSubDelegate?
     
-    private var subscription = Subscription(
+    var subscription = Subscription(
         name: "",
         description: "",
         category: "",
@@ -26,8 +26,6 @@ class AddUpdateSubViewController: FormViewController {
         remind: ("Never","",""),
         price: 0.00
     )
-    
-    private var pendingExpense: Expense?
     
     private let subHeader: AddUpdateSubHeader = {
         let addUpdateHeader = AddUpdateSubHeader.init(frame: CGRect(x: 0, y: 0, width: 100, height: 220))
@@ -58,7 +56,7 @@ class AddUpdateSubViewController: FormViewController {
     private func configureNavigationBar(){
         let newBtn = UIButton(frame: CGRect(x: 0, y: 0, width: 56, height: 24))
         newBtn.setTitle("Save", for: .normal)
-        newBtn.setTitleColor(pendingExpense?.color, for: .normal)
+        newBtn.setTitleColor(subscription.color, for: .normal)
         newBtn.titleLabel?.font = .systemFont(ofSize: 14)
         newBtn.layer.cornerRadius = 14
         newBtn.clipsToBounds = false
@@ -96,7 +94,7 @@ class AddUpdateSubViewController: FormViewController {
     
     
     private func configureSubscriptionForm(){
-        tableView.backgroundColor = pendingExpense?.color
+        tableView.backgroundColor = subscription.color
         
         form +++ Section() { section in
             section.header = {
@@ -117,15 +115,18 @@ class AddUpdateSubViewController: FormViewController {
             $0.title = "Description"
             $0.tag = "description"
             $0.placeholder = "Add a description"
+            $0.value = subscription.description
         }.onChange{[unowned self] row in self.subscription.description = row.value!}
         <<< MCategoryRow(){
             $0.title = "Category"
             $0.tag = "category"
             $0.noValueDisplayText = "Choose a Cagetory"
+            $0.value = subscription.category
         }.onChange{[unowned self] row in self.subscription.category = row.value!}
         <<< MDateRow(){
             $0.title = "Next Bill"
             $0.tag = "nextBill"
+           // $0.value = subscription.category
             if $0.value == nil {
                 $0.value = Date()
             }
@@ -206,12 +207,17 @@ class AddUpdateSubViewController: FormViewController {
     
     
     func configure(with expense: Expense){
-        pendingExpense  = expense
-        
         subscription.name = expense.name
         subscription.category = expense.category
         subscription.color = expense.color
         subscription.logo = expense.logo
+    }
+    
+    func configure(with sub: Subscription){
+        subscription.name = sub.name
+        subscription.category = sub.category
+        subscription.color = sub.color
+        subscription.logo = sub.logo
     }
     
 }
