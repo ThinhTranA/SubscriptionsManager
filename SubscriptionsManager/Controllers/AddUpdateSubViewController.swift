@@ -32,11 +32,30 @@ class AddUpdateSubViewController: FormViewController {
         return addUpdateHeader
     }()
     
+    private let deleteBtn: UIButton = {
+        let btn = UIButton()
+        btn.setTitle("Delete Expense", for: .normal)
+        btn.setTitleColor(M.Colors.greyWhite, for: .normal)
+        btn.setImage(UIImage(systemName: "trash"), for: .normal)
+        btn.tintColor = M.Colors.greyWhite
+        btn.backgroundColor = .white.withAlphaComponent(0.5)
+        btn.layer.cornerRadius = 16
+        
+        btn.addTarget(self, action: #selector(didTapDeleteBtn), for: .touchUpInside)
+        return btn
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-     
+        view.addSubview(deleteBtn)
         configureNavigationBar()
         configureSubscriptionForm()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        deleteBtn.sizeToFit()
+        deleteBtn.frame = CGRect(x: (view.width - deleteBtn.width)/2, y: view.height-deleteBtn.height-56, width: deleteBtn.width+16, height: deleteBtn.height+12)
     }
     
     override func inputAccessoryView(for row: BaseRow) -> UIView? {
@@ -83,7 +102,15 @@ class AddUpdateSubViewController: FormViewController {
     @objc func didTapSaveBtn(){
         subscription.price = Decimal(string: subHeader.costTxtField.text ?? "") ?? 0.0
         SubscriptionService.shared.saveSubscription(subscription)
-        
+        dismissAndReloadData()
+    }
+    
+    @objc func didTapDeleteBtn(){
+        SubscriptionService.shared.deleteSubscription(subscription)
+        dismissAndReloadData()
+    }
+    
+    private func dismissAndReloadData(){
         let presentingViewController = self.presentingViewController
         self.dismiss(animated: false, completion: {
             presentingViewController?.dismiss(animated: true, completion: nil)
