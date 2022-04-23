@@ -158,7 +158,7 @@ class AddUpdateSubViewController: FormViewController {
         <<< MDateRow(){
             $0.title = "Next Bill"
             $0.tag = "nextBill"
-           // $0.value = subscription.category
+            $0.value = subscription.nextBill
             if $0.value == nil {
                 $0.value = Date()
             }
@@ -173,13 +173,16 @@ class AddUpdateSubViewController: FormViewController {
             $0.tag = "billingCycle"
             $0.value = .init(a: "Every", b: subscription.billingCycle.0, c: subscription.billingCycle.1)
         }.onChange{ [unowned self] row in
+            
+            self.subscription.billingCycle.0 = row.value?.b ?? 1
+            self.subscription.billingCycle.1 = row.value?.c ?? "week(s)"
+            
+            print(row.value?.b)
+            
             if(row.selectedC == row.value?.c){
                 return
             }
-            self.subscription.billingCycle.0 = row.value?.b ?? 1
-            self.subscription.billingCycle.1 = row.value?.c ?? "week(s)"
-            row.selectedC = row.value?.c
-            row.value = .init(a: row.value?.a ?? "Every", b: 1, c: row.value?.c ?? "week(s)")
+            
             switch row.value?.c {
             case "week(s)":
                 row.secondOptions = { _ in
@@ -196,7 +199,9 @@ class AddUpdateSubViewController: FormViewController {
             default:
                 break
             }
-  
+            
+            row.selectedC = row.value?.c
+            row.value = .init(a: row.value?.a ?? "Every", b: 1, c: row.value?.c ?? "week(s)")
         }
         <<< MTriplePickerInputRow<String, String, String>() {
             $0.firstOptions = { return ["Never", "Same", "1", "2", "3", "4", "5", "6","7"]}
@@ -206,7 +211,7 @@ class AddUpdateSubViewController: FormViewController {
                 return ["", "before"]}
             $0.title = "Remind"
             $0.tag = "remind"
-            $0.value = .init(a: "Never", b: "", c: "")
+            $0.value = .init(a: subscription.remind.0, b: subscription.remind.1, c: subscription.remind.2)
         }.onChange{ [unowned self] row in
             
             self.subscription.remind.0 = row.value?.a ?? "Never"
@@ -225,6 +230,7 @@ class AddUpdateSubViewController: FormViewController {
             $0.tag = "currency"
             $0.selectorTitle = "Select currency"
             $0.noValueDisplayText = "Select a currency"
+            $0.value = subscription.currency
             $0.onChange({[unowned self] row in
                 if let currency = row.value {
                     self.subscription.currency = currency
