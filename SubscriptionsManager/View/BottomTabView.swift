@@ -71,6 +71,7 @@ class BottomTabView: UIView {
         super.init(frame: frame)
         clipsToBounds = false
         backgroundColor = .blue
+        layer.borderWidth = 0
         
         addSubViews()
         configureButtons()
@@ -136,23 +137,23 @@ class BottomTabView: UIView {
 
 extension BottomTabView {
     func drawCurve() {
-
-           // Create a CAShapeLayer
-           let shapeLayer = CAShapeLayer()
-
-           // The Bezier path that we made needs to be converted to
-           // a CGPath before it can be used on a layer.
-           shapeLayer.path = createBezierPath().cgPath
-
-           // apply other properties related to the path
+        
+        // Create a CAShapeLayer
+        let shapeLayer = CAShapeLayer()
+        
+        // The Bezier path that we made needs to be converted to
+        // a CGPath before it can be used on a layer.
+        shapeLayer.path = createBezierPath().cgPath
+        
+        // apply other properties related to the path
         shapeLayer.strokeColor = UIColor.systemBackground.cgColor
         shapeLayer.fillColor = UIColor.systemBackground.cgColor
         shapeLayer.lineWidth = 0.0
-           shapeLayer.position = CGPoint(x: width/2 - 40, y: 0)
-
-           // add the new layer to our custom view
-           self.layer.addSublayer(shapeLayer)
-       }
+        shapeLayer.position = CGPoint(x: width/2 - 40, y: 0)
+        
+        // add the new layer to our custom view
+        self.layer.addSublayer(shapeLayer)
+    }
     
     func createBezierPath() -> UIBezierPath {
      

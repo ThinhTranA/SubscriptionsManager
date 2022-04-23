@@ -23,15 +23,40 @@ class SubscriptionService {
     }
     
     func saveSubscription(_ subscription: Subscription){
-        //TODO: check if exist to update instead of add
+        if let row = self.subscriptionList.firstIndex(where: {$0.id == subscription.id}) {
+            subscriptionList[row] = subscription
+        } else {
+            subscriptionList.append(subscription)
+        }
         
-        //insert ?
-        subscriptionList.append(subscription)
     }
     
     func deleteSubscription(_ subscription: Subscription){
          if let index = subscriptionList.firstIndex(of: subscription){
             subscriptionList.remove(at: index)
+        }
+    }
+    
+    func markSubscriptionAsPaid(_ subId: String){
+        if var sub = getSubscription(by: subId){
+            
+            if sub.billingCycle.1 == "week(s)" {
+                var nextDueDatesFromNow = 1
+                nextDueDatesFromNow = sub.billingCycle.0 * 7
+                while(sub.nextBill.days(sinceDate: Date.now) ?? 0 < 0){
+                    sub.nextBill = Calendar.current.date(byAdding: .day, value: nextDueDatesFromNow, to: sub.nextBill) ?? sub.nextBill
+                }
+            } else if sub.billingCycle.1 == "month(s)"{
+                while(sub.nextBill.days(sinceDate: Date.now) ?? 0 < 0){
+                    sub.nextBill = Calendar.current.date(byAdding: .month, value: 1, to: sub.nextBill) ?? sub.nextBill
+                }
+            } else if sub.billingCycle.1 == "year"{
+                while(sub.nextBill.days(sinceDate: Date.now) ?? 0 < 0){
+                    sub.nextBill = Calendar.current.date(byAdding: .year, value: 1, to: sub.nextBill) ?? sub.nextBill
+                }
+            }
+            
+            saveSubscription(sub)
         }
     }
 }

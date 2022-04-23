@@ -8,8 +8,10 @@
 import Foundation
 
 struct SubscriptionViewCellViewModel {
+    let subId: String
     let name: String
     let logo: String
     let cost: String
     let dueDate: String
+    let isOverDue: Bool
 }

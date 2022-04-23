@@ -18,10 +18,11 @@ struct Subscription: Equatable{
     var remind: (String, String, String)
     var currency: Currency?
     var price: Decimal
-    var nextBillDate: Date?
     
     var color: UIColor?
     var logo: String?
+    
+
     
     var billingCycleString: String {
         "\(billingCycle.0) \(billingCycle.1)"
@@ -31,6 +32,29 @@ struct Subscription: Equatable{
     }
     var logoDefault: String {
         logo ?? "photo"
+    }
+    
+    var isOverdue: Bool {
+        return (nextBill.days(sinceDate: Date.now) ?? 0) < 0
+    }
+    
+    var dueDateString: String{
+        let dueInDays = nextBill.days(sinceDate: Date.now) ?? 0
+        
+        if(dueInDays < 0){
+            return "Overdue \(abs(dueInDays)) day(s) ago"
+        }
+        else if dueInDays == 0 {
+            return "Due today"
+        } else if dueInDays == 1{
+          return "Due tomorrow"
+        } else if dueInDays < 7 {
+            return "Due in \(dueInDays) days"
+        } else if dueInDays > 28 {
+            return "Due in \(dueInDays/28) month(s)"
+        } else {
+            return "Due in \(dueInDays/7) week(s)"
+        }
     }
     
     

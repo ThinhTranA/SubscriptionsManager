@@ -151,6 +151,14 @@ class HomeViewController: UIViewController {
 
 }
 
+extension HomeViewController: SubscriptionViewCellDelegate {
+    func markAsPaid(subId: String) {
+        SubscriptionService.shared.markSubscriptionAsPaid(subId)
+        //Display confirmation for next due date
+        reloadAllSubscriptions()
+    }
+}
+
 extension HomeViewController: BotomTabViewDelegate {
     func openSettings() {
         print("open settings")
@@ -165,8 +173,6 @@ extension HomeViewController: BotomTabViewDelegate {
         
         present(navVC, animated: true)
     }
-    
-    
 }
 
 extension HomeViewController: AddUpdateSubDelegate{
@@ -191,12 +197,14 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         
         let sub = subsciptions[indexPath.row]
         cell.configure(with: SubscriptionViewCellViewModel(
+            subId: sub.id,
             name: sub.name,
             logo: sub.logoDefault,
             cost: sub.costString,
-            dueDate: "Due in"
+            dueDate: sub.dueDateString,
+            isOverDue: sub.isOverdue)
         )
-        )
+        cell.delegate = self
         return cell
     }
     

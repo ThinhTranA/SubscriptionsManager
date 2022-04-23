@@ -7,8 +7,15 @@
 
 import UIKit
 
+protocol SubscriptionViewCellDelegate: AnyObject {
+    func markAsPaid(subId: String)
+}
+
 class SubscriptionViewCell: UITableViewCell {
     static let identifier = "SubscriptionViewCell"
+    
+    var delegate: SubscriptionViewCellDelegate?
+    private var subId: String = ""
     
     private let nameLabel: UILabel = {
         let label = UILabel()
@@ -42,6 +49,23 @@ class SubscriptionViewCell: UITableViewCell {
         return categoryImg
     }()
     
+    private let overdueView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .orange
+        view.layer.opacity = 0.3
+        view.isHidden = true
+        return view
+    }()
+    private let markAsPaidBtn: UIButton = {
+        let btn = UIButton()
+        btn.setTitle("Mark As Paid", for: .normal)
+        btn.backgroundColor = .orange
+        btn.layer.cornerRadius = 16
+        btn.isHidden = true
+        btn.addTarget(self, action: #selector(didTapMarkAsPaid), for: .touchUpInside)
+        return btn
+    }()
+    
     override func prepareForReuse() {
         nameLabel.text = nil
         dueInLb.text = nil
@@ -56,6 +80,9 @@ class SubscriptionViewCell: UITableViewCell {
         contentView.addSubview(dueInLb)
         contentView.addSubview(costLb)
         contentView.addSubview(logoImageView)
+        
+        contentView.addSubview(overdueView)
+        contentView.addSubview(markAsPaidBtn)
     }
     
     required init(coder: NSCoder) {
@@ -89,14 +116,25 @@ class SubscriptionViewCell: UITableViewCell {
             width: costLb.width,
             height: costLb.height)
       
+        overdueView.frame = contentView.bounds
+        markAsPaidBtn.sizeToFit()
+        markAsPaidBtn.frame = CGRect(x: (width-markAsPaidBtn.width)/2, y: (height-markAsPaidBtn.height)/2, width: markAsPaidBtn.width+32, height: markAsPaidBtn.height)
     }
     
 
     func configure(with viewModel: SubscriptionViewCellViewModel) {
+        subId = viewModel.subId
         nameLabel.text = viewModel.name
         dueInLb.text = viewModel.dueDate
         costLb.text = viewModel.cost
         logoImageView.image = UIImage(named: viewModel.logo)
+        
+        overdueView.isHidden = !viewModel.isOverDue
+        markAsPaidBtn.isHidden = !viewModel.isOverDue
+    }
+    
+    @objc func didTapMarkAsPaid(){
+        delegate?.markAsPaid(subId: subId)
     }
 
 }

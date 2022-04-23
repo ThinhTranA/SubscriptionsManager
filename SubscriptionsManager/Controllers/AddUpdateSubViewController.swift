@@ -83,8 +83,8 @@ class AddUpdateSubViewController: FormViewController {
     }
     
     @objc func didTapSaveBtn(){
+        subscription.price = Decimal(string: subHeader.costTxtField.text ?? "") ?? 0.0
         SubscriptionService.shared.saveSubscription(subscription)
-        
         
         let presentingViewController = self.presentingViewController
         self.dismiss(animated: false, completion: {
