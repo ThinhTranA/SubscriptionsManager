@@ -24,6 +24,13 @@ public final class MTextRow: _TextRow, RowType {
             string: placeholder ?? "",
             attributes: [NSAttributedString.Key.foregroundColor: M.Colors.greyWhite]
         )
+        
+        if(!isValid) {
+            cell.titleLabel?.textColor = .black
+            if let titleText = cell.titleLabel?.text {
+                cell.titleLabel?.text = titleText + " required"
+            }
+        }
     }
     
 

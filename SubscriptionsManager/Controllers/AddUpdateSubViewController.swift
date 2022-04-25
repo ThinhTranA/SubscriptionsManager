@@ -27,10 +27,13 @@ class AddUpdateSubViewController: FormViewController {
         price: 0.00
     )
     
-    private let subHeader: AddUpdateSubHeader = {
-        let addUpdateHeader = AddUpdateSubHeader.init(frame: CGRect(x: 0, y: 0, width: 100, height: 220))
+    private let customSubHeader: AddUpdateSubHeader = {
+        let addUpdateHeader = AddUpdateSubHeader()
+        addUpdateHeader.sizeToFit()
         return addUpdateHeader
     }()
+    
+    private var formHeader: HeaderFooterView<UIView>?
     
     private let deleteBtn: UIButton = {
         let btn = UIButton()
@@ -41,7 +44,6 @@ class AddUpdateSubViewController: FormViewController {
         btn.backgroundColor = .white.withAlphaComponent(0.5)
         btn.layer.cornerRadius = 16
         
-      
         return btn
     }()
     
@@ -105,7 +107,11 @@ class AddUpdateSubViewController: FormViewController {
     }
     
     @objc func didTapSaveBtn(){
-        subscription.price = Decimal(string: subHeader.costTxtField.text ?? "") ?? 0.0
+        subscription.price = Decimal(string: customSubHeader.costTxtField.text ?? "") ?? 0.0
+        let isValidForm = validateForm()
+        if(!isValidForm) {
+            return
+        }
         SubscriptionService.shared.saveSubscription(subscription)
         dismissAndReloadData()
     }
@@ -113,6 +119,20 @@ class AddUpdateSubViewController: FormViewController {
     @objc func didTapDeleteBtn(){
         SubscriptionService.shared.deleteSubscription(subscription)
         dismissAndReloadData()
+    }
+    
+    private func validateForm() -> Bool{
+        view.endEditing(false)
+        if(subscription.name.isEmpty){
+            return false
+        }
+        if(subscription.price <= 0){
+            customSubHeader.validationMessageLb.isHidden = false
+            customSubHeader.setNeedsLayout()
+            return false
+        }
+        
+        return true
     }
     
     private func dismissAndReloadData(){
@@ -128,33 +148,35 @@ class AddUpdateSubViewController: FormViewController {
     private func configureSubscriptionForm(){
         tableView.backgroundColor = subscription.color
         
+        
         form +++ Section() { section in
-            section.header = {
-                var header = HeaderFooterView<UIView>(.callback({ [unowned self] in
-                    self.subHeader.configure(with: self.subscription)
-                    return self.subHeader
+            section.header = { [unowned self] in
+                self.formHeader = HeaderFooterView<UIView>(.callback({ [unowned self] in
+                    self.customSubHeader.configure(with: self.subscription)
+                    return self.customSubHeader
                 }))
-                header.height = { 220 }
-                return header
+                self.formHeader?.height = { 260 }
+                return self.formHeader
             }()
         }
         <<< MTextRow(){
             $0.title = "Name"
+            $0.add(rule: RuleRequired())
             $0.placeholder = "Add a name"
             $0.value = subscription.name
-        }.onChange{[unowned self] row in self.subscription.name = row.value!}
+        }.onChange{[unowned self] row in self.subscription.name = row.value ?? ""}
         <<< MTextRow(){
             $0.title = "Description"
             $0.tag = "description"
             $0.placeholder = "Add a description"
             $0.value = subscription.description
-        }.onChange{[unowned self] row in self.subscription.description = row.value!}
+        }.onChange{[unowned self] row in self.subscription.description = row.value ?? ""}
         <<< MCategoryRow(){
             $0.title = "Category"
             $0.tag = "category"
             $0.noValueDisplayText = "Choose a Cagetory"
             $0.value = subscription.category
-        }.onChange{[unowned self] row in self.subscription.category = row.value!}
+        }.onChange{[unowned self] row in self.subscription.category = row.value ?? ""}
         <<< MDateRow(){
             $0.title = "Next Bill"
             $0.tag = "nextBill"
@@ -176,8 +198,6 @@ class AddUpdateSubViewController: FormViewController {
             
             self.subscription.billingCycle.0 = row.value?.b ?? 1
             self.subscription.billingCycle.1 = row.value?.c ?? "week(s)"
-            
-            print(row.value?.b)
             
             if(row.selectedC == row.value?.c){
                 return
@@ -227,14 +247,13 @@ class AddUpdateSubViewController: FormViewController {
         }
         <<< MCurrencyRow(){
             $0.title = "Currency"
-            $0.tag = "currency"
             $0.selectorTitle = "Select currency"
             $0.noValueDisplayText = "Select a currency"
             $0.value = subscription.currency
             $0.onChange({[unowned self] row in
                 if let currency = row.value {
                     self.subscription.currency = currency
-                    self.subHeader.configure(with: self.subscription)
+                    self.customSubHeader.configure(with: self.subscription)
                 }
                 row.reload()
             })

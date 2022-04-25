@@ -16,6 +16,19 @@ class AddUpdateSubHeader: UIView, UITextFieldDelegate {
     
     var price: Decimal?
     
+    let validationMessageLb: UILabel = {
+        let lb = MLabel(withInsets: 2, 2, 16, 16)
+        lb.addLeading(
+            image: UIImage(systemName: "info.circle")!.withTintColor(.white),
+            text: "You need to add a price")
+        lb.textColor = .white
+        lb.backgroundColor = .darkGray
+        lb.layer.cornerRadius = 16
+        lb.layer.masksToBounds = true
+        lb.isHidden = true
+        return lb
+    }()
+    
     let logoImg: UIImageView = {
        let imgView = UIImageView()
         imgView.contentMode = .scaleAspectFit
@@ -29,12 +42,12 @@ class AddUpdateSubHeader: UIView, UITextFieldDelegate {
         txtField.font = .systemFont(ofSize: 32, weight: .semibold)
         txtField.textAlignment = .center
         txtField.keyboardType = .numberPad
+        
         let viewForDoneButtonOnKeyboard = UIToolbar()
         viewForDoneButtonOnKeyboard.sizeToFit()
         let btnDoneOnKeyboard = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(doneBtnFromKeyboardClicked))
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         viewForDoneButtonOnKeyboard.items = [flexibleSpace,btnDoneOnKeyboard]
-    
         
         txtField.inputAccessoryView = viewForDoneButtonOnKeyboard
         return txtField
@@ -56,6 +69,7 @@ class AddUpdateSubHeader: UIView, UITextFieldDelegate {
     override init(frame: CGRect) {
         super.init(frame: frame)
         clipsToBounds = true
+        addSubview(validationMessageLb)
         addSubview(logoImg)
         addSubview(costTxtField)
         addSubview(currencyUnitLb)
@@ -67,19 +81,27 @@ class AddUpdateSubHeader: UIView, UITextFieldDelegate {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        costTxtField.sizeToFit()
+        currencyUnitLb.sizeToFit()
+        
+        if validationMessageLb.isHidden {
+            validationMessageLb.frame = CGRect(x: 0, y: 0, width: 0, height: 0 )
+        } else {
+            validationMessageLb.sizeToFit()
+            validationMessageLb.frame = CGRect(x: (width-validationMessageLb.width-32)/2, y: 24, width: validationMessageLb.width+32, height: 48)
+        }
         
         let logoImgWidth = 100.0
         let logoImgHeight = 100.0
-        logoImg.frame = CGRect(x: (width-logoImgWidth)/2, y: (height-logoImgHeight)/2-24, width: logoImgWidth, height: logoImgHeight)
+        logoImg.frame = CGRect(x: (width-logoImgWidth)/2, y: validationMessageLb.bottom+24, width: logoImgWidth, height: logoImgHeight)
         
-        costTxtField.sizeToFit()
-        currencyUnitLb.sizeToFit()
         costTxtField.delegate = self
         costTxtField.frame = CGRect(x: (width-costTxtField.width-currencyUnitLb.width)/2, y: logoImg.bottom+16, width: costTxtField.width, height: costTxtField.height)
     
         currencyUnitLb.frame = CGRect(x: costTxtField.right, y: logoImg.bottom+16, width: currencyUnitLb.width, height: currencyUnitLb.height)
         
-        if(costTxtField.text?.isEmpty ?? true) {
+        if(costTxtField.text?.isEmpty ?? true &&
+           validationMessageLb.isHidden) {
             costTxtField.becomeFirstResponder()
         }
             
@@ -92,6 +114,11 @@ class AddUpdateSubHeader: UIView, UITextFieldDelegate {
         let allowedCharacters = CharacterSet.decimalDigits
         let characterSet = CharacterSet(charactersIn: string)
         return allowedCharacters.isSuperset(of: characterSet)
+    }
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        validationMessageLb.isHidden = true
+        setNeedsLayout()
+        return true
     }
     
     
@@ -115,3 +142,4 @@ class AddUpdateSubHeader: UIView, UITextFieldDelegate {
         }
     }
 }
+
