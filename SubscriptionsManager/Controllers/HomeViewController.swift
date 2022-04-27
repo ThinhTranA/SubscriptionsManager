@@ -37,12 +37,15 @@ class HomeViewController: UIViewController {
     }()
     
     private let subsTableView: UITableView = {
-        let tableView = UITableView(frame: .zero, style: .grouped)
+        let tableView = UITableView(frame: .zero, style: .plain)
         tableView.register(SubscriptionViewCell.self, forCellReuseIdentifier: SubscriptionViewCell.identifier)
+        
         return tableView
     }()
     
     private let bottomBar = BottomTabView()
+    
+    private let headerTotalView = HeaderTotalView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,10 +53,16 @@ class HomeViewController: UIViewController {
         view.backgroundColor = .systemBackground
         view.addSubview(titleLabel)
         
+        setupHeaderTotalView()
         setupNavigationBar()
         setupTableView()
         setupEmptySubPlaceholder()
         setupBottomBarView()
+    }
+    
+    func setupHeaderTotalView(){
+        view.addSubview(headerTotalView)
+        headerTotalView.configure(with: 3000)
     }
     
     private func setupNavigationBar(){
@@ -140,7 +149,11 @@ class HomeViewController: UIViewController {
             height: BottomTabView.tabHeight
         )
         
-        subsTableView.frame = view.bounds
+        headerTotalView.frame = CGRect(x: 0, y: 0, width: view.width, height: 300)
+        
+        subsTableView.frame = CGRect(x: 0, y: headerTotalView.bottom, width: view.width, height: view.height-headerTotalView.height)
+        subsTableView.backgroundColor = .green
+    
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -178,6 +191,7 @@ extension HomeViewController: BotomTabViewDelegate {
 extension HomeViewController: AddUpdateSubDelegate{
     func reloadAllSubscriptions() {
         subsciptions = SubscriptionService.shared.getAllSubscriptions()
+        headerTotalView.configure(with: 5392.20, duration: 1)
         subsTableView.reloadData()
     }
     
@@ -221,7 +235,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         present(navVC, animated: true)    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
+        80
     }
     
     

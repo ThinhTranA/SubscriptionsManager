@@ -40,10 +40,12 @@
 		E59B478F27FC3BE800B76E10 /* EntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59B478E27FC3BE800B76E10 /* EntryTableViewCell.swift */; };
 		E59B479127FC3CB900B76E10 /* EntryTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59B479027FC3CB900B76E10 /* EntryTableViewCellViewModel.swift */; };
 		E59F2C5228026BC6001DD28C /* FormPickerInputAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59F2C5128026BC6001DD28C /* FormPickerInputAccessoryView.swift */; };
+		E5A18BB12819F61C00954281 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A18BB02819F61C00954281 /* ViewController.swift */; };
 		E5A62B6727F90579004FA950 /* SubscriptionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A62B6627F90579004FA950 /* SubscriptionViewCell.swift */; };
 		E5A62B6A27F90697004FA950 /* SubscriptionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A62B6927F90697004FA950 /* SubscriptionViewCellViewModel.swift */; };
 		E5A62B6F27F926B4004FA950 /* SubscriptionSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A62B6E27F926B4004FA950 /* SubscriptionSection.swift */; };
 		E5B7BAC52812EFCA00F6A78B /* TotalSubHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B7BAC42812EFCA00F6A78B /* TotalSubHeader.swift */; };
+		E5BD0C09281895A8000E4706 /* HeaderTotalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BD0C08281895A8000E4706 /* HeaderTotalView.swift */; };
 		E5DF4CF628037F9200AB1671 /* CurrencyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DF4CF528037F9200AB1671 /* CurrencyCell.swift */; };
 		E5E7B51927FDB00E00FAAEA2 /* SubscriptionHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E7B51827FDB00E00FAAEA2 /* SubscriptionHeaderViewModel.swift */; };
 		E5F1B8EF2802F44D003B7BEB /* MPushRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F1B8EE2802F44D003B7BEB /* MPushRow.swift */; };
@@ -89,10 +91,12 @@
 		E59B478E27FC3BE800B76E10 /* EntryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryTableViewCell.swift; sourceTree = "<group>"; };
 		E59B479027FC3CB900B76E10 /* EntryTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		E59F2C5128026BC6001DD28C /* FormPickerInputAccessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormPickerInputAccessoryView.swift; sourceTree = "<group>"; };
+		E5A18BB02819F61C00954281 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E5A62B6627F90579004FA950 /* SubscriptionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionViewCell.swift; sourceTree = "<group>"; };
 		E5A62B6927F90697004FA950 /* SubscriptionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionViewCellViewModel.swift; sourceTree = "<group>"; };
 		E5A62B6E27F926B4004FA950 /* SubscriptionSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionSection.swift; sourceTree = "<group>"; };
 		E5B7BAC42812EFCA00F6A78B /* TotalSubHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalSubHeader.swift; sourceTree = "<group>"; };
+		E5BD0C08281895A8000E4706 /* HeaderTotalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTotalView.swift; sourceTree = "<group>"; };
 		E5DF4CF528037F9200AB1671 /* CurrencyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyCell.swift; sourceTree = "<group>"; };
 		E5E7B51827FDB00E00FAAEA2 /* SubscriptionHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionHeaderViewModel.swift; sourceTree = "<group>"; };
 		E5F1B8EE2802F44D003B7BEB /* MPushRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPushRow.swift; sourceTree = "<group>"; };
@@ -178,6 +182,7 @@
 				E547E1DA27F2790C000A9E8F /* HomeViewController.swift */,
 				E5525A63280E2C04001B0A05 /* AddExpenseViewController.swift */,
 				E5604BE627FF1CB500B2107F /* AddUpdateSubViewController.swift */,
+				E5A18BB02819F61C00954281 /* ViewController.swift */,
 				E582D83F280CD876004741B5 /* Pickers */,
 			);
 			path = Controllers;
@@ -193,6 +198,7 @@
 				E55C807E27F45DD60035CDC3 /* BottomTabView.swift */,
 				E59B478E27FC3BE800B76E10 /* EntryTableViewCell.swift */,
 				E5926F9B2814B8AA00B3EE8B /* MLabel.swift */,
+				E5BD0C08281895A8000E4706 /* HeaderTotalView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -407,6 +413,7 @@
 				E582D83E280CD872004741B5 /* CategoryPickerViewController.swift in Sources */,
 				E59B479127FC3CB900B76E10 /* EntryTableViewCellViewModel.swift in Sources */,
 				E55C808227F45EAA0035CDC3 /* Extensions.swift in Sources */,
+				E5BD0C09281895A8000E4706 /* HeaderTotalView.swift in Sources */,
 				E5525A62280E16BA001B0A05 /* Expense.swift in Sources */,
 				E582D848280CDF43004741B5 /* CategoryRowViewModel.swift in Sources */,
 				E5F1B8EF2802F44D003B7BEB /* MPushRow.swift in Sources */,
@@ -432,6 +439,7 @@
 				E5926F9C2814B8AA00B3EE8B /* MLabel.swift in Sources */,
 				E5162D37280ACA320075EA15 /* AddUpdateSubHeader.swift in Sources */,
 				E589F5FC2810B07700C71BAD /* SubscriptionService.swift in Sources */,
+				E5A18BB12819F61C00954281 /* ViewController.swift in Sources */,
 				E5686C6728097E96007ED8BB /* CurrencyService.swift in Sources */,
 				E52C61272800F88300909C9C /* MTriplePickerInputRow.swift in Sources */,
 				E5604BE727FF1CB500B2107F /* AddUpdateSubViewController.swift in Sources */,
