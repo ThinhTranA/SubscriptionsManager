@@ -1,23 +1,22 @@
 //
-//  CustomSegmentedControl.swif
+//  MSegmentedControl.swift
+//  SubscriptionsManager
 //
-//
-//  Created by Bruno Faganello on 05/07/18.
-//  Copyright © 2018 Code With Coffe . All rights reserved.
+//  Created by Thinh Tran on 29/4/2022.
 //
 
 import UIKit
-protocol MSegmentedControlDelegate:class {
-    func change(to index:Int)
+protocol MSegmentedControlDelegate:AnyObject {
+    func segSelectedIndexChange(to index:Int)
 }
 
-class MSegmentedControl: UIView {
+class MSegmentedControl: UIControl {
     private var buttonTitles:[String]!
     private var buttons: [UIButton]!
     private var selectorView: UIView!
     
     var textColor:UIColor = .black
-    var selectorViewColor: UIColor = .red
+    var selectorViewColor: UIColor = .white
     var selectorTextColor: UIColor = .red
     
     weak var delegate:MSegmentedControlDelegate?
@@ -57,7 +56,7 @@ class MSegmentedControl: UIView {
             if btn == sender {
                 let selectorPosition = frame.width/CGFloat(buttonTitles.count) * CGFloat(buttonIndex)
                 selectedIndex = buttonIndex
-                delegate?.change(to: selectedIndex)
+                delegate?.segSelectedIndexChange(to: selectedIndex)
                 UIView.animate(withDuration: 0.3) {
                     self.selectorView.frame.origin.x = selectorPosition
                 }
@@ -90,8 +89,10 @@ extension MSegmentedControl {
     
     private func configSelectorView() {
         let selectorWidth = frame.width / CGFloat(self.buttonTitles.count)
-        selectorView = UIView(frame: CGRect(x: 0, y: self.frame.height, width: selectorWidth, height: 2))
+        selectorView = UIView(frame: CGRect(x: 0, y: 8, width: selectorWidth, height: 32))
         selectorView.backgroundColor = selectorViewColor
+        selectorView.layer.cornerRadius = 16
+        selectorView.layer.opacity = 0.5
         addSubview(selectorView)
     }
     
@@ -104,6 +105,8 @@ extension MSegmentedControl {
             button.setTitle(buttonTitle, for: .normal)
             button.addTarget(self, action:#selector(MSegmentedControl.buttonAction(sender:)), for: .touchUpInside)
             button.setTitleColor(textColor, for: .normal)
+            button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
+
             buttons.append(button)
         }
         buttons[0].setTitleColor(selectorTextColor, for: .normal)

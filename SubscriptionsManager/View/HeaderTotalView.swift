@@ -7,20 +7,30 @@
 
 import UIKit
 
-class HeaderTotalView: UIView {
+class HeaderTotalView: UIView, MSegmentedControlDelegate {
+ 
     
     private let priceLb : UILabel = {
         let lb = UILabel()
         lb.textAlignment = .center
         return lb
     }()
+    
+    private let segControl: MSegmentedControl = {
+        let segControl = MSegmentedControl(
+            frame: CGRect(x: 0, y: 240, width: 280, height: 50),
+            buttonTitle: ["Average","Total","Pending"])
+        segControl.textColor = M.Colors.greyWhite
+        segControl.selectorTextColor = .white
+        return segControl
+    }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .orange
         addSubview(priceLb)
-     //   createSuitSegmentedControl()
-        createSegmentedControl()
+        addSubview(segControl)
+        segControl.delegate = self
         
         let displayLink = CADisplayLink(target: self, selector: #selector(handleUpdate))
         displayLink.add(to: .main, forMode: .default)
@@ -31,6 +41,7 @@ class HeaderTotalView: UIView {
         priceLb.backgroundColor = .green
         priceLb.frame = CGRect(x: (width-200)/2, y: 180, width: 200, height: 50)
         
+        segControl.frame = CGRect(x: (width-segControl.width)/2, y: height-segControl.height-8, width: segControl.width, height: segControl.height)
     }
     
     required init?(coder: NSCoder) {
@@ -54,39 +65,15 @@ class HeaderTotalView: UIView {
         }
     }
     
-    func createSegmentedControl(){
-        let segControl = MSegmentedControl(
-            frame: CGRect(x: 0, y: 240, width: 300, height: 50),
-            buttonTitle: ["Average","Total","Pending"])
-        addSubview(segControl)
-        
-    }
-    
-    func createSegmentedControl2(){
-        let items = ["Average", "Total", "Pending"]
-        let segmentedControl = UISegmentedControl(items: items)
-        segmentedControl.backgroundColor = .clear
-        
-        
-        segmentedControl.addTarget(self, action: #selector(segDidChange(_:)), for: .valueChanged)
-        segmentedControl.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(segmentedControl)
-        
-        NSLayoutConstraint.activate([
-            segmentedControl.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
-            segmentedControl.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
-            segmentedControl.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16)
-        ])
-    }
-    
-    @objc func segDidChange(_ segmentedControl: UISegmentedControl){
-        switch segmentedControl.selectedSegmentIndex {
+    func segSelectedIndexChange(to index: Int) {
+        switch index {
         case 0: print("Average")
         case 1: print("Total")
         case 2: print("Pending")
         default: break
         }
     }
+
     
     func configure(with totalCost: Double, duration seconds: Double = 1){
         endValue = totalCost
