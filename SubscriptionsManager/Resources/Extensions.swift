@@ -117,3 +117,12 @@ extension Date {
     }
 
 }
+
+extension Double {
+    var priceString: String { 
+        if self.truncatingRemainder(dividingBy: 1.0) > 0.001 {
+            return String(format: "%.2f", self)
+        }
+        return String(format: "%.0f", self)
+    }
+}

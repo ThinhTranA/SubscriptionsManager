@@ -41,7 +41,7 @@ class AddUpdateSubHeader: UIView, UITextFieldDelegate {
         txtField.placeholder = "0.00"
         txtField.font = .systemFont(ofSize: 32, weight: .semibold)
         txtField.textAlignment = .center
-        txtField.keyboardType = .numberPad
+        txtField.keyboardType = .decimalPad
         
         let viewForDoneButtonOnKeyboard = UIToolbar()
         viewForDoneButtonOnKeyboard.sizeToFit()
@@ -111,13 +111,43 @@ class AddUpdateSubHeader: UIView, UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         costTxtField.sizeToFit()
         
-        let allowedCharacters = CharacterSet.decimalDigits
+        let allowedCharacters = CharacterSet.decimalDigits.union (CharacterSet (charactersIn: "."))
         let characterSet = CharacterSet(charactersIn: string)
-        return allowedCharacters.isSuperset(of: characterSet)
+        return allowedCharacters.isSuperset(of: characterSet) && validatePriceEntry(text: string, textField: textField)
     }
+    private func validatePriceEntry(text: String, textField: UITextField) -> Bool {
+        // Allow to remove character (Backspace)
+           if text == "" {
+               return true
+           }
+
+          // Block multiple dot
+           if (textField.text?.contains("."))! && text == "." {
+               return false
+           }
+
+           // Check here decimal places
+           if (textField.text?.contains("."))! {
+               let limitDecimalPlace = 2
+               let decimalPlace = textField.text?.components(separatedBy: ".").last
+               if (decimalPlace?.count)! < limitDecimalPlace {
+                   return true
+               }
+               else {
+                   return false
+               }
+           }
+           return true
+    }
+    
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         validationMessageLb.isHidden = true
         setNeedsLayout()
+        return true
+    }
+    
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        print("end ediit")
         return true
     }
     

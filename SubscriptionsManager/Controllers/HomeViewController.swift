@@ -191,7 +191,7 @@ extension HomeViewController: BotomTabViewDelegate {
 extension HomeViewController: AddUpdateSubDelegate{
     func reloadAllSubscriptions() {
         subsciptions = SubscriptionService.shared.getAllSubscriptions()
-        headerTotalView.configure(with: 5392.20, duration: 1)
+        headerTotalView.configure(with: subsciptions, duration: 1)
         subsTableView.reloadData()
     }
     

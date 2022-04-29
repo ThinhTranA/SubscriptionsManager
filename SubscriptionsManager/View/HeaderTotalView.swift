@@ -7,12 +7,27 @@
 
 import UIKit
 
+enum PriceType {
+    case average
+    case total
+    case pending
+    
+    var title: String {
+        switch self {
+        case .average: return "Monthly Average"
+        case .total: return "Monthly Total"
+        case .pending: return "Montly Pending"
+        }
+    }
+}
+
 class HeaderTotalView: UIView, MSegmentedControlDelegate {
- 
     
     private let priceLb : UILabel = {
         let lb = UILabel()
         lb.textAlignment = .center
+        lb.textColor = M.Colors.white
+        lb.font = .systemFont(ofSize: 36, weight: .semibold)
         return lb
     }()
     
@@ -24,6 +39,9 @@ class HeaderTotalView: UIView, MSegmentedControlDelegate {
         segControl.selectorTextColor = .white
         return segControl
     }()
+    
+    private var priceType: PriceType = .average
+    private var subscriptions: [Subscription]?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -38,8 +56,7 @@ class HeaderTotalView: UIView, MSegmentedControlDelegate {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        priceLb.backgroundColor = .green
-        priceLb.frame = CGRect(x: (width-200)/2, y: 180, width: 200, height: 50)
+        priceLb.frame = CGRect(x: 0, y: 180, width: width, height: 50)
         
         segControl.frame = CGRect(x: (width-segControl.width)/2, y: height-segControl.height-8, width: segControl.width, height: segControl.height)
     }
@@ -57,23 +74,28 @@ class HeaderTotalView: UIView, MSegmentedControlDelegate {
         let elapsedTime = now.timeIntervalSince(animationStartDate)
         
         if elapsedTime > animationDuration {
-            self.priceLb.text = "\(endValue)"
+            self.priceLb.text = "\(endValue.priceString)$"
         } else {
             let percentage = elapsedTime / animationDuration
             let value = startValue + percentage * (endValue - startValue)
-            self.priceLb.text = String(format: "%.2f", value)
+            self.priceLb.text = String(format: "%.2f$", value)
         }
     }
     
     func segSelectedIndexChange(to index: Int) {
         switch index {
-        case 0: print("Average")
-        case 1: print("Total")
-        case 2: print("Pending")
+        case 0:
+            priceType = .average
+        case 1: priceType = .total
+        case 2: priceType = .pending
         default: break
         }
+        
+        if let subs = subscriptions {
+            configure(with: subs)
+        }
     }
-
+    
     
     func configure(with totalCost: Double, duration seconds: Double = 1){
         endValue = totalCost
@@ -82,5 +104,22 @@ class HeaderTotalView: UIView, MSegmentedControlDelegate {
         animationStartDate = Date()
     }
     
+    func configure(with subs: [Subscription], duration seconds: Double = 1){
+        subscriptions = subs
+        let totalCost: Decimal
+        // TODO: Calculate these
+        switch priceType {
+        case .average:
+            totalCost = subs.map{$0.price}.reduce(0.0, +) + 8 //
+        case .total:
+            totalCost = subs.map{$0.price}.reduce(0.0, +) + 139 //Just to mock the diff
+        case .pending:
+            totalCost = subs.map{$0.price}.reduce(0.0, +) - 7 // mock
+        }
+        endValue = Double(truncating: totalCost as NSNumber)
+        //reset animation
+        animationDuration = seconds
+        animationStartDate = Date()
+    }
     
 }
