@@ -22,8 +22,8 @@ class AddUpdateSubViewController: FormViewController {
         description: "",
         category: "",
         nextBill: Date(),
-        billingCycle: (1, "week(s)"),
-        remind: ("Never","",""),
+        billingCycle: BillingCycle(quantity: 1, unit: .week),
+        remind: Remind(time: "Never", day: "", before: ""),
         price: 0.00
     )
     
@@ -185,34 +185,43 @@ class AddUpdateSubViewController: FormViewController {
                 $0.value = Date()
             }
         }.onChange{[unowned self] row in self.subscription.nextBill = row.value!}
-        <<< MTriplePickerInputRow<String, Int, String>() {
+        <<< MTriplePickerInputRow<String, Int, BillingCycleUnit>() {
             $0.firstOptions = { return ["Every"]}
             $0.secondOptions = { a in
                 return [1, 2, 3]}
             $0.thirdOptions = { b, c in
-                return ["week(s)","month(s)","year"]}
+                return [.week,.month,.year]}
             $0.title = "Billing Cycle"
             $0.tag = "billingCycle"
-            $0.value = .init(a: "Every", b: subscription.billingCycle.0, c: subscription.billingCycle.1)
+            $0.value = .init(a: "Every", b: subscription.billingCycle.quantity, c: subscription.billingCycle.unit)
+            
+            
         }.onChange{ [unowned self] row in
             
-            self.subscription.billingCycle.0 = row.value?.b ?? 1
-            self.subscription.billingCycle.1 = row.value?.c ?? "week(s)"
+            self.subscription.billingCycle.quantity = row.value?.b ?? 1
+            if let vl = row.value {
+                let qty = vl.b
+                let sStr = "\(qty > 1 ? "s" : "")"
+                row.displayString =  String(describing: vl.a) + " "
+                + String(describing: vl.b) + " "
+                + String(describing: vl.c)
+                + sStr
+            }
             
             if(row.selectedC == row.value?.c){
                 return
             }
             
             switch row.value?.c {
-            case "week(s)":
+            case .week:
                 row.secondOptions = { _ in
                 return [1,2,3,4,5,6]
             }
-            case "month(s)":
+            case .month:
                 row.secondOptions = { _ in
                 return [1,2,3,4,5,6,7,8,9,10,11,12]
             }
-            case "year":
+            case .year:
                 row.secondOptions = { _ in
                 return [1]
             }
@@ -221,7 +230,9 @@ class AddUpdateSubViewController: FormViewController {
             }
             
             row.selectedC = row.value?.c
-            row.value = .init(a: row.value?.a ?? "Every", b: 1, c: row.value?.c ?? "week(s)")
+            row.value = .init(a: row.value?.a ?? "Every", b: 1, c: row.value?.c ?? .week)
+            
+          
         }
         <<< MTriplePickerInputRow<String, String, String>() {
             $0.firstOptions = { return ["Never", "Same", "1", "2", "3", "4", "5", "6","7"]}
@@ -231,12 +242,12 @@ class AddUpdateSubViewController: FormViewController {
                 return ["", "before"]}
             $0.title = "Remind"
             $0.tag = "remind"
-            $0.value = .init(a: subscription.remind.0, b: subscription.remind.1, c: subscription.remind.2)
+            $0.value = .init(a: subscription.remind.time, b: subscription.remind.day, c: subscription.remind.before)
         }.onChange{ [unowned self] row in
             
-            self.subscription.remind.0 = row.value?.a ?? "Never"
-            self.subscription.remind.1 = row.value?.b ?? ""
-            self.subscription.remind.2 = row.value?.c ?? ""
+            self.subscription.remind.time = row.value?.a ?? "Never"
+            self.subscription.remind.day = row.value?.b ?? ""
+            self.subscription.remind.before = row.value?.c ?? ""
             
             switch row.value?.a {
                 case "Never":

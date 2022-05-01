@@ -14,19 +14,16 @@ struct Subscription: Equatable{
     var description: String
     var category: String
     var nextBill: Date
-    var billingCycle: (Int, String)
-    var remind: (String, String, String)
+    var billingCycle: BillingCycle
+    var remind: Remind
     var currency: Currency?
     var price: Decimal
     
     var color: UIColor?
     var logo: String?
     
-
     
-    var billingCycleString: String {
-        "\(billingCycle.0) \(billingCycle.1)"
-    }
+   
     var costString: String {
         "\(price) \(currency?.symbol ?? "$")"
     }

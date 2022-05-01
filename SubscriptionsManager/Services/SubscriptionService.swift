@@ -14,6 +14,7 @@ class SubscriptionService {
     
     func getAllSubscriptions() -> [Subscription]{
         subscriptionList
+        
     }
     
     func getSubscription(by id: String) -> Subscription?{
@@ -40,17 +41,17 @@ class SubscriptionService {
     func markSubscriptionAsPaid(_ subId: String){
         if var sub = getSubscription(by: subId){
             
-            if sub.billingCycle.1 == "week(s)" {
+            if sub.billingCycle.unit == .week {
                 var nextDueDatesFromNow = 1
-                nextDueDatesFromNow = sub.billingCycle.0 * 7
+                nextDueDatesFromNow = sub.billingCycle.quantity * 7
                 while(sub.nextBill.days(sinceDate: Date.now) ?? 0 < 0){
                     sub.nextBill = Calendar.current.date(byAdding: .day, value: nextDueDatesFromNow, to: sub.nextBill) ?? sub.nextBill
                 }
-            } else if sub.billingCycle.1 == "month(s)"{
+            } else if sub.billingCycle.unit == .month{
                 while(sub.nextBill.days(sinceDate: Date.now) ?? 0 < 0){
                     sub.nextBill = Calendar.current.date(byAdding: .month, value: 1, to: sub.nextBill) ?? sub.nextBill
                 }
-            } else if sub.billingCycle.1 == "year"{
+            } else if sub.billingCycle.unit == .year{
                 while(sub.nextBill.days(sinceDate: Date.now) ?? 0 < 0){
                     sub.nextBill = Calendar.current.date(byAdding: .year, value: 1, to: sub.nextBill) ?? sub.nextBill
                 }

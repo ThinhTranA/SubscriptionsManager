@@ -10,7 +10,8 @@ import Eureka
 
 public final class MTriplePickerInputRow<A, B, C>: _TriplePickerInputRow<A, B, C>, RowType where A: Equatable, B: Equatable, C: Equatable {
     
-    var selectedC: String?
+    var selectedC: BillingCycleUnit?
+    var displayString: String?
     
     required public init(tag: String?) {
         super.init(tag: tag)
@@ -21,7 +22,13 @@ public final class MTriplePickerInputRow<A, B, C>: _TriplePickerInputRow<A, B, C
             guard let tuple = tuple else {
                 return self?.noValueDisplayText
             }
-            return String(describing: tuple.a) + " " + String(describing: tuple.b) + " " + String(describing: tuple.c)
+            if let displayStr = self?.displayString {
+                return displayStr
+            }
+           
+            return String(describing: tuple.a) + " "
+            + String(describing: tuple.b) + " "
+            + String(describing: tuple.c)
         }
         cell.detailTextLabel?.textColor = M.Colors.white
     }

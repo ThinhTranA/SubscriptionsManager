@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A7FBC74281F376E00B4CAE2 /* BillingCycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7FBC73281F376E00B4CAE2 /* BillingCycle.swift */; };
+		4A7FBC76281F432C00B4CAE2 /* Remind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7FBC75281F432C00B4CAE2 /* Remind.swift */; };
 		6BBEB00D21F2213D28824692 /* Pods_SubscriptionsManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDB0910380CA349C4F94E1C7 /* Pods_SubscriptionsManager.framework */; };
 		E502771027FFCCC400B3C4F5 /* MTextRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E502770F27FFCCC400B3C4F5 /* MTextRow.swift */; };
 		E502771327FFCF8F00B3C4F5 /* MDateRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E502771227FFCF8F00B3C4F5 /* MDateRow.swift */; };
@@ -55,6 +57,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4A7FBC73281F376E00B4CAE2 /* BillingCycle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillingCycle.swift; sourceTree = "<group>"; };
+		4A7FBC75281F432C00B4CAE2 /* Remind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Remind.swift; sourceTree = "<group>"; };
 		CDB0910380CA349C4F94E1C7 /* Pods_SubscriptionsManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SubscriptionsManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA12B6304B760CE8CB769294 /* Pods-SubscriptionsManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SubscriptionsManager.release.xcconfig"; path = "Target Support Files/Pods-SubscriptionsManager/Pods-SubscriptionsManager.release.xcconfig"; sourceTree = "<group>"; };
 		E502770F27FFCCC400B3C4F5 /* MTextRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTextRow.swift; sourceTree = "<group>"; };
@@ -265,6 +269,8 @@
 				E5610B3D2809772900166399 /* Currency.swift */,
 				E5525A5F280E0614001B0A05 /* Subscription.swift */,
 				E5525A61280E16BA001B0A05 /* Expense.swift */,
+				4A7FBC73281F376E00B4CAE2 /* BillingCycle.swift */,
+				4A7FBC75281F432C00B4CAE2 /* Remind.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -428,10 +434,12 @@
 				E5F1B8F22802FB75003B7BEB /* CurrencyPickerController.swift in Sources */,
 				E5B7BAC52812EFCA00F6A78B /* TotalSubHeader.swift in Sources */,
 				E5525A66280E2C5E001B0A05 /* ExpenseViewCell.swift in Sources */,
+				4A7FBC74281F376E00B4CAE2 /* BillingCycle.swift in Sources */,
 				E547E1D727F2790C000A9E8F /* AppDelegate.swift in Sources */,
 				E5525A64280E2C04001B0A05 /* AddExpenseViewController.swift in Sources */,
 				E5F1B8F42802FE5F003B7BEB /* MCurrencyRow.swift in Sources */,
 				E5A62B6A27F90697004FA950 /* SubscriptionViewCellViewModel.swift in Sources */,
+				4A7FBC76281F432C00B4CAE2 /* Remind.swift in Sources */,
 				E5525A60280E0614001B0A05 /* Subscription.swift in Sources */,
 				E582D844280CD9E5004741B5 /* CategoryCell.swift in Sources */,
 				E59B478F27FC3BE800B76E10 /* EntryTableViewCell.swift in Sources */,
