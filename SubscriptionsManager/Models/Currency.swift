@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct Currency: Decodable, Equatable {
+public struct Currency: Codable, Equatable {
     let code: String
     let name: String
     let locale: String
@@ -20,7 +20,7 @@ public struct Currency: Decodable, Equatable {
     }
 }
 
-struct CurrencyRanking: Decodable {
+struct CurrencyRanking: Codable {
     let rank: Int
     let symbol: String
     let currencyName: String

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Remind {
+struct Remind: Codable {
     var time: String
     var day: String
     var before: String

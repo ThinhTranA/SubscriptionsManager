@@ -7,16 +7,21 @@
 
 import Foundation
 
-struct BillingCycle {
+struct BillingCycle: Codable {
     var quantity: Int
     var unit: BillingCycleUnit
+    
+    init(quantity: Int, unit: BillingCycleUnit){
+        self.quantity = quantity
+        self.unit = unit
+    }
     
     var description: String {
         "\(quantity) \(unit)\(quantity>1 ? "s" : "")"
     }
 }
 
-enum BillingCycleUnit {
+enum BillingCycleUnit: Codable {
     case week
     case month
     case year

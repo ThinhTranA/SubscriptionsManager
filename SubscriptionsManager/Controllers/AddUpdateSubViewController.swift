@@ -277,14 +277,14 @@ class AddUpdateSubViewController: FormViewController {
     func configure(with expense: Expense){
         subscription.name = expense.name
         subscription.category = expense.category
-        subscription.color = expense.color
+        subscription.colorHex = expense.colorHex
         subscription.logo = expense.logo
     }
     
     func configure(with sub: Subscription){
         subscription.name = sub.name
         subscription.category = sub.category
-        subscription.color = sub.color
+        subscription.colorHex = sub.colorHex
         subscription.logo = sub.logo
     }
     
