@@ -165,7 +165,7 @@ class HomeViewController: UIViewController {
 }
 
 extension HomeViewController: SubscriptionViewCellDelegate {
-    func markAsPaid(subId: String) {
+    func markAsPaid(subId: UUID) {
         SubscriptionService.shared.markSubscriptionAsPaid(subId)
         //Display confirmation for next due date
         reloadAllSubscriptions()

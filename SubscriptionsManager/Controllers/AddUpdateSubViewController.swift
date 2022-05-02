@@ -19,7 +19,7 @@ class AddUpdateSubViewController: FormViewController {
     
     var subscription = Subscription(
         name: "",
-        description: "",
+        subDescription: "",
         category: "",
         nextBill: Date(),
         billingCycle: BillingCycle(quantity: 1, unit: .week),
@@ -169,8 +169,8 @@ class AddUpdateSubViewController: FormViewController {
             $0.title = "Description"
             $0.tag = "description"
             $0.placeholder = "Add a description"
-            $0.value = subscription.description
-        }.onChange{[unowned self] row in self.subscription.description = row.value ?? ""}
+            $0.value = subscription.subDescription
+        }.onChange{[unowned self] row in self.subscription.subDescription = row.value ?? ""}
         <<< MCategoryRow(){
             $0.title = "Category"
             $0.tag = "category"

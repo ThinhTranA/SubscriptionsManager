@@ -17,7 +17,7 @@ class SubscriptionService {
         
     }
     
-    func getSubscription(by id: String) -> Subscription?{
+    func getSubscription(by id: UUID) -> Subscription?{
         subscriptionList.first{ sub in
             sub.id == id
         }
@@ -38,7 +38,7 @@ class SubscriptionService {
         }
     }
     
-    func markSubscriptionAsPaid(_ subId: String){
+    func markSubscriptionAsPaid(_ subId: UUID){
         if var sub = getSubscription(by: subId){
             
             if sub.billingCycle.unit == .week {

@@ -9,9 +9,9 @@ import Foundation
 import UIKit
 
 struct Subscription: Codable, Equatable {
-    let id: String = UUID().uuidString
+    let id: UUID = UUID()
     var name: String
-    var description: String
+    var subDescription: String
     var category: String
     var nextBill: Date
     var billingCycle: BillingCycle

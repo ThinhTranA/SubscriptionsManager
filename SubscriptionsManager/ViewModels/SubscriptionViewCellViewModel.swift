@@ -8,7 +8,7 @@
 import Foundation
 
 struct SubscriptionViewCellViewModel {
-    let subId: String
+    let subId: UUID
     let name: String
     let logo: String
     let cost: String
