@@ -1,13 +1,9 @@
-//
-//  Remind.swift
-//  SubscriptionsManager
-//
-//  Created by Thinh Tran on 2/5/2022.
-//
 
 import Foundation
+import CoreData
 
-struct Remind: Codable {
+
+struct Remind{
     var time: String
     var day: String
     var before: String

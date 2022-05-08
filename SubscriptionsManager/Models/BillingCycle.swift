@@ -1,13 +1,8 @@
-//
-//  BillingCycle.swift
-//  SubscriptionsManager
-//
-//  Created by Thinh Tran on 2/5/2022.
-//
+
 
 import Foundation
 
-struct BillingCycle: Codable {
+struct BillingCycle {
     var quantity: Int
     var unit: BillingCycleUnit
     
@@ -21,7 +16,7 @@ struct BillingCycle: Codable {
     }
 }
 
-enum BillingCycleUnit: Codable {
+enum BillingCycleUnit: Int {
     case week
     case month
     case year

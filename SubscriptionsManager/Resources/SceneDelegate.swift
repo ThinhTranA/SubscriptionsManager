@@ -23,8 +23,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window.rootViewController = UINavigationController(rootViewController: vc)
        // window.rootViewController = AddUpdateSubViewController()
         //window.rootViewController = AddExpenseViewController()
+        
+        //path of coredata sqlite db, go 1 folder up from Document
+        //Library/Application Support/ {.sqlite File here}
+        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        print(urls)
+        
         self.window = window
         self.window?.makeKeyAndVisible()
+        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

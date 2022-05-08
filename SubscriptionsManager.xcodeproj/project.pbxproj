@@ -7,8 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4A7FBC74281F376E00B4CAE2 /* BillingCycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7FBC73281F376E00B4CAE2 /* BillingCycle.swift */; };
-		4A7FBC76281F432C00B4CAE2 /* Remind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7FBC75281F432C00B4CAE2 /* Remind.swift */; };
+		4A470CE3282733C000531395 /* AddUpdateSubViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A470CE2282733C000531395 /* AddUpdateSubViewModel.swift */; };
+		4A470CE5282734C100531395 /* SubscriptionCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A470CE4282734C100531395 /* SubscriptionCD.swift */; };
+		4A62BEA128209D0A00BA45DF /* BillingCycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A62BEA028209D0A00BA45DF /* BillingCycle.swift */; };
+		4A62BEA328209D3900BA45DF /* Remind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A62BEA228209D3900BA45DF /* Remind.swift */; };
+		4A62BEAD28209E3D00BA45DF /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A62BEAC28209E3D00BA45DF /* Currency.swift */; };
+		4A62BEAF28209E6D00BA45DF /* CurrencyRanking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A62BEAE28209E6D00BA45DF /* CurrencyRanking.swift */; };
+		4A7FBC79281F50E300B4CAE2 /* SubscriptionCD.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4A7FBC77281F50E300B4CAE2 /* SubscriptionCD.xcdatamodeld */; };
 		6BBEB00D21F2213D28824692 /* Pods_SubscriptionsManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDB0910380CA349C4F94E1C7 /* Pods_SubscriptionsManager.framework */; };
 		E502771027FFCCC400B3C4F5 /* MTextRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E502770F27FFCCC400B3C4F5 /* MTextRow.swift */; };
 		E502771327FFCF8F00B3C4F5 /* MDateRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E502771227FFCF8F00B3C4F5 /* MDateRow.swift */; };
@@ -21,7 +26,6 @@
 		E547E1DB27F2790C000A9E8F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E547E1DA27F2790C000A9E8F /* HomeViewController.swift */; };
 		E547E1E027F2790C000A9E8F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E547E1DF27F2790C000A9E8F /* Assets.xcassets */; };
 		E547E1E327F2790C000A9E8F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E547E1E127F2790C000A9E8F /* LaunchScreen.storyboard */; };
-		E5525A60280E0614001B0A05 /* Subscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5525A5F280E0614001B0A05 /* Subscription.swift */; };
 		E5525A62280E16BA001B0A05 /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5525A61280E16BA001B0A05 /* Expense.swift */; };
 		E5525A64280E2C04001B0A05 /* AddExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5525A63280E2C04001B0A05 /* AddExpenseViewController.swift */; };
 		E5525A66280E2C5E001B0A05 /* ExpenseViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5525A65280E2C5E001B0A05 /* ExpenseViewCell.swift */; };
@@ -29,7 +33,6 @@
 		E55C807F27F45DD60035CDC3 /* BottomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55C807E27F45DD60035CDC3 /* BottomTabView.swift */; };
 		E55C808227F45EAA0035CDC3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55C808127F45EAA0035CDC3 /* Extensions.swift */; };
 		E5604BE727FF1CB500B2107F /* AddUpdateSubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5604BE627FF1CB500B2107F /* AddUpdateSubViewController.swift */; };
-		E5610B3E2809772900166399 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5610B3D2809772900166399 /* Currency.swift */; };
 		E5686C6728097E96007ED8BB /* CurrencyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5686C6628097E96007ED8BB /* CurrencyService.swift */; };
 		E57E19B42809755400780332 /* Currencies.json in Resources */ = {isa = PBXBuildFile; fileRef = E57E19B32809755400780332 /* Currencies.json */; };
 		E582D83E280CD872004741B5 /* CategoryPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E582D83D280CD872004741B5 /* CategoryPickerViewController.swift */; };
@@ -57,8 +60,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4A7FBC73281F376E00B4CAE2 /* BillingCycle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillingCycle.swift; sourceTree = "<group>"; };
-		4A7FBC75281F432C00B4CAE2 /* Remind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Remind.swift; sourceTree = "<group>"; };
+		4A470CE2282733C000531395 /* AddUpdateSubViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUpdateSubViewModel.swift; sourceTree = "<group>"; };
+		4A470CE4282734C100531395 /* SubscriptionCD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionCD.swift; sourceTree = "<group>"; };
+		4A62BEA028209D0A00BA45DF /* BillingCycle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BillingCycle.swift; sourceTree = "<group>"; };
+		4A62BEA228209D3900BA45DF /* Remind.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Remind.swift; sourceTree = "<group>"; };
+		4A62BEAC28209E3D00BA45DF /* Currency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
+		4A62BEAE28209E6D00BA45DF /* CurrencyRanking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRanking.swift; sourceTree = "<group>"; };
+		4A7FBC78281F50E300B4CAE2 /* SubscriptionCD.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SubscriptionCD.xcdatamodel; sourceTree = "<group>"; };
 		CDB0910380CA349C4F94E1C7 /* Pods_SubscriptionsManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SubscriptionsManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA12B6304B760CE8CB769294 /* Pods-SubscriptionsManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SubscriptionsManager.release.xcconfig"; path = "Target Support Files/Pods-SubscriptionsManager/Pods-SubscriptionsManager.release.xcconfig"; sourceTree = "<group>"; };
 		E502770F27FFCCC400B3C4F5 /* MTextRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTextRow.swift; sourceTree = "<group>"; };
@@ -74,7 +82,6 @@
 		E547E1DF27F2790C000A9E8F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E547E1E227F2790C000A9E8F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E547E1E427F2790C000A9E8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E5525A5F280E0614001B0A05 /* Subscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subscription.swift; sourceTree = "<group>"; };
 		E5525A61280E16BA001B0A05 /* Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
 		E5525A63280E2C04001B0A05 /* AddExpenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseViewController.swift; sourceTree = "<group>"; };
 		E5525A65280E2C5E001B0A05 /* ExpenseViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseViewCell.swift; sourceTree = "<group>"; };
@@ -82,7 +89,6 @@
 		E55C807E27F45DD60035CDC3 /* BottomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomTabView.swift; sourceTree = "<group>"; };
 		E55C808127F45EAA0035CDC3 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		E5604BE627FF1CB500B2107F /* AddUpdateSubViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUpdateSubViewController.swift; sourceTree = "<group>"; };
-		E5610B3D2809772900166399 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		E5686C6628097E96007ED8BB /* CurrencyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyService.swift; sourceTree = "<group>"; };
 		E57E19B32809755400780332 /* Currencies.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Currencies.json; sourceTree = "<group>"; };
 		E582D83D280CD872004741B5 /* CategoryPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPickerViewController.swift; sourceTree = "<group>"; };
@@ -131,6 +137,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		4A62BE852820997D00BA45DF /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				4A470CE4282734C100531395 /* SubscriptionCD.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		D75688FA653235ABC68D5101 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -176,6 +190,7 @@
 				E547E1EB27F279CA000A9E8F /* View */,
 				E547E1EA27F27992000A9E8F /* Controllers */,
 				E547E1E427F2790C000A9E8F /* Info.plist */,
+				4A7FBC77281F50E300B4CAE2 /* SubscriptionCD.xcdatamodeld */,
 			);
 			path = SubscriptionsManager;
 			sourceTree = "<group>";
@@ -258,6 +273,7 @@
 				E59B479027FC3CB900B76E10 /* EntryTableViewCellViewModel.swift */,
 				E5E7B51827FDB00E00FAAEA2 /* SubscriptionHeaderViewModel.swift */,
 				E582D847280CDF43004741B5 /* CategoryRowViewModel.swift */,
+				4A470CE2282733C000531395 /* AddUpdateSubViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -265,12 +281,13 @@
 		E5A62B6D27F92694004FA950 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				4A62BE852820997D00BA45DF /* CoreData */,
 				E5A62B6E27F926B4004FA950 /* SubscriptionSection.swift */,
-				E5610B3D2809772900166399 /* Currency.swift */,
-				E5525A5F280E0614001B0A05 /* Subscription.swift */,
+				4A62BEA228209D3900BA45DF /* Remind.swift */,
+				4A62BEA028209D0A00BA45DF /* BillingCycle.swift */,
+				4A62BEAC28209E3D00BA45DF /* Currency.swift */,
 				E5525A61280E16BA001B0A05 /* Expense.swift */,
-				4A7FBC73281F376E00B4CAE2 /* BillingCycle.swift */,
-				4A7FBC75281F432C00B4CAE2 /* Remind.swift */,
+				4A62BEAE28209E6D00BA45DF /* CurrencyRanking.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -420,13 +437,14 @@
 				E59B479127FC3CB900B76E10 /* EntryTableViewCellViewModel.swift in Sources */,
 				E55C808227F45EAA0035CDC3 /* Extensions.swift in Sources */,
 				E5BD0C09281895A8000E4706 /* HeaderTotalView.swift in Sources */,
+				4A470CE5282734C100531395 /* SubscriptionCD.swift in Sources */,
 				E5525A62280E16BA001B0A05 /* Expense.swift in Sources */,
 				E582D848280CDF43004741B5 /* CategoryRowViewModel.swift in Sources */,
 				E5F1B8EF2802F44D003B7BEB /* MPushRow.swift in Sources */,
 				E5E7B51927FDB00E00FAAEA2 /* SubscriptionHeaderViewModel.swift in Sources */,
+				4A7FBC79281F50E300B4CAE2 /* SubscriptionCD.xcdatamodeld in Sources */,
 				E502771027FFCCC400B3C4F5 /* MTextRow.swift in Sources */,
 				E547E1DB27F2790C000A9E8F /* HomeViewController.swift in Sources */,
-				E5610B3E2809772900166399 /* Currency.swift in Sources */,
 				E55C807F27F45DD60035CDC3 /* BottomTabView.swift in Sources */,
 				E5A62B6727F90579004FA950 /* SubscriptionViewCell.swift in Sources */,
 				E582D842280CD922004741B5 /* CategoryPickerHeader.swift in Sources */,
@@ -434,13 +452,10 @@
 				E5F1B8F22802FB75003B7BEB /* CurrencyPickerController.swift in Sources */,
 				E5B7BAC52812EFCA00F6A78B /* TotalSubHeader.swift in Sources */,
 				E5525A66280E2C5E001B0A05 /* ExpenseViewCell.swift in Sources */,
-				4A7FBC74281F376E00B4CAE2 /* BillingCycle.swift in Sources */,
 				E547E1D727F2790C000A9E8F /* AppDelegate.swift in Sources */,
 				E5525A64280E2C04001B0A05 /* AddExpenseViewController.swift in Sources */,
 				E5F1B8F42802FE5F003B7BEB /* MCurrencyRow.swift in Sources */,
 				E5A62B6A27F90697004FA950 /* SubscriptionViewCellViewModel.swift in Sources */,
-				4A7FBC76281F432C00B4CAE2 /* Remind.swift in Sources */,
-				E5525A60280E0614001B0A05 /* Subscription.swift in Sources */,
 				E582D844280CD9E5004741B5 /* CategoryCell.swift in Sources */,
 				E59B478F27FC3BE800B76E10 /* EntryTableViewCell.swift in Sources */,
 				E59F2C5228026BC6001DD28C /* FormPickerInputAccessoryView.swift in Sources */,
@@ -451,7 +466,12 @@
 				E5686C6728097E96007ED8BB /* CurrencyService.swift in Sources */,
 				E52C61272800F88300909C9C /* MTriplePickerInputRow.swift in Sources */,
 				E5604BE727FF1CB500B2107F /* AddUpdateSubViewController.swift in Sources */,
+				4A470CE3282733C000531395 /* AddUpdateSubViewModel.swift in Sources */,
+				4A62BEA128209D0A00BA45DF /* BillingCycle.swift in Sources */,
+				4A62BEAF28209E6D00BA45DF /* CurrencyRanking.swift in Sources */,
 				E502771327FFCF8F00B3C4F5 /* MDateRow.swift in Sources */,
+				4A62BEAD28209E3D00BA45DF /* Currency.swift in Sources */,
+				4A62BEA328209D3900BA45DF /* Remind.swift in Sources */,
 				E5A62B6F27F926B4004FA950 /* SubscriptionSection.swift in Sources */,
 				E547E1D927F2790C000A9E8F /* SceneDelegate.swift in Sources */,
 				E52C61292800F9D000909C9C /* Constants.swift in Sources */,
@@ -666,6 +686,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4A7FBC77281F50E300B4CAE2 /* SubscriptionCD.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4A7FBC78281F50E300B4CAE2 /* SubscriptionCD.xcdatamodel */,
+			);
+			currentVersion = 4A7FBC78281F50E300B4CAE2 /* SubscriptionCD.xcdatamodel */;
+			path = SubscriptionCD.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = E547E1CB27F2790C000A9E8F /* Project object */;
 }

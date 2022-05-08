@@ -8,14 +8,14 @@
 import UIKit
 
 protocol SubscriptionViewCellDelegate: AnyObject {
-    func markAsPaid(subId: String)
+    func markAsPaid(subId: UUID)
 }
 
 class SubscriptionViewCell: UITableViewCell {
     static let identifier = "SubscriptionViewCell"
     
     var delegate: SubscriptionViewCellDelegate?
-    private var subId: String = ""
+    private var subId: UUID?
     
     private let nameLabel: UILabel = {
         let label = UILabel()
@@ -134,7 +134,9 @@ class SubscriptionViewCell: UITableViewCell {
     }
     
     @objc func didTapMarkAsPaid(){
-        delegate?.markAsPaid(subId: subId)
+        if let id = subId{
+            delegate?.markAsPaid(subId: id)
+        }
     }
 
 }

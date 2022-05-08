@@ -17,15 +17,8 @@ class AddUpdateSubViewController: FormViewController {
     
     var delegate: AddUpdateSubDelegate?
     
-    var subscription = Subscription(
-        name: "",
-        subDescription: "",
-        category: "",
-        nextBill: Date(),
-        billingCycle: BillingCycle(quantity: 1, unit: .week),
-        remind: Remind(time: "Never", day: "", before: ""),
-        price: 0.00
-    )
+    var viewModel : AddUpdateSubViewModel = AddUpdateSubViewModel()
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     private let customSubHeader: AddUpdateSubHeader = {
         let addUpdateHeader = AddUpdateSubHeader()
@@ -49,6 +42,9 @@ class AddUpdateSubViewController: FormViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //fetchData
+        view.backgroundColor = .orange
+        
         configureDeleteBtn()
         configureNavigationBar()
         configureSubscriptionForm()
@@ -77,7 +73,7 @@ class AddUpdateSubViewController: FormViewController {
     private func configureNavigationBar(){
         let newBtn = UIButton(frame: CGRect(x: 0, y: 0, width: 56, height: 24))
         newBtn.setTitle("Save", for: .normal)
-        newBtn.setTitleColor(subscription.color, for: .normal)
+        newBtn.setTitleColor(viewModel.color, for: .normal)
         newBtn.titleLabel?.font = .systemFont(ofSize: 14)
         newBtn.layer.cornerRadius = 14
         newBtn.clipsToBounds = false
@@ -107,26 +103,29 @@ class AddUpdateSubViewController: FormViewController {
     }
     
     @objc func didTapSaveBtn(){
-        subscription.price = Decimal(string: customSubHeader.costTxtField.text ?? "") ?? 0.0
+        viewModel.price = Decimal(string: customSubHeader.costTxtField.text ?? "") ?? 696969 //TODO: update this
         let isValidForm = validateForm()
         if(!isValidForm) {
             return
         }
-        SubscriptionService.shared.saveSubscription(subscription)
+        //SubscriptionService.shared.saveSubscription(subscription)
+        viewModel.saveSubscription()
+        
         dismissAndReloadData()
     }
     
     @objc func didTapDeleteBtn(){
-        SubscriptionService.shared.deleteSubscription(subscription)
+        //SubscriptionService.shared.deleteSubscription(subscription)
+        viewModel.deleteSubscription()
         dismissAndReloadData()
     }
     
     private func validateForm() -> Bool{
         view.endEditing(false)
-        if(subscription.name.isEmpty){
+        if(viewModel.name.isEmpty){
             return false
         }
-        if(subscription.price <= 0){
+        if(viewModel.price <= 0){
             customSubHeader.validationMessageLb.isHidden = false
             customSubHeader.setNeedsLayout()
             return false
@@ -146,13 +145,13 @@ class AddUpdateSubViewController: FormViewController {
     
     
     private func configureSubscriptionForm(){
-        tableView.backgroundColor = subscription.color
+        tableView.backgroundColor = viewModel.color
         
         
         form +++ Section() { section in
             section.header = { [unowned self] in
                 self.formHeader = HeaderFooterView<UIView>(.callback({ [unowned self] in
-                    self.customSubHeader.configure(with: self.subscription)
+                    self.customSubHeader.configure(with: self.viewModel)
                     return self.customSubHeader
                 }))
                 self.formHeader?.height = { 260 }
@@ -163,28 +162,28 @@ class AddUpdateSubViewController: FormViewController {
             $0.title = "Name"
             $0.add(rule: RuleRequired())
             $0.placeholder = "Add a name"
-            $0.value = subscription.name
-        }.onChange{[unowned self] row in self.subscription.name = row.value ?? ""}
+            $0.value = viewModel.name
+        }.onChange{[unowned self] row in self.viewModel.name = row.value ?? ""}
         <<< MTextRow(){
             $0.title = "Description"
             $0.tag = "description"
             $0.placeholder = "Add a description"
-            $0.value = subscription.subDescription
-        }.onChange{[unowned self] row in self.subscription.subDescription = row.value ?? ""}
+            $0.value = viewModel.subDescription
+        }.onChange{[unowned self] row in self.viewModel.subDescription = row.value ?? ""}
         <<< MCategoryRow(){
             $0.title = "Category"
             $0.tag = "category"
             $0.noValueDisplayText = "Choose a Cagetory"
-            $0.value = subscription.category
-        }.onChange{[unowned self] row in self.subscription.category = row.value ?? ""}
+            $0.value = viewModel.category
+        }.onChange{[unowned self] row in self.viewModel.category = row.value ?? ""}
         <<< MDateRow(){
             $0.title = "Next Bill"
             $0.tag = "nextBill"
-            $0.value = subscription.nextBill
+            //$0.value = subscription.nextBill
             if $0.value == nil {
                 $0.value = Date()
             }
-        }.onChange{[unowned self] row in self.subscription.nextBill = row.value!}
+        }.onChange{[unowned self] row in self.viewModel.nextBill = row.value!}
         <<< MTriplePickerInputRow<String, Int, BillingCycleUnit>() {
             $0.firstOptions = { return ["Every"]}
             $0.secondOptions = { a in
@@ -193,12 +192,12 @@ class AddUpdateSubViewController: FormViewController {
                 return [.week,.month,.year]}
             $0.title = "Billing Cycle"
             $0.tag = "billingCycle"
-            $0.value = .init(a: "Every", b: subscription.billingCycle.quantity, c: subscription.billingCycle.unit)
+            $0.value = .init(a: "Every", b: viewModel.billingCycle.quantity, c: viewModel.billingCycle.unit)
             
             
         }.onChange{ [unowned self] row in
             
-            self.subscription.billingCycle.quantity = row.value?.b ?? 1
+            self.viewModel.billingCycle.quantity = row.value?.b ?? 1
             if let vl = row.value {
                 let qty = vl.b
                 let sStr = "\(qty > 1 ? "s" : "")"
@@ -242,12 +241,12 @@ class AddUpdateSubViewController: FormViewController {
                 return ["", "before"]}
             $0.title = "Remind"
             $0.tag = "remind"
-            $0.value = .init(a: subscription.remind.time, b: subscription.remind.day, c: subscription.remind.before)
+            $0.value = .init(a: viewModel.remind.time, b: viewModel.remind.day, c: viewModel.remind.before)
         }.onChange{ [unowned self] row in
             
-            self.subscription.remind.time = row.value?.a ?? "Never"
-            self.subscription.remind.day = row.value?.b ?? ""
-            self.subscription.remind.before = row.value?.c ?? ""
+            self.viewModel.remind.time = row.value?.a ?? "Never"
+            self.viewModel.remind.day = row.value?.b ?? ""
+            self.viewModel.remind.before = row.value?.c ?? ""
             
             switch row.value?.a {
                 case "Never":
@@ -260,11 +259,11 @@ class AddUpdateSubViewController: FormViewController {
             $0.title = "Currency"
             $0.selectorTitle = "Select currency"
             $0.noValueDisplayText = "Select a currency"
-            $0.value = subscription.currency
+            $0.value = viewModel.currency
             $0.onChange({[unowned self] row in
                 if let currency = row.value {
-                    self.subscription.currency = currency
-                    self.customSubHeader.configure(with: self.subscription)
+                    self.viewModel.currencyCode = currency.code
+                    self.customSubHeader.configure(with: self.viewModel)
                 }
                 row.reload()
             })
@@ -275,18 +274,19 @@ class AddUpdateSubViewController: FormViewController {
     
     
     func configure(with expense: Expense){
-        subscription.name = expense.name
-        subscription.category = expense.category
-        subscription.colorHex = expense.colorHex
-        subscription.logo = expense.logo
+//        subscription = Subscription(context: context)
+//        subscription.name = expense.name
+//        subscription.category = expense.category
+//        subscription.colorHex = expense.colorHex
+//        subscription.logo = expense.logo
     }
     
-    func configure(with sub: Subscription){
-        subscription.name = sub.name
-        subscription.category = sub.category
-        subscription.colorHex = sub.colorHex
-        subscription.logo = sub.logo
-    }
+//    func configure(with sub: Subscription){
+////        subscription.name = sub.name
+////        subscription.category = sub.category
+////        subscription.colorHex = sub.colorHex
+////        subscription.logo = sub.logo
+//    }
     
 }
 

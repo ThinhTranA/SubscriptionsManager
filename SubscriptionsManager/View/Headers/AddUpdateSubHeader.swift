@@ -152,7 +152,7 @@ class AddUpdateSubHeader: UIView, UITextFieldDelegate {
     }
     
     
-    func configure(with sub: Subscription){
+    func configure(with sub: AddUpdateSubViewModel){
         if let currency = sub.currency {
             currencyUnitLb.text = currency.symbol
         }
@@ -167,9 +167,7 @@ class AddUpdateSubHeader: UIView, UITextFieldDelegate {
         }
         
         backgroundColor = sub.color
-        if let imgName = sub.logo {
-            logoImg.image = UIImage(named: imgName)
-        }
+        logoImg.image = UIImage(named: sub.logo)
     }
 }
 

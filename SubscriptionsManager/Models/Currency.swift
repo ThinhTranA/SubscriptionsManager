@@ -19,13 +19,3 @@ public struct Currency: Codable, Equatable {
         return components.last!
     }
 }
-
-struct CurrencyRanking: Codable {
-    let rank: Int
-    let symbol: String
-    let currencyName: String
-    let popularity: String
-}
-
-
-

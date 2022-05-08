@@ -10,6 +10,11 @@ import Foundation
 class CurrencyService {
     static let shared = CurrencyService()
     
+    func getCurrency(withCode code: String) -> Currency?{
+        let allCur = getAllCurrencies()
+        return allCur.first(where: {$0.code == code})
+    }
+    
     func getAllCurrencies() -> [Currency]{
         //
         let json = readLocalFile(forName: "Currencies")!
