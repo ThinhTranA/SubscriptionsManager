@@ -8,14 +8,14 @@
 import UIKit
 
 protocol SubscriptionViewCellDelegate: AnyObject {
-    func markAsPaid(subId: UUID)
+    func markAsPaid(subId: ObjectIdentifier)
 }
 
 class SubscriptionViewCell: UITableViewCell {
     static let identifier = "SubscriptionViewCell"
     
     var delegate: SubscriptionViewCellDelegate?
-    private var subId: UUID?
+    private var subId: ObjectIdentifier?
     
     private let nameLabel: UILabel = {
         let label = UILabel()

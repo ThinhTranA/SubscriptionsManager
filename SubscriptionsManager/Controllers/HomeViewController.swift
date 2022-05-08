@@ -165,7 +165,7 @@ class HomeViewController: UIViewController {
 }
 
 extension HomeViewController: SubscriptionViewCellDelegate {
-    func markAsPaid(subId: UUID) {
+    func markAsPaid(subId: ObjectIdentifier) {
         //SubscriptionService.shared.markSubscriptionAsPaid(subId)
         //Display confirmation for next due date
         reloadAllSubscriptions()
@@ -190,8 +190,8 @@ extension HomeViewController: BotomTabViewDelegate {
 
 extension HomeViewController: AddUpdateSubDelegate{
     func reloadAllSubscriptions() {
-       // subsciptions = SubscriptionService.shared.getAllSubscriptions()
-       // headerTotalView.configure(with: subsciptions, duration: 1)
+        subsciptions = SubscriptionService.shared.getAllSubscriptions()
+        headerTotalView.configure(with: subsciptions, duration: 1)
         subsTableView.reloadData()
     }
     
@@ -210,14 +210,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         let sub = subsciptions[indexPath.row]
-        cell.configure(with: SubscriptionViewCellViewModel(
-            subId: UUID(),//sub.id,
-            name: sub.name,
-            logo: sub.logoDefault,
-            cost: sub.costString,
-            dueDate: sub.dueDateString,
-            isOverDue: sub.isOverdue)
-        )
+        cell.configure(with: SubscriptionViewCellViewModel(subscriptionObj: sub))
         cell.delegate = self
         return cell
     }
@@ -228,7 +221,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         print("\(text) row selected")
         
         let vc = AddUpdateSubViewController()
-       // vc.configure(with: subsciptions[indexPath.row])
+        let vm = AddUpdateSubViewModel(subObj: subsciptions[indexPath.row])
+        vc.configure(with: vm)
         //TODO
         //vc.subscription = subsciptions[indexPath.row]
         vc.delegate = self

@@ -8,10 +8,19 @@
 import Foundation
 
 struct SubscriptionViewCellViewModel {
-    let subId: UUID
+    let subId: ObjectIdentifier
     let name: String
     let logo: String
     let cost: String
     let dueDate: String
     let isOverDue: Bool
+    
+    init(subscriptionObj: SubscriptionCD){
+        subId = subscriptionObj.id
+        name = subscriptionObj.name
+        logo = subscriptionObj.logoDefault
+        cost = subscriptionObj.costString
+        dueDate = subscriptionObj.dueDateString
+        isOverDue = subscriptionObj.isOverdue
+    }
 }

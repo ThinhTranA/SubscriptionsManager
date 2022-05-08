@@ -41,7 +41,7 @@ class HeaderTotalView: UIView, MSegmentedControlDelegate {
     }()
     
     private var priceType: PriceType = .average
-    //private var subscriptions: [Subscription]?
+    private var subscriptions: [SubscriptionCD]?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -91,9 +91,9 @@ class HeaderTotalView: UIView, MSegmentedControlDelegate {
         default: break
         }
         
-//        if let subs = subscriptions {
-//            configure(with: subs)
-//        }
+        if let subs = subscriptions {
+            configure(with: subs)
+        }
     }
     
     
@@ -104,22 +104,22 @@ class HeaderTotalView: UIView, MSegmentedControlDelegate {
         animationStartDate = Date()
     }
     
-//    func configure(with subs: [Subscription], duration seconds: Double = 1){
-//        subscriptions = subs
-//        let totalCost: Decimal
-//        // TODO: Calculate these
-//        switch priceType {
-//        case .average:
-//            totalCost = subs.map{$0.price as Decimal}.reduce(0.0, +) + 8 //
-//        case .total:
-//            totalCost = subs.map{$0.price as Decimal}.reduce(0.0, +) + 139 //Just to mock the diff
-//        case .pending:
-//            totalCost = subs.map{$0.price as Decimal}.reduce(0.0, +) - 7 // mock
-//        }
-//        endValue = Double(truncating: totalCost as NSNumber)
-//        //reset animation
-//        animationDuration = seconds
-//        animationStartDate = Date()
-//    }
+    func configure(with subs: [SubscriptionCD], duration seconds: Double = 1){
+        subscriptions = subs
+        let totalCost: Decimal
+        // TODO: Calculate these
+        switch priceType {
+        case .average:
+            totalCost = subs.map{$0.price as Decimal}.reduce(0.0, +) + 8 //
+        case .total:
+            totalCost = subs.map{$0.price as Decimal}.reduce(0.0, +) + 139 //Just to mock the diff
+        case .pending:
+            totalCost = subs.map{$0.price as Decimal}.reduce(0.0, +) - 7 // mock
+        }
+        endValue = Double(truncating: totalCost as NSNumber)
+        //reset animation
+        animationDuration = seconds
+        animationStartDate = Date()
+    }
     
 }

@@ -11,13 +11,16 @@ import UIKit
 class SubscriptionService {
     static let shared = SubscriptionService()
     
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    let mangedObjectContext = (UIApplication.shared.delegate as! AppDelegate).manangedObjectContext
     
     private var subscriptionList: [SubscriptionCD] = []
     
     func getAllSubscriptions() -> [SubscriptionCD]{
         do {
            // subscriptionList = try context.fetch(SubscriptionCD.fetchRequest())
+             let subscriptionFetchResult = try mangedObjectContext.fetch(SubscriptionCD.fetchRequest()) as! [SubscriptionCD]
+            subscriptionList = subscriptionFetchResult
+            
         }
         catch{
             
