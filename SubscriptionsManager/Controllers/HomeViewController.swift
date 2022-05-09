@@ -49,7 +49,6 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Expense"
         view.backgroundColor = .systemBackground
         view.addSubview(titleLabel)
         
@@ -62,7 +61,7 @@ class HomeViewController: UIViewController {
     
     func setupHeaderTotalView(){
         view.addSubview(headerTotalView)
-        headerTotalView.configure(with: 3000)
+        headerTotalView.configure(with: subsciptions)
     }
     
     private func setupNavigationBar(){
@@ -180,9 +179,7 @@ extension HomeViewController: BotomTabViewDelegate {
     func addSubscription() {
         let vc = AddExpenseViewController()
         vc.addUpdateSubDelegate = self
-        
         let navVC = UINavigationController(rootViewController: vc)
-        
         present(navVC, animated: true)
     }
 }

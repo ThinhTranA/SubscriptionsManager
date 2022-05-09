@@ -28,11 +28,7 @@ class SubscriptionService {
         return subscriptionList
     }
     
-//    func getSubscription(by id: UUID) -> SubscriptionCD?{
-//        subscriptionList.first{ sub in
-//          //  sub.id == id
-//        }
-//    }
+
     
     func saveSubscription(_ subscription: SubscriptionCD){
         if let row = self.subscriptionList.firstIndex(where: {$0.id == subscription.id}) {
@@ -48,6 +44,8 @@ class SubscriptionService {
             subscriptionList.remove(at: index)
         }
     }
+    
+    
     
 //    func markSubscriptionAsPaid(_ subId: UUID){
 //        if var sub = getSubscription(by: subId){

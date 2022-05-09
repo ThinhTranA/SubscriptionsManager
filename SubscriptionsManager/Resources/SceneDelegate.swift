@@ -20,9 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         
         let vc = HomeViewController()
-        window.rootViewController = UINavigationController(rootViewController: vc)
-       // window.rootViewController = AddUpdateSubViewController()
-        //window.rootViewController = AddExpenseViewController()
+        window.rootViewController = vc
         
         //path of coredata sqlite db, go 1 folder up from Document
         //Library/Application Support/ {.sqlite File here}
