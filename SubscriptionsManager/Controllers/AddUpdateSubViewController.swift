@@ -179,7 +179,7 @@ class AddUpdateSubViewController: FormViewController {
         <<< MDateRow(){
             $0.title = "Next Bill"
             $0.tag = "nextBill"
-            //$0.value = subscription.nextBill
+            $0.value = viewModel.nextBill
             if $0.value == nil {
                 $0.value = Date()
             }
@@ -198,6 +198,7 @@ class AddUpdateSubViewController: FormViewController {
         }.onChange{ [unowned self] row in
             
             self.viewModel.billingCycle.quantity = row.value?.b ?? 1
+            self.viewModel.billingCycle.unit = row.value?.c ?? .week
             if let vl = row.value {
                 let qty = vl.b
                 let sStr = "\(qty > 1 ? "s" : "")"
@@ -274,19 +275,11 @@ class AddUpdateSubViewController: FormViewController {
     
     
     func configure(with expense: Expense){
-//        subscription = Subscription(context: context)
-//        subscription.name = expense.name
-//        subscription.category = expense.category
-//        subscription.colorHex = expense.colorHex
-//        subscription.logo = expense.logo
+        viewModel.name = expense.name
+        viewModel.category = expense.category
+        viewModel.colorHex = expense.colorHex
+        viewModel.logo = expense.logo
     }
-//
-//    func configure(with sub: SubscriptionCD){
-//        subscription.name = sub.name
-//        subscription.category = sub.category
-//        subscription.colorHex = sub.colorHex
-//        subscription.logo = sub.logo
-//    }
     
     func configure(with vm: AddUpdateSubViewModel){
         viewModel = vm

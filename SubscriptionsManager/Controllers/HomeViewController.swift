@@ -158,7 +158,6 @@ class HomeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print(SubscriptionService.shared.getAllSubscriptions())
     }
     
 
@@ -218,13 +217,10 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let text = subsciptions[indexPath.row]
-        print("\(text) row selected")
         
         let vc = AddUpdateSubViewController()
         let vm = AddUpdateSubViewModel(subObj: subsciptions[indexPath.row])
         vc.configure(with: vm)
-        //TODO
-        //vc.subscription = subsciptions[indexPath.row]
         vc.delegate = self
         let navVC = UINavigationController(rootViewController: vc)
         present(navVC, animated: true)    }

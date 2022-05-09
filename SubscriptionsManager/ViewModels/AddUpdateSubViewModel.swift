@@ -43,40 +43,44 @@ struct AddUpdateSubViewModel {
             self.nextBill = subObj.nextBill
             self.price = subObj.price.decimalValue
             self.subDescription = subObj.subDescription
-            
-            
+            self.billingCycle = subObj.billingCycle
+            self.remind = subObj.remind
             self.currencyCode = subObj.currencyCode
         }
     }
     
     func saveSubscription() {
-        if subObj != nil {
-            print("sub is filled, TODO")
+        if let sub = subObj {
+          updateSubValues(with: sub)
         } else {
             let sub = SubscriptionCD(context: mangedObjectContext)
-            
-            sub.createdAt = Date()
-            sub.updatedAt = Date()
-            sub.category = category
-            sub.colorHex = colorHex
-            sub.logo = logo
-            sub.name = name
-            sub.nextBill = nextBill
-            sub.price = NSDecimalNumber(decimal: price)
-            sub.subDescription = subDescription
-            
-            sub.billingCycleQuantity = billingCycle.quantity
-            sub.billingCycleUnit = billingCycle.unit.rawValue
-            
-            sub.remindDay = remind.day
-            sub.remindTime = remind.time
-            sub.remindBefore = remind.before
+            updateSubValues(with: sub)
         }
         do {
             try mangedObjectContext.save()
         } catch {
             print("error saving subscription")
         }
+    }
+    
+    private func updateSubValues(with sub: SubscriptionCD){
+        sub.createdAt = Date()
+        sub.updatedAt = Date()
+        sub.category = category
+        sub.colorHex = colorHex
+        sub.logo = logo
+        sub.name = name
+        sub.nextBill = nextBill
+        sub.price = NSDecimalNumber(decimal: price)
+        sub.subDescription = subDescription
+        
+        sub.billingCycleQuantity = billingCycle.quantity
+        sub.billingCycleUnit = billingCycle.unit.rawValue
+        
+        sub.remindDay = remind.day
+        sub.remindTime = remind.time
+        sub.remindBefore = remind.before
+        sub.currencyCode = currencyCode
     }
     
     func deleteSubscription() {
