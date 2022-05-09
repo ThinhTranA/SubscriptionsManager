@@ -21,7 +21,7 @@ struct AddUpdateSubViewModel {
     var price: Decimal = 0.0
     var subDescription = ""
     var billingCycle: BillingCycle = BillingCycle(quantity: 3, unit: .week)
-    var remind: Remind = Remind(time: "", day: "", before: "")
+    var remind: Remind = Remind(time: "Never", day: "", before: "")
     var currencyCode = ""
     var color: UIColor? {
         if(!colorHex.isEmpty) {
