@@ -20,7 +20,11 @@ class HomeViewController: UIViewController {
     
     private let infoLabel: UILabel = {
        let label = UILabel()
-        label.text = "Manage your subscriptions"
+        label.text = "Your subscriptions will appear here"
+        label.numberOfLines = 2
+        label.lineBreakMode = .byWordWrapping
+        label.textAlignment = .center
+        label.isHidden = true
         label.font = .systemFont(ofSize: 16, weight: .medium)
         return label
     }()
@@ -93,6 +97,7 @@ class HomeViewController: UIViewController {
     }
     
     private func setupEmptySubPlaceholder(){
+        infoLabel.isHidden = subsciptions.count > 0
         return
         
         //TODO: use actual image instead of credit card system image
@@ -151,7 +156,6 @@ class HomeViewController: UIViewController {
         headerTotalView.frame = CGRect(x: 0, y: 0, width: view.width, height: 300)
         
         subsTableView.frame = CGRect(x: 0, y: headerTotalView.bottom, width: view.width, height: view.height-headerTotalView.height)
-        subsTableView.backgroundColor = .green
     
     }
     
@@ -189,6 +193,7 @@ extension HomeViewController: AddUpdateSubDelegate{
         subsciptions = SubscriptionService.shared.getAllSubscriptions()
         headerTotalView.configure(with: subsciptions, duration: 1)
         subsTableView.reloadData()
+        infoLabel.isHidden = subsciptions.count > 0
     }
     
 }
