@@ -86,6 +86,18 @@ extension SubscriptionCD {
             return "Due in \(dueInDays/7) week(s)"
         }
     }
+    
+    var monthlyPrice: Decimal {
+        return price.decimalValue * Decimal(billingCycle.monthsPeriod)
+    }
+    
+    var weeklyPrice: Decimal {
+        return price.decimalValue * Decimal(billingCycle.weeksPeriod)
+    }
+    
+    var yearlyPrice: Decimal {
+        return price.decimalValue * Decimal(billingCycle.yearsPeriod)
+    }
 }
 
 extension SubscriptionCD {

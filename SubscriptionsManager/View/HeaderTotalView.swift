@@ -8,16 +8,16 @@
 import UIKit
 import Eureka
 
-enum PriceType {
-    case average
-    case total
-    case pending
+enum TotalType {
+    case monthly
+    case yearly
+    case weekly
     
     var title: String {
         switch self {
-        case .average: return "Monthly Average"
-        case .total: return "Monthly Total"
-        case .pending: return "Montly Pending"
+        case .monthly: return "Monthly Average"
+        case .yearly: return "Yearly Average"
+        case .weekly: return "Weekly Average"
         }
     }
 }
@@ -52,13 +52,13 @@ class HeaderTotalView: UIView, MSegmentedControlDelegate {
     private let segControl: MSegmentedControl = {
         let segControl = MSegmentedControl(
             frame: CGRect(x: 0, y: 240, width: 280, height: 50),
-            buttonTitle: ["Average","Total","Pending"])
+            buttonTitle: ["Month","Year","Week"])
         segControl.textColor = M.Colors.greyWhite
         segControl.selectorTextColor = .white
         return segControl
     }()
     
-    private var priceType: PriceType = .average
+    private var totalType: TotalType = .monthly
     private var subscriptions: [SubscriptionCD]?
 
     override init(frame: CGRect) {
@@ -109,9 +109,9 @@ class HeaderTotalView: UIView, MSegmentedControlDelegate {
     func segSelectedIndexChange(to index: Int) {
         switch index {
         case 0:
-            priceType = .average
-        case 1: priceType = .total
-        case 2: priceType = .pending
+            totalType = .monthly
+        case 1: totalType = .yearly
+        case 2: totalType = .weekly
         default: break
         }
         
@@ -130,16 +130,16 @@ class HeaderTotalView: UIView, MSegmentedControlDelegate {
         subscriptions = subs
         let totalCost: Decimal
         // TODO: Calculate these
-        switch priceType {
-        case .average:
-            totalCost = subs.map{$0.price as Decimal}.reduce(0.0, +)
+        switch totalType {
+        case .monthly:
+            totalCost = subs.map{$0.monthlyPrice as Decimal}.reduce(0.0, +)
             descriptionLb.text = "Monthy average"
-        case .total:
-            totalCost = subs.map{$0.price as Decimal}.reduce(0.0, +)
-            descriptionLb.text = "Monthy total"
-        case .pending:
-            totalCost = subs.map{$0.price as Decimal}.reduce(0.0, +) 
-            descriptionLb.text = "Monthy pending"
+        case .yearly:
+            totalCost = subs.map{$0.yearlyPrice as Decimal}.reduce(0.0, +)
+            descriptionLb.text = "Yearly average"
+        case .weekly:
+            totalCost = subs.map{$0.weeklyPrice as Decimal}.reduce(0.0, +)
+            descriptionLb.text = "Weekly average"
         }
         endValue = Double(truncating: totalCost as NSNumber)
         
