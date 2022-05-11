@@ -55,7 +55,7 @@ class BottomTabView: UIView {
             withConfiguration: UIImage.SymbolConfiguration(pointSize: 24, weight: .medium))
         button.setImage(image, for: .normal)
         button.tintColor = .white
-        button.backgroundColor = .green
+        button.backgroundColor = M.Colors.primaryColor
         button.layer.cornerRadius = 28
         button.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
         button.layer.shadowOffset = CGSize(width: 0, height: 3)
@@ -70,7 +70,7 @@ class BottomTabView: UIView {
     override init(frame: CGRect){
         super.init(frame: frame)
         clipsToBounds = false
-        backgroundColor = .blue
+        backgroundColor = M.Colors.primaryColor
         layer.borderWidth = 0
         
         addSubViews()

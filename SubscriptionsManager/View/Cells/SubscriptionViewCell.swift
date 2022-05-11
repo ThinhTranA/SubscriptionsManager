@@ -51,25 +51,26 @@ class SubscriptionViewCell: UITableViewCell {
     
     private let overdueView: UIView = {
         let view = UIView()
-        view.backgroundColor = .orange
-        view.layer.opacity = 0.3
+        view.backgroundColor = M.Colors.primaryDark
+        view.layer.opacity = 0.9
         view.isHidden = true
         return view
     }()
-    private let markAsPaidBtn: UIButton = {
-        let btn = UIButton()
-        btn.setTitle("Mark As Paid", for: .normal)
-        btn.backgroundColor = .orange
-        btn.layer.cornerRadius = 16
-        btn.isHidden = true
-        btn.addTarget(self, action: #selector(didTapMarkAsPaid), for: .touchUpInside)
-        return btn
-    }()
     
+    private let expiredLabel: UILabel = {
+       let lb = UILabel()
+        lb.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
+        lb.textColor = .white
+        lb.text = "Expired"
+        lb.isHidden = true
+        return lb
+    }()
+
     override func prepareForReuse() {
         nameLabel.text = nil
         dueInLb.text = nil
         costLb.text = nil
+        expiredLabel.isHidden = true
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -82,7 +83,8 @@ class SubscriptionViewCell: UITableViewCell {
         contentView.addSubview(logoImageView)
         
         contentView.addSubview(overdueView)
-        contentView.addSubview(markAsPaidBtn)
+        contentView.addSubview(expiredLabel)
+        contentView.layer.cornerRadius = 0
     }
     
     required init(coder: NSCoder) {
@@ -117,8 +119,10 @@ class SubscriptionViewCell: UITableViewCell {
             height: costLb.height)
       
         overdueView.frame = contentView.bounds
-        markAsPaidBtn.sizeToFit()
-        markAsPaidBtn.frame = CGRect(x: (width-markAsPaidBtn.width)/2, y: (height-markAsPaidBtn.height)/2, width: markAsPaidBtn.width+32, height: markAsPaidBtn.height)
+        expiredLabel.sizeToFit()
+        expiredLabel.frame = CGRect(x: (width-expiredLabel.width)/2, y: (height-expiredLabel.height)/2, width: expiredLabel.width+32, height: expiredLabel.height)
+        
+
     }
     
 
@@ -130,7 +134,7 @@ class SubscriptionViewCell: UITableViewCell {
         logoImageView.image = UIImage(named: viewModel.logo)
         
         overdueView.isHidden = !viewModel.isOverDue
-        markAsPaidBtn.isHidden = !viewModel.isOverDue
+        expiredLabel.isHidden = !viewModel.isOverDue
     }
     
     @objc func didTapMarkAsPaid(){

@@ -63,7 +63,7 @@ class HeaderTotalView: UIView, MSegmentedControlDelegate {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .orange
+        backgroundColor = M.Colors.primaryColor
         addSubview(titleLb)
         addSubview(descriptionLb)
         addSubview(priceLb)
