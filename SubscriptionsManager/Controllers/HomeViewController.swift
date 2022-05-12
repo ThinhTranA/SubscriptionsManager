@@ -29,16 +29,6 @@ class HomeViewController: UIViewController {
         return label
     }()
     
-    private let creditCard1Image: UIImageView = {
-       let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "creditcard")
-        return imageView
-    }()
-    private let creditCard2Image: UIImageView = {
-       let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "creditcard")
-        return imageView
-    }()
     
     private let subsTableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
@@ -70,24 +60,6 @@ class HomeViewController: UIViewController {
     
     private func setupNavigationBar(){
         navigationController?.navigationBar.prefersLargeTitles = true
-        
-//        let newBtn = UIButton(frame: CGRect(x: 0, y: 0, width: 56, height: 24))
-//        newBtn.setTitle("New", for: .normal)
-//        newBtn.setTitleColor(.white, for: .normal)
-//        newBtn.titleLabel?.font = .systemFont(ofSize: 14)
-//        newBtn.layer.cornerRadius = 14
-//        newBtn.clipsToBounds = true
-//        newBtn.backgroundColor = .green
-//        newBtn.addTarget(self, action: #selector(didTapNewBtn), for: .touchUpInside)
-//
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: newBtn)
-//        let closeBtn = UIBarButtonItem(
-//            image: UIImage(systemName: "xmark"),
-//            style: .done,
-//            target: self,
-//            action: #selector(didTapCloseBtn))
-//        closeBtn.tintColor = .black
-       // navigationItem.leftBarButtonItem = closeBtn
     }
     
     private func setupTableView(){
@@ -98,12 +70,6 @@ class HomeViewController: UIViewController {
     
     private func setupEmptySubPlaceholder(){
         infoLabel.isHidden = subsciptions.count > 0
-        return
-        
-        //TODO: use actual image instead of credit card system image
-        view.addSubview(infoLabel)
-        view.addSubview(creditCard2Image)
-        view.addSubview(creditCard1Image)
     }
     
     private func setupBottomBarView(){
@@ -122,28 +88,12 @@ class HomeViewController: UIViewController {
         )
         titleLabel.sizeToFit()
         
-        let creditCardWidth = view.bounds.width * 2/3
-        let creditCardHeight = creditCardWidth*2/3
-        let creditCardFrame = CGRect(
-            x: creditCardWidth/4,
-            y: view.bounds.height/2 - creditCardHeight,
-            width: creditCardWidth,
-            height: creditCardHeight
-        )
-            
-        creditCard1Image.frame = creditCardFrame
-        creditCard2Image.frame = creditCardFrame
-        creditCard2Image.setAnchorPoint(CGPoint(x: 0, y: 1))
-        creditCard2Image.transform = creditCard2Image.transform.rotated(by: -.pi/12)
-        
         infoLabel.frame = CGRect(
             x: 0,
             y: 0,
             width: 200,
             height: 40
         )
-        let infoLabelCenter = CGPoint(x: view.center.x, y: creditCard1Image.center.y + creditCardHeight/2 + 24)
-        infoLabel.center = infoLabelCenter
         infoLabel.sizeToFit()
         
         bottomBar.frame = CGRect(
@@ -168,7 +118,6 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: SubscriptionViewCellDelegate {
     func markAsPaid(subId: ObjectIdentifier) {
-        //SubscriptionService.shared.markSubscriptionAsPaid(subId)
         //Display confirmation for next due date
         reloadAllSubscriptions()
     }
