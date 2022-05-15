@@ -8,11 +8,12 @@
 import UIKit
 import Eureka
 
-open class CurrencyPickerController: UIViewController, TypedRowControllerType, UINavigationControllerDelegate, CurrencyPickerHeaderDelegate {
+ open class CurrencyPickerController: UIViewController, TypedRowControllerType, UINavigationControllerDelegate, CurrencyPickerHeaderDelegate {
     
     public var row: RowOf<Currency>!
     
     public var onDismissCallback: ((UIViewController) -> Void)?
+    public var onDismissCallbackWithCurrenyCode: ((String) -> Void)?
     
     let tableView: UITableView = UITableView()
     var currencies: [Currency] = [Currency]()
@@ -67,7 +68,7 @@ extension CurrencyPickerController: UITableViewDelegate, UITableViewDataSource {
         {
             let currency = currencies[indexPath.row]
             
-            cell.configure(with: currency, row.value == currency)
+            cell.configure(with: currency, row?.value == currency)
             return cell
         }
         
@@ -80,8 +81,13 @@ extension CurrencyPickerController: UITableViewDelegate, UITableViewDataSource {
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let currency = currencies[indexPath.row]
-        row.value = currency
-        row.updateCell()
+        row?.value = currency
+        row?.updateCell()
+        
+        if let callbackWithCurrencyCode = self.onDismissCallbackWithCurrenyCode {
+            callbackWithCurrencyCode(currency.code)
+        }
+        
         guard let callback = self.onDismissCallback else{ return }
         callback(self)
     }

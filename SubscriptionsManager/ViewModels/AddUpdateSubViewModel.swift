@@ -22,7 +22,7 @@ struct AddUpdateSubViewModel {
     var subDescription = ""
     var billingCycle: BillingCycle = BillingCycle(quantity: 3, unit: .week)
     var remind: Remind = Remind(time: "Never", day: "", before: "")
-    var currencyCode = ""
+    var currencyCode = UserReferenceService.shared.currencyCode
     var color: UIColor? {
         if(!colorHex.isEmpty) {
             return UIColor.init(hexaString: colorHex)

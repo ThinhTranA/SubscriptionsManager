@@ -45,19 +45,31 @@ class SettingsViewController: UIViewController {
     }
     
     private func configureModels(){
+        //reset
+        sections = [SettingsSection]()
+        let currencyCode = UserReferenceService.shared.currencyCode
         let darkModeMenu = UIMenu(title: "", children: [
             UIAction(title: "Share", image: UIImage(systemName: "envelope") , handler: {_ in}),
             UIAction(title: "Mail", image: UIImage(systemName: "envelope") , handler: {_ in}),
             UIAction(title: "Attach", image: UIImage(systemName: "envelope") , handler: {_ in})
         ])
         sections.append(SettingsSection(title: "Options", options: [
-            SettingsOption(title: "Default currency", icon: .init(systemName: "dollarsign.circle"), handler: { [weak self] in
-                self?.dismiss(animated: true)
+            SettingsOption(title: "Default currency: \(currencyCode)", icon: .init(systemName: "dollarsign.circle"), handler: { [weak self] in
+                let currencyVc = CurrencyPickerController()
+                func dismissCurrencyVC(currencyCode: String) {
+                    UserReferenceService.shared.currencyCode = currencyCode
+                    print("currency code seleted: \(currencyCode)")
+                    self?.configureModels()
+                    self?.tableView.reloadData()
+                    self?.dismiss(animated: true)
+                }
+                currencyVc.onDismissCallbackWithCurrenyCode = dismissCurrencyVC
+                self?.present(currencyVc, animated: true)
             }),
             SettingsOption(title: "Dark mode disabled", icon: .init(systemName: "car"), menu: darkModeMenu, handler: nil)
         ]))
         
-            sections.append(SettingsSection(title: "About", options: [
+        sections.append(SettingsSection(title: "About", options: [
             SettingsOption(title: "Leave app review", icon: .init(systemName: "car"), handler: { [weak self] in
                 self?.dismiss(animated: true)
             }),

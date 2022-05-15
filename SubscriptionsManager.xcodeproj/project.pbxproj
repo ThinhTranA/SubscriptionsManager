@@ -10,6 +10,7 @@
 		4A470CE3282733C000531395 /* AddUpdateSubViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A470CE2282733C000531395 /* AddUpdateSubViewModel.swift */; };
 		4A470CE5282734C100531395 /* SubscriptionCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A470CE4282734C100531395 /* SubscriptionCD.swift */; };
 		4A5D93B3282DB8A700C5BE30 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5D93B2282DB8A700C5BE30 /* SettingsViewController.swift */; };
+		4A5E2F4D28312FEE000F4629 /* UserPreferenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5E2F4C28312FEE000F4629 /* UserPreferenceService.swift */; };
 		4A62BEA128209D0A00BA45DF /* BillingCycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A62BEA028209D0A00BA45DF /* BillingCycle.swift */; };
 		4A62BEA328209D3900BA45DF /* Remind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A62BEA228209D3900BA45DF /* Remind.swift */; };
 		4A62BEAD28209E3D00BA45DF /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A62BEAC28209E3D00BA45DF /* Currency.swift */; };
@@ -66,6 +67,7 @@
 		4A470CE2282733C000531395 /* AddUpdateSubViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUpdateSubViewModel.swift; sourceTree = "<group>"; };
 		4A470CE4282734C100531395 /* SubscriptionCD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionCD.swift; sourceTree = "<group>"; };
 		4A5D93B2282DB8A700C5BE30 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		4A5E2F4C28312FEE000F4629 /* UserPreferenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferenceService.swift; sourceTree = "<group>"; };
 		4A62BEA028209D0A00BA45DF /* BillingCycle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BillingCycle.swift; sourceTree = "<group>"; };
 		4A62BEA228209D3900BA45DF /* Remind.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Remind.swift; sourceTree = "<group>"; };
 		4A62BEAC28209E3D00BA45DF /* Currency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 			children = (
 				E5686C6628097E96007ED8BB /* CurrencyService.swift */,
 				E589F5FB2810B07700C71BAD /* SubscriptionService.swift */,
+				4A5E2F4C28312FEE000F4629 /* UserPreferenceService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -462,6 +465,7 @@
 				E5F1B8F22802FB75003B7BEB /* CurrencyPickerController.swift in Sources */,
 				E5B7BAC52812EFCA00F6A78B /* TotalSubHeader.swift in Sources */,
 				E5525A66280E2C5E001B0A05 /* ExpenseViewCell.swift in Sources */,
+				4A5E2F4D28312FEE000F4629 /* UserPreferenceService.swift in Sources */,
 				E547E1D727F2790C000A9E8F /* AppDelegate.swift in Sources */,
 				E5525A64280E2C04001B0A05 /* AddExpenseViewController.swift in Sources */,
 				E5F1B8F42802FE5F003B7BEB /* MCurrencyRow.swift in Sources */,
