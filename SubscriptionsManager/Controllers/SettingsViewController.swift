@@ -48,17 +48,14 @@ class SettingsViewController: UIViewController {
         //reset
         sections = [SettingsSection]()
         let currencyCode = UserReferenceService.shared.currencyCode
-        let darkModeMenu = UIMenu(title: "", children: [
-            UIAction(title: "Share", image: UIImage(systemName: "envelope") , handler: {_ in}),
-            UIAction(title: "Mail", image: UIImage(systemName: "envelope") , handler: {_ in}),
-            UIAction(title: "Attach", image: UIImage(systemName: "envelope") , handler: {_ in})
-        ])
+        let darkModeMenu = UIMenu(title: "", children:  Theme.allValues.map { theme in
+            UIAction(title: theme.description, image: theme.icon, handler: { _ in ThemeService.shared.setTheme(to: theme)})
+        })
         sections.append(SettingsSection(title: "Options", options: [
             SettingsOption(title: "Default currency: \(currencyCode)", icon: .init(systemName: "dollarsign.circle"), handler: { [weak self] in
                 let currencyVc = CurrencyPickerController()
                 func dismissCurrencyVC(currencyCode: String) {
                     UserReferenceService.shared.currencyCode = currencyCode
-                    print("currency code seleted: \(currencyCode)")
                     self?.configureModels()
                     self?.tableView.reloadData()
                     self?.dismiss(animated: true)
@@ -66,7 +63,7 @@ class SettingsViewController: UIViewController {
                 currencyVc.onDismissCallbackWithCurrenyCode = dismissCurrencyVC
                 self?.present(currencyVc, animated: true)
             }),
-            SettingsOption(title: "Dark mode disabled", icon: .init(systemName: "car"), menu: darkModeMenu, handler: nil)
+            SettingsOption(title: "Dark mode disabled", icon: .init(systemName: "rays"), menu: darkModeMenu, handler: nil)
         ]))
         
         sections.append(SettingsSection(title: "About", options: [
@@ -78,7 +75,6 @@ class SettingsViewController: UIViewController {
             })
         ]))
     }
-
 }
 
 extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {

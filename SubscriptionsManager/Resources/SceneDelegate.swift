@@ -24,12 +24,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         //path of coredata sqlite db, go 1 folder up from Document
         //Library/Application Support/ {.sqlite File here}
-        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        print(urls)
+        //let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        //print(urls)
         
         self.window = window
         self.window?.makeKeyAndVisible()
-        
+        ThemeService.shared.setUserPreferedTheme()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

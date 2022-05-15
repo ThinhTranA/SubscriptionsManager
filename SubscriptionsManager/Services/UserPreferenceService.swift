@@ -13,6 +13,7 @@ class UserReferenceService {
     
     private let userDefalts = UserDefaults.standard
     private let currencyCodeKey = "currencyCodeKey"
+    private let themeKey = "themeKey"
     
     var currencyCode : String {
         get {
@@ -20,6 +21,16 @@ class UserReferenceService {
         }
         set {
             userDefalts.set(newValue, forKey: currencyCodeKey)
+        }
+    }
+    
+    var theme: Theme {
+        get {
+            let rawV = userDefalts.object(forKey: themeKey)
+            return Theme(rawValue: rawV as? Int ?? Theme.System.rawValue) ?? .System
+        }
+        set {
+            userDefalts.set(newValue.rawValue, forKey: themeKey)
         }
     }
 }

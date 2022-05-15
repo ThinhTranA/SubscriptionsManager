@@ -125,7 +125,6 @@ extension HomeViewController: SubscriptionViewCellDelegate {
 
 extension HomeViewController: BotomTabViewDelegate {
     func openSettings() {
-        print("open settings")
         let settings = SettingsViewController()
         if let sheet = settings.presentationController as? UISheetPresentationController {
             sheet.detents = [.medium(), .large()]
