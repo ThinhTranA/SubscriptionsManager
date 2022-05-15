@@ -9,10 +9,13 @@
 /* Begin PBXBuildFile section */
 		4A470CE3282733C000531395 /* AddUpdateSubViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A470CE2282733C000531395 /* AddUpdateSubViewModel.swift */; };
 		4A470CE5282734C100531395 /* SubscriptionCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A470CE4282734C100531395 /* SubscriptionCD.swift */; };
+		4A5D93B3282DB8A700C5BE30 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5D93B2282DB8A700C5BE30 /* SettingsViewController.swift */; };
 		4A62BEA128209D0A00BA45DF /* BillingCycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A62BEA028209D0A00BA45DF /* BillingCycle.swift */; };
 		4A62BEA328209D3900BA45DF /* Remind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A62BEA228209D3900BA45DF /* Remind.swift */; };
 		4A62BEAD28209E3D00BA45DF /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A62BEAC28209E3D00BA45DF /* Currency.swift */; };
 		4A62BEAF28209E6D00BA45DF /* CurrencyRanking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A62BEAE28209E6D00BA45DF /* CurrencyRanking.swift */; };
+		4A65F59A282F113E00D24C22 /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A65F599282F113E00D24C22 /* SettingsModel.swift */; };
+		4A65F59C282F1AA500D24C22 /* SettingsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A65F59B282F1AA500D24C22 /* SettingsViewCell.swift */; };
 		4A7FBC79281F50E300B4CAE2 /* SubscriptionCD.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4A7FBC77281F50E300B4CAE2 /* SubscriptionCD.xcdatamodeld */; };
 		6BBEB00D21F2213D28824692 /* Pods_SubscriptionsManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDB0910380CA349C4F94E1C7 /* Pods_SubscriptionsManager.framework */; };
 		E502771027FFCCC400B3C4F5 /* MTextRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E502770F27FFCCC400B3C4F5 /* MTextRow.swift */; };
@@ -62,10 +65,13 @@
 /* Begin PBXFileReference section */
 		4A470CE2282733C000531395 /* AddUpdateSubViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUpdateSubViewModel.swift; sourceTree = "<group>"; };
 		4A470CE4282734C100531395 /* SubscriptionCD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionCD.swift; sourceTree = "<group>"; };
+		4A5D93B2282DB8A700C5BE30 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		4A62BEA028209D0A00BA45DF /* BillingCycle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BillingCycle.swift; sourceTree = "<group>"; };
 		4A62BEA228209D3900BA45DF /* Remind.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Remind.swift; sourceTree = "<group>"; };
 		4A62BEAC28209E3D00BA45DF /* Currency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		4A62BEAE28209E6D00BA45DF /* CurrencyRanking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRanking.swift; sourceTree = "<group>"; };
+		4A65F599282F113E00D24C22 /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
+		4A65F59B282F1AA500D24C22 /* SettingsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewCell.swift; sourceTree = "<group>"; };
 		4A7FBC78281F50E300B4CAE2 /* SubscriptionCD.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SubscriptionCD.xcdatamodel; sourceTree = "<group>"; };
 		CDB0910380CA349C4F94E1C7 /* Pods_SubscriptionsManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SubscriptionsManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA12B6304B760CE8CB769294 /* Pods-SubscriptionsManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SubscriptionsManager.release.xcconfig"; path = "Target Support Files/Pods-SubscriptionsManager/Pods-SubscriptionsManager.release.xcconfig"; sourceTree = "<group>"; };
@@ -202,6 +208,7 @@
 				E5525A63280E2C04001B0A05 /* AddExpenseViewController.swift */,
 				E5604BE627FF1CB500B2107F /* AddUpdateSubViewController.swift */,
 				E582D83F280CD876004741B5 /* Pickers */,
+				4A5D93B2282DB8A700C5BE30 /* SettingsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -288,6 +295,7 @@
 				4A62BEAC28209E3D00BA45DF /* Currency.swift */,
 				E5525A61280E16BA001B0A05 /* Expense.swift */,
 				4A62BEAE28209E6D00BA45DF /* CurrencyRanking.swift */,
+				4A65F599282F113E00D24C22 /* SettingsModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -312,6 +320,7 @@
 				E5A62B6627F90579004FA950 /* SubscriptionViewCell.swift */,
 				E582D843280CD9E5004741B5 /* CategoryCell.swift */,
 				E5525A65280E2C5E001B0A05 /* ExpenseViewCell.swift */,
+				4A65F59B282F1AA500D24C22 /* SettingsViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -445,6 +454,7 @@
 				4A7FBC79281F50E300B4CAE2 /* SubscriptionCD.xcdatamodeld in Sources */,
 				E502771027FFCCC400B3C4F5 /* MTextRow.swift in Sources */,
 				E547E1DB27F2790C000A9E8F /* HomeViewController.swift in Sources */,
+				4A65F59C282F1AA500D24C22 /* SettingsViewCell.swift in Sources */,
 				E55C807F27F45DD60035CDC3 /* BottomTabView.swift in Sources */,
 				E5A62B6727F90579004FA950 /* SubscriptionViewCell.swift in Sources */,
 				E582D842280CD922004741B5 /* CategoryPickerHeader.swift in Sources */,
@@ -462,7 +472,9 @@
 				E5926F9C2814B8AA00B3EE8B /* MLabel.swift in Sources */,
 				E5FFACA0281B404C00A5D0E3 /* MSegmentedControl.swift in Sources */,
 				E5162D37280ACA320075EA15 /* AddUpdateSubHeader.swift in Sources */,
+				4A5D93B3282DB8A700C5BE30 /* SettingsViewController.swift in Sources */,
 				E589F5FC2810B07700C71BAD /* SubscriptionService.swift in Sources */,
+				4A65F59A282F113E00D24C22 /* SettingsModel.swift in Sources */,
 				E5686C6728097E96007ED8BB /* CurrencyService.swift in Sources */,
 				E52C61272800F88300909C9C /* MTriplePickerInputRow.swift in Sources */,
 				E5604BE727FF1CB500B2107F /* AddUpdateSubViewController.swift in Sources */,

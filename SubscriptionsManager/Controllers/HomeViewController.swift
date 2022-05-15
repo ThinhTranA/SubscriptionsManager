@@ -126,7 +126,14 @@ extension HomeViewController: SubscriptionViewCellDelegate {
 extension HomeViewController: BotomTabViewDelegate {
     func openSettings() {
         print("open settings")
+        let settings = SettingsViewController()
+        if let sheet = settings.presentationController as? UISheetPresentationController {
+            sheet.detents = [.medium(), .large()]
+            sheet.largestUndimmedDetentIdentifier = .large
+            sheet.prefersGrabberVisible = true
+        }
         
+        present(settings, animated: true)
     }
     
     func addSubscription() {
@@ -167,7 +174,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let text = subsciptions[indexPath.row]
         
         let vc = AddUpdateSubViewController()
         let vm = AddUpdateSubViewModel(subObj: subsciptions[indexPath.row])

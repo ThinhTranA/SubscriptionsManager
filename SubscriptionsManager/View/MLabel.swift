@@ -40,9 +40,11 @@ class MLabel: UILabel {
         }
     }
     
-    func addTrailing(image: UIImage, text:String) {
+    func addTrailing(image: UIImage?, text:String) {
         let attachment = NSTextAttachment()
-        attachment.image = image
+        if let image = image {
+            attachment.image = image
+        }
 
         let attachmentString = NSAttributedString(attachment: attachment)
         
@@ -53,9 +55,11 @@ class MLabel: UILabel {
         self.attributedText = string
     }
     
-    func addLeading(image: UIImage, text:String) {
+    func addLeading(image: UIImage?, text:String) {
         let attachment = NSTextAttachment()
-        attachment.image = image
+        if let image = image {
+            attachment.image = image
+        }
 
         let attachmentString = NSAttributedString(attachment: attachment)
         let mutableAttributedString = NSMutableAttributedString()
