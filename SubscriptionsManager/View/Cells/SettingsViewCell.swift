@@ -17,6 +17,14 @@ class SettingsViewCell: UITableViewCell {
         imgView.tintColor = .black
         return imgView
     }()
+    
+    private let accessoryImg: UIImageView = {
+        let imgView = UIImageView()
+        imgView.tintColor = .black
+        imgView.isHidden = true
+        return imgView
+    }()
+    
 
     private let settingsLb : UILabel = {
         let lb = UILabel()
@@ -42,6 +50,7 @@ class SettingsViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         addSubview(iconImg)
+        addSubview(accessoryImg)
         addSubview(settingsLb)
         contentView.addSubview(settingsBtn)
     }
@@ -54,12 +63,16 @@ class SettingsViewCell: UITableViewCell {
         super.prepareForReuse()
         settingsLb.text = nil
         settingsBtn.menu = nil
+        accessoryImg.image = nil
+        accessoryImg.isHidden = true
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
         iconImg.sizeToFit()
         iconImg.frame = CGRect(x: 8, y: (height-28)/2, width: 28, height: 28)
+        accessoryImg.sizeToFit()
+        accessoryImg.frame = CGRect(x: width-accessoryImg.width-48, y: (height-20)/2, width: 16, height: 12)
         settingsLb.sizeToFit()
         settingsLb.frame = CGRect(x: SettingsViewCell.leftImgPadding, y: (height-settingsLb.height)/2, width: settingsLb.width, height: settingsLb.height)
         settingsBtn.sizeToFit()
@@ -70,6 +83,10 @@ class SettingsViewCell: UITableViewCell {
         iconImg.image = settings.icon
         settingsLb.text = settings.title
         settingsBtn.setTitle(settings.title, for: .normal)
+        if let accessoryIcon = settings.accessoryIcon {
+            accessoryImg.image = accessoryIcon
+            accessoryImg.isHidden = false
+        }
         
         if let menu = settings.menu {
             settingsBtn.menu = menu

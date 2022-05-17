@@ -63,7 +63,7 @@ class SettingsViewController: UIViewController {
                 currencyVc.onDismissCallbackWithCurrenyCode = dismissCurrencyVC
                 self?.present(currencyVc, animated: true)
             }),
-            SettingsOption(title: "Dark mode disabled", icon: .init(systemName: "rays"), menu: darkModeMenu, handler: nil)
+            SettingsOption(title: "Dark mode disabled", icon: .init(systemName: "rays"), accessoryIcon: .init(systemName: "chevron.down"), menu: darkModeMenu, handler: nil)
         ]))
         
         sections.append(SettingsSection(title: "About", options: [

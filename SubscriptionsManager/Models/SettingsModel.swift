@@ -16,6 +16,7 @@ struct SettingsSection {
 struct SettingsOption {
     let title: String
     let icon: UIImage?
+    var accessoryIcon: UIImage?
     var menu: UIMenu?
     let handler: (() -> Void)?
 }
