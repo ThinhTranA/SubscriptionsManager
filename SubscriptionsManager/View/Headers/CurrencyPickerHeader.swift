@@ -28,14 +28,14 @@ class CurrencyPickerHeader: UITableViewHeaderFooterView, UISearchBarDelegate {
         let btn = UIButton()
         let img = UIImage(systemName: "xmark", withConfiguration: .none)
         btn.setImage(img, for: .normal)
-        btn.tintColor = .black
+        btn.tintColor = .label
         return btn
     }()
     private let searchBtn: UIButton = {
         let btn = UIButton()
         let img = UIImage(systemName: "magnifyingglass", withConfiguration: .none)
         btn.setImage(img, for: .normal)
-        btn.tintColor = .black
+        btn.tintColor = .label
         return btn
     }()
     private let doneBtn: UIButton = {

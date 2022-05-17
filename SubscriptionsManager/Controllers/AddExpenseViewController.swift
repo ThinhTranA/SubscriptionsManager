@@ -69,7 +69,7 @@ class AddExpenseViewController: UIViewController {
             style: .done,
             target: self,
             action: #selector(didTapCloseBtn))
-        closeBtn.tintColor = .black
+        closeBtn.tintColor = .label
         navigationItem.leftBarButtonItem = closeBtn
     }
     

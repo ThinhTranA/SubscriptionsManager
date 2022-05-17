@@ -28,7 +28,7 @@ class CategoryPickerHeader: UITableViewHeaderFooterView {
         let btn = UIButton()
         let img = UIImage(systemName: "xmark", withConfiguration: .none)
         btn.setImage(img, for: .normal)
-        btn.tintColor = .black
+        btn.tintColor = .label
         return btn
     }()
    

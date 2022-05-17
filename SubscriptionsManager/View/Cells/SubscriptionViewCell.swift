@@ -19,7 +19,7 @@ class SubscriptionViewCell: UITableViewCell {
     
     private let nameLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .darkText
+        label.textColor = .label
         label.font = .systemFont(ofSize: 18, weight: .semibold)
         return label
     }()
@@ -33,7 +33,7 @@ class SubscriptionViewCell: UITableViewCell {
 
     private let costLb: UILabel = {
         let label = UILabel()
-        label.textColor = .darkText
+        label.textColor = .label
         label.font = .systemFont(ofSize: 18, weight: .semibold)
         return label
     }()

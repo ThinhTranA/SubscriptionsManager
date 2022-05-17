@@ -14,13 +14,13 @@ class SettingsViewCell: UITableViewCell {
     
     private let iconImg: UIImageView = {
         let imgView = UIImageView()
-        imgView.tintColor = .black
+        imgView.tintColor = .label
         return imgView
     }()
     
     private let accessoryImg: UIImageView = {
         let imgView = UIImageView()
-        imgView.tintColor = .black
+        imgView.tintColor = .label
         imgView.isHidden = true
         return imgView
     }()
@@ -34,8 +34,8 @@ class SettingsViewCell: UITableViewCell {
     
     private let settingsBtn: UIButton = {
         let btn = UIButton()
-        btn.setTitleColor(UIColor.black, for: .normal)
-        btn.setTitleColor(UIColor.black, for: .highlighted)
+        btn.setTitleColor(UIColor.label, for: .normal)
+        btn.setTitleColor(UIColor.label, for: .highlighted)
         btn.contentHorizontalAlignment = .left
         btn.backgroundColor = .clear
         btn.showsMenuAsPrimaryAction = true
