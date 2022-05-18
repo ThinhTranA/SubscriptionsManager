@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import StoreKit
 
 class SettingsViewController: UIViewController {
     
@@ -49,7 +50,11 @@ class SettingsViewController: UIViewController {
         sections = [SettingsSection]()
         let currencyCode = UserReferenceService.shared.currencyCode
         let darkModeMenu = UIMenu(title: "", children:  Theme.allValues.map { theme in
-            UIAction(title: theme.description, image: theme.icon, handler: { _ in ThemeService.shared.setTheme(to: theme)})
+            UIAction(title: theme.description, image: theme.icon, handler: { [weak self] _ in
+                ThemeService.shared.setTheme(to: theme)
+                self?.configureModels()
+                self?.tableView.reloadData()
+            })
         })
         sections.append(SettingsSection(title: "Options", options: [
             SettingsOption(title: "Default currency: \(currencyCode)", icon: .init(systemName: "dollarsign.circle"), handler: { [weak self] in
@@ -63,17 +68,25 @@ class SettingsViewController: UIViewController {
                 currencyVc.onDismissCallbackWithCurrenyCode = dismissCurrencyVC
                 self?.present(currencyVc, animated: true)
             }),
-            SettingsOption(title: "Dark mode disabled", icon: .init(systemName: "rays"), accessoryIcon: .init(systemName: "chevron.down"), menu: darkModeMenu, handler: nil)
+            SettingsOption(title: UserReferenceService.shared.theme.description, icon: .init(systemName: "rays"), accessoryIcon: .init(systemName: "chevron.down"), menu: darkModeMenu, handler: nil)
         ]))
         
         sections.append(SettingsSection(title: "About", options: [
-            SettingsOption(title: "Leave app review", icon: .init(systemName: "car"), handler: { [weak self] in
+            SettingsOption(title: "Give app review ⭐️⭐️⭐️⭐️⭐️", icon: .init(systemName: "star.fill"), handler: { [weak self] in
+                if let scene = UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene {
+                    SKStoreReviewController.requestReview(in: scene)
+                }
                 self?.dismiss(animated: true)
             }),
             SettingsOption(title: "Privacy policy", icon: .init(systemName: "car"), handler: { [weak self] in
+                let url = URL(string: "https://myfuellens.wordpress.com/")
+                if let url = url {
+                    UIApplication.shared.open(url)
+                }
                 self?.dismiss(animated: true)
             })
         ]))
+        
     }
 }
 
