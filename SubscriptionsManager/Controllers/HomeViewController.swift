@@ -33,7 +33,6 @@ class HomeViewController: UIViewController {
     private let subsTableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
         tableView.register(SubscriptionViewCell.self, forCellReuseIdentifier: SubscriptionViewCell.identifier)
-        
         return tableView
     }()
     
@@ -140,6 +139,28 @@ extension HomeViewController: BotomTabViewDelegate {
         vc.addUpdateSubDelegate = self
         let navVC = UINavigationController(rootViewController: vc)
         present(navVC, animated: true)
+    }
+    
+    func sortBy(order: SortOrder) {
+        switch(order){
+        case .AtoZ:
+            subsciptions = subsciptions.sorted(by: {
+                $0.name < $1.name
+            })
+        case .ZtoA:
+            subsciptions = subsciptions.sorted(by: {
+                $0.name > $1.name
+            })
+        case .PriceHighToLow:
+            subsciptions = subsciptions.sorted(by: {
+                $0.weeklyPrice > $1.weeklyPrice
+            })
+        case .PriceLowToHigh:
+            subsciptions = subsciptions.sorted(by: {
+                $0.weeklyPrice < $1.weeklyPrice
+            })
+        }
+        subsTableView.reloadData()
     }
 }
 

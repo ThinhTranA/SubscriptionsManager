@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4A470CE3282733C000531395 /* AddUpdateSubViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A470CE2282733C000531395 /* AddUpdateSubViewModel.swift */; };
 		4A470CE5282734C100531395 /* SubscriptionCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A470CE4282734C100531395 /* SubscriptionCD.swift */; };
+		4A4CA7E42835A10D00E63A89 /* SortOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4CA7E32835A10D00E63A89 /* SortOrder.swift */; };
 		4A4CCAA32831B01A00835F6E /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4CCAA22831B01A00835F6E /* Theme.swift */; };
 		4A4CCAA52831C07600835F6E /* ThemeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4CCAA42831C07600835F6E /* ThemeService.swift */; };
 		4A5D93B3282DB8A700C5BE30 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5D93B2282DB8A700C5BE30 /* SettingsViewController.swift */; };
@@ -68,6 +69,7 @@
 /* Begin PBXFileReference section */
 		4A470CE2282733C000531395 /* AddUpdateSubViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUpdateSubViewModel.swift; sourceTree = "<group>"; };
 		4A470CE4282734C100531395 /* SubscriptionCD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionCD.swift; sourceTree = "<group>"; };
+		4A4CA7E32835A10D00E63A89 /* SortOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortOrder.swift; sourceTree = "<group>"; };
 		4A4CCAA22831B01A00835F6E /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		4A4CCAA42831C07600835F6E /* ThemeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeService.swift; sourceTree = "<group>"; };
 		4A5D93B2282DB8A700C5BE30 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -213,8 +215,8 @@
 				E547E1DA27F2790C000A9E8F /* HomeViewController.swift */,
 				E5525A63280E2C04001B0A05 /* AddExpenseViewController.swift */,
 				E5604BE627FF1CB500B2107F /* AddUpdateSubViewController.swift */,
-				E582D83F280CD876004741B5 /* Pickers */,
 				4A5D93B2282DB8A700C5BE30 /* SettingsViewController.swift */,
+				E582D83F280CD876004741B5 /* Pickers */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -305,6 +307,7 @@
 				4A62BEAE28209E6D00BA45DF /* CurrencyRanking.swift */,
 				4A65F599282F113E00D24C22 /* SettingsModel.swift */,
 				4A4CCAA22831B01A00835F6E /* Theme.swift */,
+				4A4CA7E32835A10D00E63A89 /* SortOrder.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -480,6 +483,7 @@
 				E582D844280CD9E5004741B5 /* CategoryCell.swift in Sources */,
 				E59B478F27FC3BE800B76E10 /* EntryTableViewCell.swift in Sources */,
 				E59F2C5228026BC6001DD28C /* FormPickerInputAccessoryView.swift in Sources */,
+				4A4CA7E42835A10D00E63A89 /* SortOrder.swift in Sources */,
 				E5926F9C2814B8AA00B3EE8B /* MLabel.swift in Sources */,
 				E5FFACA0281B404C00A5D0E3 /* MSegmentedControl.swift in Sources */,
 				E5162D37280ACA320075EA15 /* AddUpdateSubHeader.swift in Sources */,

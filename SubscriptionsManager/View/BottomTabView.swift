@@ -10,6 +10,7 @@ import UIKit
 protocol BotomTabViewDelegate: AnyObject {
     func openSettings()
     func addSubscription()
+    func sortBy(order: SortOrder)
 }
 
 class BottomTabView: UIView {
@@ -39,13 +40,13 @@ class BottomTabView: UIView {
         return imageView
     }()
     
-    private let sortImageView: UIImageView = {
-       let imageView = UIImageView()
-        imageView.layer.masksToBounds = true
-        imageView.contentMode = .scaleAspectFill
-        imageView.image = UIImage(systemName: "arrow.up.arrow.down.circle")
-        imageView.tintColor = .white
-        return imageView
+    private let sortBtn: UIButton = {
+       let btn = UIButton()
+        btn.setImage(UIImage(systemName: "arrow.up.arrow.down.circle"), for: .normal)
+        btn.tintColor = .white
+        btn.contentVerticalAlignment = .fill
+        btn.contentHorizontalAlignment = .fill
+        return btn
     }()
     
     private let addSubButton: UIButton = {
@@ -79,7 +80,7 @@ class BottomTabView: UIView {
     
     private func addSubViews(){
         addSubview(settingImageView)
-        addSubview(sortImageView)
+        addSubview(sortBtn)
         addSubview(addSubButton)
     }
     
@@ -101,6 +102,23 @@ class BottomTabView: UIView {
         settingImageView.addGestureRecognizer(tapSettings)
         
         addSubButton.addTarget(self, action: #selector(didTapAddSubscription), for: .touchUpInside)
+
+        sortBtn.showsMenuAsPrimaryAction = true
+        sortBtn.menu = UIMenu(title: "", children: SortOrder.allValues.map { sortOrder in
+            UIAction(title: sortOrder.description, image: sortOrder.icon, handler: { [weak self] _ in
+                switch(sortOrder){
+                case .AtoZ:
+                    self?.delegate?.sortBy(order: .AtoZ)
+                case .ZtoA:
+                    self?.delegate?.sortBy(order: .ZtoA)
+                case .PriceHighToLow:
+                    self?.delegate?.sortBy(order: .PriceHighToLow)
+                case .PriceLowToHigh:
+                    self?.delegate?.sortBy(order: .PriceLowToHigh)
+                }
+            })
+        })
+        
     }
     
     @objc func didTapSettings(){
@@ -124,7 +142,7 @@ class BottomTabView: UIView {
         settingImageView.frame = CGRect(x:8, y: height - tabHeight + 4, width: tabImageButtonSize, height: tabImageButtonSize)
         
         let settingImageSize = 40.0
-        sortImageView.frame = CGRect(x:width - tabImageButtonSize - 8, y: height - tabHeight + 4, width: settingImageSize, height: settingImageSize)
+        sortBtn.frame = CGRect(x:width - tabImageButtonSize - 8, y: height - tabHeight + 4, width: settingImageSize, height: settingImageSize)
         
         let addSubButtonSize = 56.0
         addSubButton.frame = CGRect(x:(width-addSubButtonSize)/2, y: height - tabHeight - addSubButtonSize/2, width: addSubButtonSize, height: addSubButtonSize)
