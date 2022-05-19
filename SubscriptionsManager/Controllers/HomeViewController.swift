@@ -50,6 +50,10 @@ class HomeViewController: UIViewController {
         setupTableView()
         setupEmptySubPlaceholder()
         setupBottomBarView()
+        
+        NotificationsService.shared.requestAuthorization()
+        //NotificationsService.shared.scheduleNotification(targetVC: self, recurringDate: <#T##DateComponents#>)
+        
     }
     
     func setupHeaderTotalView(){
