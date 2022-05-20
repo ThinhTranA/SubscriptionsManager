@@ -115,7 +115,12 @@ extension Date {
     func seconds(sinceDate: Date) -> Int? {
         return Calendar.current.dateComponents([.second], from: sinceDate, to: self).second
     }
-
+    
+    func getFormattedDate(format: String) -> String {
+           let dateformat = DateFormatter()
+           dateformat.dateFormat = format
+           return dateformat.string(from: self)
+    }
 }
 
 extension Double {

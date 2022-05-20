@@ -93,7 +93,50 @@ struct AddUpdateSubViewModel {
         } catch {
             print("error deleting subscription")
         }
-        
     }
     
+    func updateRemindNotification(vc: UIViewController){
+        if let sub = subObj {
+            let notificationId: String = sub.objectID.description
+            let name = sub.name
+            var body: String
+            let dayBefore = sub.remind.remindOnDayBefore
+            switch(dayBefore){
+            case 0:  body = "\(sub.name) bill is due Today"
+            case 1:  body = "\(sub.name) bill is due Tomorrow"
+            default:
+                body = "\(sub.name) bill is due in \(dayBefore) date is on \(sub.nextBill.getFormattedDate(format: "dd/MM/yyyy"))"
+            }
+            
+            print(body)
+            
+            var recurringDate = DateComponents()
+            let calendarDate = Calendar.current.dateComponents([.day, .year, .month], from: sub.nextBill)
+            
+            let recurDay = calendarDate.day ?? 0 - sub.remind.remindOnDayBefore
+            if(recurDay) < 0 {
+                return
+            }
+            recurringDate.year = calendarDate.year
+            recurringDate.month = calendarDate.month
+            recurringDate.day = recurDay
+            // Remind on same hour time that sub was saved.
+            let date = Date()
+            recurringDate.hour = Calendar.current.component(.hour, from: date)
+            recurringDate.minute = Calendar.current.component(.minute, from: date)
+            recurringDate.second = Calendar.current.component(.second, from: date) + 10
+            
+            let isRepeat = true
+            
+            let notification = NotificationModel(
+                id: notificationId,
+                title: name,
+                body: body,
+                recurringDate: recurringDate,
+                isRepeat: isRepeat
+            )
+            NotificationsService.shared.scheduleNotification(targetVC: vc, with: notification)
+            
+        }
+    }
 }

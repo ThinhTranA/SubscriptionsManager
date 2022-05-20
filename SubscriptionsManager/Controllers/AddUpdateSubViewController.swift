@@ -110,6 +110,7 @@ class AddUpdateSubViewController: FormViewController {
         }
         //SubscriptionService.shared.saveSubscription(subscription)
         viewModel.saveSubscription()
+        viewModel.updateRemindNotification(vc: self)
         
         dismissAndReloadData()
     }
@@ -235,7 +236,7 @@ class AddUpdateSubViewController: FormViewController {
           
         }
         <<< MTriplePickerInputRow<String, String, String>() {
-            $0.firstOptions = { return ["Never", "Same", "1", "2", "3", "4", "5", "6","7"]}
+            $0.firstOptions = { return Remind.allValues}
             $0.secondOptions = { a in
                 return ["", "Day(s)"]}
             $0.thirdOptions = { b, c in
