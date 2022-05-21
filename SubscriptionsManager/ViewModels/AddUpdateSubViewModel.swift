@@ -17,11 +17,11 @@ struct AddUpdateSubViewModel {
     var colorHex = ""
     var logo = ""
     var name = ""
-    var nextBill = Date()
+    var nextBill = Date().adding(.month, value: 1)
     var price: Decimal = 0.0
     var subDescription = ""
-    var billingCycle: BillingCycle = BillingCycle(quantity: 3, unit: .week)
-    var remind: Remind = Remind(time: "Never", day: "", before: "")
+    var billingCycle: BillingCycle = BillingCycle(quantity: 1, unit: .month)
+    var remind: Remind = Remind(time: Remind.timeDefaultValue, day: Remind.dayDefaultValue, before: Remind.beforeDefaultValue)
     var currencyCode = UserReferenceService.shared.currencyCode
     var color: UIColor? {
         if(!colorHex.isEmpty) {

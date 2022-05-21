@@ -103,7 +103,7 @@ class AddUpdateSubViewController: FormViewController {
     }
     
     @objc func didTapSaveBtn(){
-        viewModel.price = Decimal(string: customSubHeader.costTxtField.text ?? "") ?? 696969 //TODO: update this
+        viewModel.price = Decimal(string: customSubHeader.costTxtField.text ?? "") ?? 0 
         let isValidForm = validateForm()
         if(!isValidForm) {
             return
@@ -238,17 +238,17 @@ class AddUpdateSubViewController: FormViewController {
         <<< MTriplePickerInputRow<String, String, String>() {
             $0.firstOptions = { return Remind.allValues}
             $0.secondOptions = { a in
-                return ["", "Day(s)"]}
+                return ["", Remind.dayDefaultValue]}
             $0.thirdOptions = { b, c in
-                return ["", "before"]}
+                return ["", Remind.beforeDefaultValue]}
             $0.title = "Remind"
             $0.tag = "remind"
             $0.value = .init(a: viewModel.remind.time, b: viewModel.remind.day, c: viewModel.remind.before)
         }.onChange{ [unowned self] row in
             
-            self.viewModel.remind.time = row.value?.a ?? "Never"
-            self.viewModel.remind.day = row.value?.b ?? ""
-            self.viewModel.remind.before = row.value?.c ?? ""
+            self.viewModel.remind.time = row.value?.a ?? Remind.timeDefaultValue
+            self.viewModel.remind.day = row.value?.b ?? Remind.dayDefaultValue
+            self.viewModel.remind.before = row.value?.c ?? Remind.beforeDefaultValue
             
             switch row.value?.a {
                 case "Never":

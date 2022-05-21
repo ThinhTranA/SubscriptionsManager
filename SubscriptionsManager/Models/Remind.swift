@@ -14,6 +14,10 @@ struct Remind{
         return time
     }
     
+    static let dayDefaultValue = "Day(s)"
+    static let beforeDefaultValue = "before"
+    static let timeDefaultValue = "Same"
+    
     static var allValues: [String] {
         ["Never", "Same", "1", "2", "3", "4", "5", "6","7"]
     }

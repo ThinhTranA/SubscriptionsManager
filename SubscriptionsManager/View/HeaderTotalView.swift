@@ -129,7 +129,6 @@ class HeaderTotalView: UIView, MSegmentedControlDelegate {
     func configure(with subs: [SubscriptionCD], duration seconds: Double = 0.5){
         subscriptions = subs
         let totalCost: Decimal
-        // TODO: Calculate these
         switch totalType {
         case .monthly:
             totalCost = subs.map{$0.monthlyPrice as Decimal}.reduce(0.0, +)
