@@ -14,6 +14,7 @@
 		4A4CA7E82837095100E63A89 /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4CA7E72837095100E63A89 /* NotificationModel.swift */; };
 		4A4CCAA32831B01A00835F6E /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4CCAA22831B01A00835F6E /* Theme.swift */; };
 		4A4CCAA52831C07600835F6E /* ThemeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4CCAA42831C07600835F6E /* ThemeService.swift */; };
+		4A4FB965283867E90005FD77 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A4FB964283867E90005FD77 /* CloudKit.framework */; };
 		4A5D93B3282DB8A700C5BE30 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5D93B2282DB8A700C5BE30 /* SettingsViewController.swift */; };
 		4A5E2F4D28312FEE000F4629 /* UserPreferenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5E2F4C28312FEE000F4629 /* UserPreferenceService.swift */; };
 		4A62BEA128209D0A00BA45DF /* BillingCycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A62BEA028209D0A00BA45DF /* BillingCycle.swift */; };
@@ -76,6 +77,8 @@
 		4A4CA7E72837095100E63A89 /* NotificationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationModel.swift; sourceTree = "<group>"; };
 		4A4CCAA22831B01A00835F6E /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		4A4CCAA42831C07600835F6E /* ThemeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeService.swift; sourceTree = "<group>"; };
+		4A4FB963283867890005FD77 /* SubscriptionsManager.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SubscriptionsManager.entitlements; sourceTree = "<group>"; };
+		4A4FB964283867E90005FD77 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		4A5D93B2282DB8A700C5BE30 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		4A5E2F4C28312FEE000F4629 /* UserPreferenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferenceService.swift; sourceTree = "<group>"; };
 		4A62BEA028209D0A00BA45DF /* BillingCycle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BillingCycle.swift; sourceTree = "<group>"; };
@@ -140,6 +143,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6BBEB00D21F2213D28824692 /* Pods_SubscriptionsManager.framework in Frameworks */,
+				4A4FB965283867E90005FD77 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,6 +170,7 @@
 		D75688FA653235ABC68D5101 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4A4FB964283867E90005FD77 /* CloudKit.framework */,
 				CDB0910380CA349C4F94E1C7 /* Pods_SubscriptionsManager.framework */,
 			);
 			name = Frameworks;
@@ -201,6 +206,7 @@
 		E547E1D527F2790C000A9E8F /* SubscriptionsManager */ = {
 			isa = PBXGroup;
 			children = (
+				4A4FB963283867890005FD77 /* SubscriptionsManager.entitlements */,
 				E5686C6528097E89007ED8BB /* Services */,
 				E55C808027F45E960035CDC3 /* Resources */,
 				E5A62B6D27F92694004FA950 /* Models */,
@@ -650,6 +656,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SubscriptionsManager/SubscriptionsManager.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 589ZKTU4Y4;
@@ -678,6 +685,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SubscriptionsManager/SubscriptionsManager.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 589ZKTU4Y4;
