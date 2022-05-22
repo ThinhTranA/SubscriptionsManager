@@ -23,6 +23,7 @@
 		4A62BEAF28209E6D00BA45DF /* CurrencyRanking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A62BEAE28209E6D00BA45DF /* CurrencyRanking.swift */; };
 		4A65F59A282F113E00D24C22 /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A65F599282F113E00D24C22 /* SettingsModel.swift */; };
 		4A65F59C282F1AA500D24C22 /* SettingsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A65F59B282F1AA500D24C22 /* SettingsViewCell.swift */; };
+		4A7981B22838FA5A0099BF07 /* CustomizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7981B12838FA5A0099BF07 /* CustomizeViewController.swift */; };
 		4A7FBC79281F50E300B4CAE2 /* SubscriptionCD.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4A7FBC77281F50E300B4CAE2 /* SubscriptionCD.xcdatamodeld */; };
 		6BBEB00D21F2213D28824692 /* Pods_SubscriptionsManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDB0910380CA349C4F94E1C7 /* Pods_SubscriptionsManager.framework */; };
 		E502771027FFCCC400B3C4F5 /* MTextRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E502770F27FFCCC400B3C4F5 /* MTextRow.swift */; };
@@ -87,6 +88,7 @@
 		4A62BEAE28209E6D00BA45DF /* CurrencyRanking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRanking.swift; sourceTree = "<group>"; };
 		4A65F599282F113E00D24C22 /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
 		4A65F59B282F1AA500D24C22 /* SettingsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewCell.swift; sourceTree = "<group>"; };
+		4A7981B12838FA5A0099BF07 /* CustomizeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizeViewController.swift; sourceTree = "<group>"; };
 		4A7FBC78281F50E300B4CAE2 /* SubscriptionCD.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SubscriptionCD.xcdatamodel; sourceTree = "<group>"; };
 		CDB0910380CA349C4F94E1C7 /* Pods_SubscriptionsManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SubscriptionsManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA12B6304B760CE8CB769294 /* Pods-SubscriptionsManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SubscriptionsManager.release.xcconfig"; path = "Target Support Files/Pods-SubscriptionsManager/Pods-SubscriptionsManager.release.xcconfig"; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 				E547E1DA27F2790C000A9E8F /* HomeViewController.swift */,
 				E5525A63280E2C04001B0A05 /* AddExpenseViewController.swift */,
 				E5604BE627FF1CB500B2107F /* AddUpdateSubViewController.swift */,
+				4A7981B12838FA5A0099BF07 /* CustomizeViewController.swift */,
 				4A5D93B2282DB8A700C5BE30 /* SettingsViewController.swift */,
 				E582D83F280CD876004741B5 /* Pickers */,
 			);
@@ -468,6 +471,7 @@
 				E582D846280CDB34004741B5 /* MCategoryRow.swift in Sources */,
 				E582D83E280CD872004741B5 /* CategoryPickerViewController.swift in Sources */,
 				E59B479127FC3CB900B76E10 /* EntryTableViewCellViewModel.swift in Sources */,
+				4A7981B22838FA5A0099BF07 /* CustomizeViewController.swift in Sources */,
 				E55C808227F45EAA0035CDC3 /* Extensions.swift in Sources */,
 				E5BD0C09281895A8000E4706 /* HeaderTotalView.swift in Sources */,
 				4A470CE5282734C100531395 /* SubscriptionCD.swift in Sources */,
