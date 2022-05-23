@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4A470CE3282733C000531395 /* AddUpdateSubViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A470CE2282733C000531395 /* AddUpdateSubViewModel.swift */; };
 		4A470CE5282734C100531395 /* SubscriptionCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A470CE4282734C100531395 /* SubscriptionCD.swift */; };
+		4A483CAE283B986D00A4FBEA /* Emojis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A483CAD283B986D00A4FBEA /* Emojis.swift */; };
 		4A4CA7E42835A10D00E63A89 /* SortOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4CA7E32835A10D00E63A89 /* SortOrder.swift */; };
 		4A4CA7E62837049400E63A89 /* NotificationsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4CA7E52837049400E63A89 /* NotificationsService.swift */; };
 		4A4CA7E82837095100E63A89 /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4CA7E72837095100E63A89 /* NotificationModel.swift */; };
@@ -73,6 +74,7 @@
 /* Begin PBXFileReference section */
 		4A470CE2282733C000531395 /* AddUpdateSubViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUpdateSubViewModel.swift; sourceTree = "<group>"; };
 		4A470CE4282734C100531395 /* SubscriptionCD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionCD.swift; sourceTree = "<group>"; };
+		4A483CAD283B986D00A4FBEA /* Emojis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emojis.swift; sourceTree = "<group>"; };
 		4A4CA7E32835A10D00E63A89 /* SortOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortOrder.swift; sourceTree = "<group>"; };
 		4A4CA7E52837049400E63A89 /* NotificationsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsService.swift; sourceTree = "<group>"; };
 		4A4CA7E72837095100E63A89 /* NotificationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationModel.swift; sourceTree = "<group>"; };
@@ -323,6 +325,7 @@
 				4A4CCAA22831B01A00835F6E /* Theme.swift */,
 				4A4CA7E32835A10D00E63A89 /* SortOrder.swift */,
 				4A4CA7E72837095100E63A89 /* NotificationModel.swift */,
+				4A483CAD283B986D00A4FBEA /* Emojis.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -482,6 +485,7 @@
 				4A4CA7E62837049400E63A89 /* NotificationsService.swift in Sources */,
 				4A7FBC79281F50E300B4CAE2 /* SubscriptionCD.xcdatamodeld in Sources */,
 				4A4CA7E82837095100E63A89 /* NotificationModel.swift in Sources */,
+				4A483CAE283B986D00A4FBEA /* Emojis.swift in Sources */,
 				E502771027FFCCC400B3C4F5 /* MTextRow.swift in Sources */,
 				E547E1DB27F2790C000A9E8F /* HomeViewController.swift in Sources */,
 				4A65F59C282F1AA500D24C22 /* SettingsViewCell.swift in Sources */,

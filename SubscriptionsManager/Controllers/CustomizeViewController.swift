@@ -10,8 +10,7 @@ import UIKit
 class CustomizeViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     private let emojiCellSize = 42.0
-    var emojiDataSource: [String] = []
-    var emojiCategories: [String] = ["People","ANIMALS AND NATURE", "Activity", "TRAVEL AND PLACES"]
+    var emojisList: [Emojis] = []
     
     init(){
         super.init(collectionViewLayout: CustomizeViewController.createLayout())
@@ -32,44 +31,32 @@ class CustomizeViewController: UICollectionViewController, UICollectionViewDeleg
         // NOTE: These ranges are still just a subset of all the emoji characters;
         //       they seem to be all over the place...
         //https://www.unicode.org/emoji/charts/full-emoji-list.html
-        let emojiRanges = [
-            0x1F601...0x1F64F,
-            0x2702...0x27B0,
-            0x1F680...0x1F6C0,
-            0x1F170...0x1F251
-        ]
-
-        for range in emojiRanges {
-            for i in range {
-                guard let scalar = UnicodeScalar(i) else { continue }
-                let c = String(scalar)
-                print(c)
-                emojiDataSource.append(c)
-            }
-        }
+        
+        emojisList.append(Emojis(category: "People", list: Emojis.toList(range: 0x1F601...0x1F64F)))
+        emojisList.append(Emojis(category: "Animal", list: Emojis.toList(range: 0x2702...0x27B0)))
+        emojisList.append(Emojis(category: "Nature", list: Emojis.toList(range: 0x1F680...0x1F6C0)))
+        emojisList.append(Emojis(category: "City", list: Emojis.toList(range: 0x1F170...0x1F251)))
+        
+        print(emojisList)
     }
     
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(emojiDataSource[indexPath.row])
+        print(emojisList[indexPath.section].list[indexPath.row])
+        //print(emojiDataSource[indexPath.row])
     }
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        2
+        emojisList.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if(section == 0){
-            return 15
-            return emojiDataSource.count
-        }
-            return emojiDataSource.count
-        return 20
+        return emojisList[section].list.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let emojiCell = collectionView.dequeueReusableCell(withReuseIdentifier: EmojiViewCell.identifier, for: indexPath) as? EmojiViewCell{
-            emojiCell.configure(with: emojiDataSource[indexPath.row], size: emojiCellSize)
+            emojiCell.configure(with: emojisList[indexPath.section].list[indexPath.row], size: emojiCellSize)
             return emojiCell
         }
         return UICollectionViewCell()
@@ -87,7 +74,7 @@ class CustomizeViewController: UICollectionViewController, UICollectionViewDeleg
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         if let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: EmojiHeaderView.identifier, for: indexPath) as? EmojiHeaderView {
-            header.setTitle(title: emojiCategories[indexPath.section])
+            header.setTitle(title: emojisList[indexPath.section].category)
             print(indexPath.section)
             return header
         }
