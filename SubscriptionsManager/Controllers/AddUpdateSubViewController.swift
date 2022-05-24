@@ -145,6 +145,9 @@ class AddUpdateSubViewController: FormViewController {
     private func validateForm() -> Bool{
         view.endEditing(false)
         if(viewModel.name.isEmpty){
+            let alert = UIAlertController(title: "Subscription", message: "You need to add a Name", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
             return false
         }
         if(viewModel.price <= 0){

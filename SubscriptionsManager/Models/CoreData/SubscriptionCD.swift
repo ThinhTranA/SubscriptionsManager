@@ -28,6 +28,7 @@ public class SubscriptionCD: NSManagedObject, Identifiable {
     @NSManaged public var remindBefore: String
     
     @NSManaged public var currencyCode: String
+    @NSManaged public var isCustom: Bool
     
     public override var description: String {
           return "SubscriptionCD"

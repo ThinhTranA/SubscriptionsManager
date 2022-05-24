@@ -46,6 +46,7 @@ struct AddUpdateSubViewModel {
             self.billingCycle = subObj.billingCycle
             self.remind = subObj.remind
             self.currencyCode = subObj.currencyCode
+            self.isCustom = subObj.isCustom
         }
     }
     
@@ -81,6 +82,7 @@ struct AddUpdateSubViewModel {
         sub.remindTime = remind.time
         sub.remindBefore = remind.before
         sub.currencyCode = currencyCode
+        sub.isCustom = isCustom
     }
     
     func deleteSubscription() {
