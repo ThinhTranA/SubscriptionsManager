@@ -26,6 +26,7 @@
 		4A65F59C282F1AA500D24C22 /* SettingsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A65F59B282F1AA500D24C22 /* SettingsViewCell.swift */; };
 		4A7981B22838FA5A0099BF07 /* EmojiLogoPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7981B12838FA5A0099BF07 /* EmojiLogoPickerViewController.swift */; };
 		4A7FBC79281F50E300B4CAE2 /* SubscriptionCD.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4A7FBC77281F50E300B4CAE2 /* SubscriptionCD.xcdatamodeld */; };
+		4A98E168283CE4F900FADEDC /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A98E167283CE4F900FADEDC /* ColorPickerViewController.swift */; };
 		6BBEB00D21F2213D28824692 /* Pods_SubscriptionsManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDB0910380CA349C4F94E1C7 /* Pods_SubscriptionsManager.framework */; };
 		E502771027FFCCC400B3C4F5 /* MTextRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E502770F27FFCCC400B3C4F5 /* MTextRow.swift */; };
 		E502771327FFCF8F00B3C4F5 /* MDateRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E502771227FFCF8F00B3C4F5 /* MDateRow.swift */; };
@@ -92,6 +93,7 @@
 		4A65F59B282F1AA500D24C22 /* SettingsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewCell.swift; sourceTree = "<group>"; };
 		4A7981B12838FA5A0099BF07 /* EmojiLogoPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiLogoPickerViewController.swift; sourceTree = "<group>"; };
 		4A7FBC78281F50E300B4CAE2 /* SubscriptionCD.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SubscriptionCD.xcdatamodel; sourceTree = "<group>"; };
+		4A98E167283CE4F900FADEDC /* ColorPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
 		CDB0910380CA349C4F94E1C7 /* Pods_SubscriptionsManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SubscriptionsManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA12B6304B760CE8CB769294 /* Pods-SubscriptionsManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SubscriptionsManager.release.xcconfig"; path = "Target Support Files/Pods-SubscriptionsManager/Pods-SubscriptionsManager.release.xcconfig"; sourceTree = "<group>"; };
 		E502770F27FFCCC400B3C4F5 /* MTextRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTextRow.swift; sourceTree = "<group>"; };
@@ -283,6 +285,7 @@
 				4A7981B12838FA5A0099BF07 /* EmojiLogoPickerViewController.swift */,
 				E5F1B8F12802FB75003B7BEB /* CurrencyPickerController.swift */,
 				E582D83D280CD872004741B5 /* CategoryPickerViewController.swift */,
+				4A98E167283CE4F900FADEDC /* ColorPickerViewController.swift */,
 			);
 			path = Pickers;
 			sourceTree = "<group>";
@@ -503,6 +506,7 @@
 				E5F1B8F42802FE5F003B7BEB /* MCurrencyRow.swift in Sources */,
 				E5A62B6A27F90697004FA950 /* SubscriptionViewCellViewModel.swift in Sources */,
 				E582D844280CD9E5004741B5 /* CategoryCell.swift in Sources */,
+				4A98E168283CE4F900FADEDC /* ColorPickerViewController.swift in Sources */,
 				E59B478F27FC3BE800B76E10 /* EntryTableViewCell.swift in Sources */,
 				E59F2C5228026BC6001DD28C /* FormPickerInputAccessoryView.swift in Sources */,
 				4A4CA7E42835A10D00E63A89 /* SortOrder.swift in Sources */,
