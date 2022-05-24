@@ -7,18 +7,18 @@
 
 import UIKit
 
-protocol CustomizeSubIconDelegate: AnyObject {
+protocol EmojiLogoPickerDelegate: AnyObject {
     func saveCustomizeIcon(emoji: String)
 }
 
-class CustomizeViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class EmojiLogoPickerViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     private let emojiCellSize = 42.0
     var emojisList: [Emojis] = []
-    var delegate: CustomizeSubIconDelegate?
+    var delegate: EmojiLogoPickerDelegate?
     
     init(){
-        super.init(collectionViewLayout: CustomizeViewController.createLayout())
+        super.init(collectionViewLayout: EmojiLogoPickerViewController.createLayout())
         collectionView.register(EmojiViewCell.self, forCellWithReuseIdentifier: EmojiViewCell.identifier)
         collectionView.register(EmojiHeaderView.self, forSupplementaryViewOfKind: EmojiHeaderView.categoryHeaderId, withReuseIdentifier: EmojiHeaderView.identifier)
     }
@@ -200,7 +200,7 @@ struct ContentView_Previews: PreviewProvider {
     
     struct Container: UIViewControllerRepresentable {
         func makeUIViewController(context: Context) -> UIViewController {
-            UINavigationController(rootViewController: CustomizeViewController())
+            UINavigationController(rootViewController: EmojiLogoPickerViewController())
             
         }
         

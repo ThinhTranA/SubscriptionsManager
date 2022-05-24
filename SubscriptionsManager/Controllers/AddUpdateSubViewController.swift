@@ -80,7 +80,23 @@ class AddUpdateSubViewController: FormViewController {
         newBtn.backgroundColor = M.Colors.white
         newBtn.addTarget(self, action: #selector(didTapSaveBtn), for: .touchUpInside)
         
+        let changeColorBtn = UIButton(frame: CGRect(x: 0, y: 0, width: 56, height: 24))
+        changeColorBtn.isHidden = true
+        changeColorBtn.setTitle("Color", for: .normal)
+        changeColorBtn.setTitleColor(viewModel.color, for: .normal)
+        changeColorBtn.titleLabel?.font = .systemFont(ofSize: 14)
+        changeColorBtn.layer.cornerRadius = 14
+        changeColorBtn.clipsToBounds = false
+        changeColorBtn.backgroundColor = M.Colors.white
+        changeColorBtn.addTarget(self, action: #selector(didTapColorBtn), for: .touchUpInside)
+        if(viewModel.name.isEmpty){
+            changeColorBtn.isHidden = false
+        }
+        
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: newBtn)
+        navigationItem.rightBarButtonItems  = [UIBarButtonItem(customView: newBtn), UIBarButtonItem(customView: changeColorBtn)]
+        
         let closeBtn = UIBarButtonItem(
             image: UIImage(systemName: "xmark"),
             style: .done,
@@ -117,6 +133,13 @@ class AddUpdateSubViewController: FormViewController {
     @objc func didTapDeleteBtn(){
         viewModel.deleteSubscription()
         dismissAndReloadData()
+    }
+    
+    @objc func didTapColorBtn(){
+        let vc = EmojiLogoPickerViewController()
+        vc.delegate = self
+        let navVC = UINavigationController(rootViewController: vc)
+        present(navVC, animated: true)
     }
     
     private func validateForm() -> Bool{
@@ -289,14 +312,14 @@ class AddUpdateSubViewController: FormViewController {
 
 extension AddUpdateSubViewController: AddUpdateSubHeaderDelegate {
     func changeCustomLogo() {
-        let vc = CustomizeViewController()
+        let vc = EmojiLogoPickerViewController()
         vc.delegate = self
         let navVC = UINavigationController(rootViewController: vc)
         present(navVC, animated: true)
     }
 }
 
-extension AddUpdateSubViewController: CustomizeSubIconDelegate {
+extension AddUpdateSubViewController: EmojiLogoPickerDelegate {
     func saveCustomizeIcon(emoji: String) {
         viewModel.logo = emoji
         customSubHeader.configure(with: viewModel)
