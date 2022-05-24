@@ -52,7 +52,7 @@ class SubscriptionViewCell: UITableViewCell {
     private let logoEmojiView: UILabel = {
         let lb = UILabel()
         lb.isHidden = true
-        lb.font = .systemFont(ofSize: 42)
+        lb.font = .systemFont(ofSize: 40)
         return lb
     }()
     

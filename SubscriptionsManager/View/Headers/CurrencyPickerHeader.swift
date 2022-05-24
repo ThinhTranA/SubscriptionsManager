@@ -40,7 +40,7 @@ class CurrencyPickerHeader: UITableViewHeaderFooterView, UISearchBarDelegate {
     }()
     private let doneBtn: UIButton = {
         let btn = UIButton()
-        btn.setTitleColor(UIColor.green, for: .normal)
+        btn.setTitleColor(M.Colors.primaryColor, for: .normal)
         btn.setTitle("Done", for: .normal)
         btn.isHidden = true
         return btn

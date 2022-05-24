@@ -61,7 +61,7 @@ class AddExpenseViewController: UIViewController {
         newBtn.titleLabel?.font = .systemFont(ofSize: 14)
         newBtn.layer.cornerRadius = 14
         newBtn.clipsToBounds = true
-        newBtn.backgroundColor = .green
+        newBtn.backgroundColor = M.Colors.primaryColor
         newBtn.addTarget(self, action: #selector(didTapNewBtn), for: .touchUpInside)
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: newBtn)

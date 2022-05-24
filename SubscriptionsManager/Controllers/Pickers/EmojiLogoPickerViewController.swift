@@ -49,7 +49,7 @@ class EmojiLogoPickerViewController: UICollectionViewController, UICollectionVie
         doneBtn.titleLabel?.font = .systemFont(ofSize: 14)
         doneBtn.layer.cornerRadius = 14
         doneBtn.clipsToBounds = true
-        doneBtn.backgroundColor = .green
+        doneBtn.backgroundColor = M.Colors.primaryColor
         doneBtn.addTarget(self, action: #selector(didTapDoneBtn), for: .touchUpInside)
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: doneBtn)

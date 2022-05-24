@@ -44,7 +44,7 @@ class FormPickerInputAccessoryView: UIView {
 
         doneBtn.setTitle("Done", for: .normal)
         doneBtn.titleLabel?.font = .systemFont(ofSize: 12, weight: .semibold)
-        doneBtn.backgroundColor = .green
+        doneBtn.backgroundColor = M.Colors.primaryColor
         doneBtn.layer.cornerRadius = 12
         doneBtn.frame = CGRect(x: width-doneBtn.width-8, y: (height-doneBtn.height)/2, width: doneBtn.width, height: doneBtn.height)
         doneBtn.addTarget(self, action: #selector(didTapDone), for: .touchUpInside)

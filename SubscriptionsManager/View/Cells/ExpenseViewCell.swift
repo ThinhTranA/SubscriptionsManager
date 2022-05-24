@@ -36,10 +36,11 @@ class ExpenseViewCell: UITableViewCell {
         let btn = UIButton()
         btn.setTitle("ADD", for: .normal)
         btn.setTitleColor(UIColor.green.darker(by: 20), for: .normal)
+        btn.setTitleColor(M.Colors.primaryColor, for: .normal)
         btn.titleLabel?.font = UIFont.systemFont(ofSize: 12, weight: .semibold)
         btn.layer.cornerRadius = 10
         btn.backgroundColor = .gray.withAlphaComponent(0.2)
-        btn.tintColor = .green
+        btn.tintColor = M.Colors.primaryColor
         return btn
     }()
     
