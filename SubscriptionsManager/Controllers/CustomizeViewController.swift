@@ -26,18 +26,14 @@ class CustomizeViewController: UICollectionViewController, UICollectionViewDeleg
         super.viewDidLoad()
     
 
-    //https://stackoverflow.com/questions/26170876/how-to-list-almost-all-emojis-in-swift-for-ios-8-without-using-any-form-of-loo
         //https://unicode.org/Public/emoji/15.0/emoji-sequences.txt
-        // NOTE: These ranges are still just a subset of all the emoji characters;
-        //       they seem to be all over the place...
-        //https://www.unicode.org/emoji/charts/full-emoji-list.html
-        
         emojisList.append(Emojis(category: "People", list: Emojis.toList(range: 0x1F601...0x1F64F)))
-        emojisList.append(Emojis(category: "Animal", list: Emojis.toList(range: 0x2702...0x27B0)))
-        emojisList.append(Emojis(category: "Nature", list: Emojis.toList(range: 0x1F680...0x1F6C0)))
-        emojisList.append(Emojis(category: "City", list: Emojis.toList(range: 0x1F170...0x1F251)))
+        emojisList.append(Emojis(category: "Animal", list: Emojis.toList(range: 0x1F401...0x1F43F)))
+        emojisList.append(Emojis(category: "Transport", list: Emojis.toList(range: 0x1F680...0x1F6AF)))
+        emojisList.append(Emojis(category: "Symbols", list: Emojis.toList(range: 0x1F701...0x1F74F)))
+        emojisList.append(Emojis(category: "Nature", list: Emojis.toList(range: 0x1F301...0x1F353)))
+        emojisList.append(Emojis(category: "Random", list: Emojis.toList(range: 0x1F90C...0x1F9FF)))
         
-        print(emojisList)
     }
     
     
