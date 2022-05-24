@@ -35,7 +35,6 @@ class AddExpenseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Add expenses"
         configureSearchBar()
         configureTableView()
         configureNavigationBar()
@@ -54,6 +53,8 @@ class AddExpenseViewController: UIViewController {
     }
     
     private func configureNavigationBar(){
+        title = "Add expenses"
+        
         let newBtn = UIButton(frame: CGRect(x: 0, y: 0, width: 56, height: 24))
         newBtn.setTitle("New", for: .normal)
         newBtn.setTitleColor(.white, for: .normal)
@@ -78,7 +79,8 @@ class AddExpenseViewController: UIViewController {
     }
     
     @objc func didTapNewBtn(){
-        dismiss(animated: true)
+        didSelectExpense(expense: Expense.RandomExpense())
+
     }
     
     override func viewDidLayoutSubviews() {
@@ -95,6 +97,8 @@ class AddExpenseViewController: UIViewController {
         let navVC = UINavigationController(rootViewController: vc)
         present(navVC, animated: true)    }
 }
+
+
 
 extension AddExpenseViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {

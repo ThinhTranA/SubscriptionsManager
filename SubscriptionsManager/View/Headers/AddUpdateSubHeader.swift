@@ -8,7 +8,7 @@
 import UIKit
 
 protocol AddUpdateSubHeaderDelegate: AnyObject {
-    func displayWithPrice(price: Decimal, currency: Currency)
+    func changeCustomLogo()
 }
 
 class AddUpdateSubHeader: UIView, UITextFieldDelegate {
@@ -35,6 +35,13 @@ class AddUpdateSubHeader: UIView, UITextFieldDelegate {
         return imgView
     }()
     
+    let customLogoBtn: UIButton = {
+        let btn = UIButton()
+        btn.titleLabel?.font = .systemFont(ofSize: 64)
+        btn.addTarget(self, action: #selector(changeCustomLogo), for: .touchUpInside)
+        return btn
+    }()
+    
     let costTxtField: UITextField = {
         let txtField = UITextField(frame: CGRect(x: 0, y: 0, width: 120, height: 48))
         txtField.textColor = M.Colors.white
@@ -58,6 +65,10 @@ class AddUpdateSubHeader: UIView, UITextFieldDelegate {
         costTxtField.sizeToFit()
     }
     
+    @objc func changeCustomLogo(){
+        delegate?.changeCustomLogo()
+    }
+    
     let currencyUnitLb: UILabel = {
         let lb = UILabel()
         lb.text = "$"
@@ -71,6 +82,7 @@ class AddUpdateSubHeader: UIView, UITextFieldDelegate {
         clipsToBounds = true
         addSubview(validationMessageLb)
         addSubview(logoImg)
+        addSubview(customLogoBtn)
         addSubview(costTxtField)
         addSubview(currencyUnitLb)
     }
@@ -94,6 +106,7 @@ class AddUpdateSubHeader: UIView, UITextFieldDelegate {
         let logoImgWidth = 100.0
         let logoImgHeight = 100.0
         logoImg.frame = CGRect(x: (width-logoImgWidth)/2, y: validationMessageLb.bottom+24, width: logoImgWidth, height: logoImgHeight)
+        customLogoBtn.frame = logoImg.frame
         
         costTxtField.delegate = self
         costTxtField.frame = CGRect(x: (width-costTxtField.width-currencyUnitLb.width)/2, y: logoImg.bottom+16, width: costTxtField.width, height: costTxtField.height)
@@ -166,8 +179,16 @@ class AddUpdateSubHeader: UIView, UITextFieldDelegate {
             costTxtField.placeholder = "0.00"
         }
         
+        if sub.isCustom {
+            logoImg.isHidden = true
+            customLogoBtn.isHidden = false
+            customLogoBtn.setTitle(sub.logo, for: .normal)
+        } else {
+            logoImg.image = UIImage(named: sub.logo)
+        }
+        
         backgroundColor = sub.color
-        logoImg.image = UIImage(named: sub.logo)
+        
     }
 }
 

@@ -44,7 +44,7 @@ class AddUpdateSubViewController: FormViewController {
         super.viewDidLoad()
         //fetchData
         view.backgroundColor = .orange
-        
+        customSubHeader.delegate = self
         configureDeleteBtn()
         configureNavigationBar()
         configureSubscriptionForm()
@@ -108,7 +108,6 @@ class AddUpdateSubViewController: FormViewController {
         if(!isValidForm) {
             return
         }
-        //SubscriptionService.shared.saveSubscription(subscription)
         viewModel.saveSubscription()
         viewModel.updateRemindNotification(vc: self)
         
@@ -116,7 +115,6 @@ class AddUpdateSubViewController: FormViewController {
     }
     
     @objc func didTapDeleteBtn(){
-        //SubscriptionService.shared.deleteSubscription(subscription)
         viewModel.deleteSubscription()
         dismissAndReloadData()
     }
@@ -280,12 +278,29 @@ class AddUpdateSubViewController: FormViewController {
         viewModel.category = expense.category
         viewModel.colorHex = expense.colorHex
         viewModel.logo = expense.logo
+        viewModel.isCustom = expense.isCustom
     }
     
     func configure(with vm: AddUpdateSubViewModel){
         viewModel = vm
     }
     
+}
+
+extension AddUpdateSubViewController: AddUpdateSubHeaderDelegate {
+    func changeCustomLogo() {
+        let vc = CustomizeViewController()
+        vc.delegate = self
+        let navVC = UINavigationController(rootViewController: vc)
+        present(navVC, animated: true)
+    }
+}
+
+extension AddUpdateSubViewController: CustomizeSubIconDelegate {
+    func saveCustomizeIcon(emoji: String) {
+        viewModel.logo = emoji
+        customSubHeader.configure(with: viewModel)
+    }
 }
 
 extension AddUpdateSubViewController: FormPickerInputAccessoryViewDelegate {

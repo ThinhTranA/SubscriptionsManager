@@ -12,7 +12,7 @@ struct AddUpdateSubViewModel {
     
     let mangedObjectContext = (UIApplication.shared.delegate as! AppDelegate).manangedObjectContext
     var subObj: SubscriptionCD?
-    
+    var isCustom = false
     var category = ""
     var colorHex = ""
     var logo = ""

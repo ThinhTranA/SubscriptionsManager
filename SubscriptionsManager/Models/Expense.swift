@@ -13,6 +13,13 @@ struct Expense{
     let logo: String
     let category: String
     let colorHex: String
+    var isCustom: Bool = false
+    
+    static func RandomExpense() -> Expense {
+        let list = Emojis.toList(range:  0x1F90C...0x1F9FF)
+        let logo = list.randomElement() ?? ""
+        return Expense(name: "", logo: logo, category: "Utilities", colorHex: "#1CE783", isCustom: true)
+    }
 }
 
 class ExpenseService{

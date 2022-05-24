@@ -7,10 +7,15 @@
 
 import UIKit
 
+protocol CustomizeSubIconDelegate: AnyObject {
+    func saveCustomizeIcon(emoji: String)
+}
+
 class CustomizeViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     private let emojiCellSize = 42.0
     var emojisList: [Emojis] = []
+    var delegate: CustomizeSubIconDelegate?
     
     init(){
         super.init(collectionViewLayout: CustomizeViewController.createLayout())
@@ -24,8 +29,6 @@ class CustomizeViewController: UICollectionViewController, UICollectionViewDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-
         //https://unicode.org/Public/emoji/15.0/emoji-sequences.txt
         emojisList.append(Emojis(category: "People", list: Emojis.toList(range: 0x1F601...0x1F64F)))
         emojisList.append(Emojis(category: "Animal", list: Emojis.toList(range: 0x1F401...0x1F43F)))
@@ -34,12 +37,45 @@ class CustomizeViewController: UICollectionViewController, UICollectionViewDeleg
         emojisList.append(Emojis(category: "Nature", list: Emojis.toList(range: 0x1F301...0x1F353)))
         emojisList.append(Emojis(category: "Random", list: Emojis.toList(range: 0x1F90C...0x1F9FF)))
         
+        configureNavigationBar()
     }
     
     
+    private func configureNavigationBar(){
+        title = "Select a custom icon"
+        let doneBtn = UIButton(frame: CGRect(x: 0, y: 0, width: 56, height: 24))
+        doneBtn.setTitle("Done", for: .normal)
+        doneBtn.setTitleColor(.white, for: .normal)
+        doneBtn.titleLabel?.font = .systemFont(ofSize: 14)
+        doneBtn.layer.cornerRadius = 14
+        doneBtn.clipsToBounds = true
+        doneBtn.backgroundColor = .green
+        doneBtn.addTarget(self, action: #selector(didTapDoneBtn), for: .touchUpInside)
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: doneBtn)
+        let closeBtn = UIBarButtonItem(
+            image: UIImage(systemName: "xmark"),
+            style: .done,
+            target: self,
+            action: #selector(didTapCloseBtn))
+        closeBtn.tintColor = .label
+        navigationItem.leftBarButtonItem = closeBtn
+    }
+    
+    @objc func didTapCloseBtn(){
+        dismiss(animated: true)
+    }
+    
+    @objc func didTapDoneBtn(){
+        dismiss(animated: true)
+    }
+    
+    
+    
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(emojisList[indexPath.section].list[indexPath.row])
-        //print(emojiDataSource[indexPath.row])
+        let emoji = emojisList[indexPath.section].list[indexPath.row]
+        delegate?.saveCustomizeIcon(emoji: emoji)
+        dismiss(animated: true)
     }
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -71,7 +107,6 @@ class CustomizeViewController: UICollectionViewController, UICollectionViewDeleg
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         if let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: EmojiHeaderView.identifier, for: indexPath) as? EmojiHeaderView {
             header.setTitle(title: emojisList[indexPath.section].category)
-            print(indexPath.section)
             return header
         }
         return EmojiHeaderView()
@@ -85,8 +120,8 @@ class CustomizeViewController: UICollectionViewController, UICollectionViewDeleg
             item.contentInsets.bottom = 0
             let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .estimated(500)), subitems: [item])
             let section = NSCollectionLayoutSection(group: group)
-            section.contentInsets.leading = 12
-            section.contentInsets.trailing = 12
+            section.contentInsets.leading = 0
+            section.contentInsets.trailing = 0
             
             section.boundarySupplementaryItems = [
                 .init(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(50)), elementKind: EmojiHeaderView.categoryHeaderId, alignment: .topLeading)
@@ -132,14 +167,15 @@ class EmojiHeaderView: UICollectionReusableView {
     let label = UILabel()
     override init(frame: CGRect) {
         super.init(frame: frame)
-        label.text = "Categories"
+        label.font = .systemFont(ofSize: 20, weight: .semibold)
+
         addSubview(label)
-        backgroundColor = .orange
+        backgroundColor = .secondarySystemBackground
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        label.frame = bounds
+        label.frame = bounds.insetBy(dx: 16, dy:0)
     }
     
     required init?(coder: NSCoder) {
