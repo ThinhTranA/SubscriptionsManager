@@ -14,6 +14,7 @@ struct SubscriptionViewCellViewModel {
     let cost: String
     let dueDate: String
     let isOverDue: Bool
+    let isCustom: Bool
     
     init(subscriptionObj: SubscriptionCD){
         subId = subscriptionObj.id
@@ -22,5 +23,6 @@ struct SubscriptionViewCellViewModel {
         cost = subscriptionObj.costString
         dueDate = subscriptionObj.dueDateString
         isOverDue = subscriptionObj.isOverdue
+        isCustom = subscriptionObj.isCustom
     }
 }

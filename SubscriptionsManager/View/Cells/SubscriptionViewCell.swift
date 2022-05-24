@@ -49,9 +49,12 @@ class SubscriptionViewCell: UITableViewCell {
         return categoryImg
     }()
     
-//    private let logoEmojiView: UILabel = {
-//        let lb 
-//    }()
+    private let logoEmojiView: UILabel = {
+        let lb = UILabel()
+        lb.isHidden = true
+        lb.font = .systemFont(ofSize: 42)
+        return lb
+    }()
     
     private let overdueView: UIView = {
         let view = UIView()
@@ -85,7 +88,7 @@ class SubscriptionViewCell: UITableViewCell {
         contentView.addSubview(dueInLb)
         contentView.addSubview(costLb)
         contentView.addSubview(logoImageView)
-        
+        contentView.addSubview(logoEmojiView)
         contentView.addSubview(overdueView)
         contentView.addSubview(expiredLabel)
         contentView.layer.cornerRadius = 0
@@ -103,6 +106,7 @@ class SubscriptionViewCell: UITableViewCell {
         costLb.sizeToFit()
         
         logoImageView.frame = CGRect(x: 12, y: (height-40)/2, width: 40, height: 40)
+        logoEmojiView.frame = logoImageView.frame
         
         let logoImageViewRightPos = logoImageView.right+12
         nameLabel.frame = CGRect(
@@ -129,16 +133,20 @@ class SubscriptionViewCell: UITableViewCell {
 
     }
     
-
     func configure(with viewModel: SubscriptionViewCellViewModel) {
         subId = viewModel.subId
         nameLabel.text = viewModel.name
         dueInLb.text = viewModel.dueDate
         costLb.text = viewModel.cost
         logoImageView.image = UIImage(named: viewModel.logo)
-        
+        logoEmojiView.text = viewModel.logo
         overdueView.isHidden = !viewModel.isOverDue
         expiredLabel.isHidden = !viewModel.isOverDue
+        
+        if(viewModel.isCustom){
+            logoImageView.isHidden = true
+            logoEmojiView.isHidden = false
+        }
     }
     
     @objc func didTapMarkAsPaid(){
