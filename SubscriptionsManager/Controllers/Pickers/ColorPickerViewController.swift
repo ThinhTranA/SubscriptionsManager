@@ -1,14 +1,14 @@
 import UIKit
 
 protocol ColorPickerDelegate: AnyObject {
-    func saveColor(color: UIColor)
+    func saveColor(colorHex: String)
 }
 
 class ColorPickerViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     private let cellSize = 42.0
     var delegate: ColorPickerDelegate?
-    var colorList: [UIColor] = []
+    var colorList: [String] = []
     
     init(){
         super.init(collectionViewLayout: ColorPickerViewController.createLayout())
@@ -22,8 +22,11 @@ class ColorPickerViewController: UICollectionViewController, UICollectionViewDel
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        colorList.append(UIColor(hexaString: "#2AA868"))
-        colorList.append(UIColor(hexaString: "#31F592"))
+        //https://coolors.co/312f2f-84dccf-a6d9f7-bccce0-bf98a0
+        colorList = ["#2AA868","#004F2D","#091E05","#D87CAC","#F9B9C3","#FFDA22","#222222","#1C5D99"
+                     ,"#639FAB","#BBCDE5","#312F2F","#84DCCF","#A6D9F7","#BCCCE0","#BF98A0","#533747",
+                     "#5F506B","#6A6B83","#BEB7A4","#86BBBD","#E4B7E5","#B288C0","#7E5A9B","#E6AF2E",
+                     "#9A48D0","#2589BD","#187795","#38686A"]
         
         configureNavigationBar()
     }
@@ -62,7 +65,7 @@ class ColorPickerViewController: UICollectionViewController, UICollectionViewDel
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let color = colorList[indexPath.row]
-        delegate?.saveColor(color: color)
+        delegate?.saveColor(colorHex: color)
         dismiss(animated: true)
     }
     
@@ -95,13 +98,13 @@ class ColorPickerViewController: UICollectionViewController, UICollectionViewDel
 
     static func createLayout() -> UICollectionViewCompositionalLayout {
         return UICollectionViewCompositionalLayout { (sectionNumber, env) -> NSCollectionLayoutSection? in
-            let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1/4), heightDimension: .absolute(48)))
-            item.contentInsets.trailing = 8
-            item.contentInsets.bottom = 8
-            let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .estimated(500)), subitems: [item])
+            let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1/4), heightDimension: .fractionalHeight(1/10)))
+            item.contentInsets.trailing = 0
+            item.contentInsets.bottom = 0
+            let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .estimated(1000)), subitems: [item])
             let section = NSCollectionLayoutSection(group: group)
-            section.contentInsets.leading = 8
-            section.contentInsets.trailing = 8
+            section.contentInsets.leading = 0
+            section.contentInsets.trailing = 0
          
             return section
         }
@@ -127,12 +130,12 @@ class ColorViewCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        colorView.frame = contentView.bounds
+        colorView.frame = CGRect(x: (width-64)/2, y: (height-64)/2, width: 64, height: 64)
     }
     
-    func configure(with color: UIColor, size: CGFloat){
-        colorView.layer.cornerRadius = self.frame.width/2
-        colorView.backgroundColor = color
+    func configure(with colorHex: String, size: CGFloat){
+        colorView.layer.cornerRadius = 32
+        colorView.backgroundColor = UIColor(hexaString: colorHex)
     }
 }
 

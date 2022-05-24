@@ -136,7 +136,7 @@ class AddUpdateSubViewController: FormViewController {
     }
     
     @objc func didTapColorBtn(){
-        let vc = EmojiLogoPickerViewController()
+        let vc = ColorPickerViewController()
         vc.delegate = self
         let navVC = UINavigationController(rootViewController: vc)
         present(navVC, animated: true)
@@ -324,6 +324,16 @@ extension AddUpdateSubViewController: EmojiLogoPickerDelegate {
         viewModel.logo = emoji
         customSubHeader.configure(with: viewModel)
     }
+}
+
+extension AddUpdateSubViewController: ColorPickerDelegate{
+    func saveColor(colorHex: String) {
+        viewModel.colorHex = colorHex
+        tableView.backgroundColor = viewModel.color
+        customSubHeader.configure(with: viewModel)
+        dismiss(animated: true)
+    }
+    
 }
 
 extension AddUpdateSubViewController: FormPickerInputAccessoryViewDelegate {
