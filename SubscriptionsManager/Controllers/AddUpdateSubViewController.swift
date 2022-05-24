@@ -42,12 +42,12 @@ class AddUpdateSubViewController: FormViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //fetchData
-        view.backgroundColor = .orange
+
         customSubHeader.delegate = self
         configureDeleteBtn()
         configureNavigationBar()
         configureSubscriptionForm()
+        configureBackgroundsColor()
     }
     
     override func viewDidLayoutSubviews() {
@@ -68,6 +68,11 @@ class AddUpdateSubViewController: FormViewController {
             return view
         }
         return super.inputAccessoryView(for: row)
+    }
+    
+    private func configureBackgroundsColor(){
+        navigationController?.navigationBar.barTintColor = viewModel.color
+        tableView.backgroundColor = viewModel.color
     }
     
     private func configureNavigationBar(){
@@ -170,7 +175,6 @@ class AddUpdateSubViewController: FormViewController {
     
     
     private func configureSubscriptionForm(){
-        tableView.backgroundColor = viewModel.color
         
         
         form +++ Section() { section in
@@ -332,8 +336,8 @@ extension AddUpdateSubViewController: EmojiLogoPickerDelegate {
 extension AddUpdateSubViewController: ColorPickerDelegate{
     func saveColor(colorHex: String) {
         viewModel.colorHex = colorHex
-        tableView.backgroundColor = viewModel.color
         customSubHeader.configure(with: viewModel)
+        configureBackgroundsColor()
         dismiss(animated: true)
     }
     

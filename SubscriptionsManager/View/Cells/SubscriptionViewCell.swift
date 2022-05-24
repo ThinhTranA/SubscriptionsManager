@@ -49,6 +49,10 @@ class SubscriptionViewCell: UITableViewCell {
         return categoryImg
     }()
     
+//    private let logoEmojiView: UILabel = {
+//        let lb 
+//    }()
+    
     private let overdueView: UIView = {
         let view = UIView()
         view.backgroundColor = M.Colors.primaryDark

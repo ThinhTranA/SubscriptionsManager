@@ -39,7 +39,6 @@ class AddUpdateSubHeader: UIView, UITextFieldDelegate {
         let btn = UIButton()
         btn.titleLabel?.font = .systemFont(ofSize: 64)
         btn.isHidden = true
-        btn.addTarget(self, action: #selector(changeCustomLogo), for: .touchUpInside)
         return btn
     }()
     
@@ -86,6 +85,9 @@ class AddUpdateSubHeader: UIView, UITextFieldDelegate {
         addSubview(customLogoBtn)
         addSubview(costTxtField)
         addSubview(currencyUnitLb)
+        
+        
+        customLogoBtn.addTarget(self, action: #selector(changeCustomLogo), for: .touchUpInside)
     }
     
     required init?(coder: NSCoder) {
