@@ -106,7 +106,7 @@ class HomeViewController: UIViewController {
             height: BottomTabView.tabHeight
         )
         
-        headerTotalView.frame = CGRect(x: 0, y: 0, width: view.width, height: 300)
+        headerTotalView.frame = CGRect(x: 0, y: 0, width: view.width, height: min(280,view.height/2.8))
         
         subsTableView.frame = CGRect(x: 0, y: headerTotalView.bottom, width: view.width, height: view.height-headerTotalView.height)
     
@@ -211,5 +211,36 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     
+}
+
+
+
+
+
+import SwiftUI
+struct HomeContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        Container().edgesIgnoringSafeArea(.all)
+    }
+    
+    struct Container: UIViewControllerRepresentable {
+        func makeUIViewController(context: Context) -> UIViewController {
+            UINavigationController(rootViewController: HomeViewController())
+            
+        }
+        
+        func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
+            
+        }
+        
+        typealias UIViewControllerType = UIViewController
+        
+    }
+}
+
+struct HomeContentView: View {
+    var body: some View {
+        Text("Hello, World!")
+    }
 }
 

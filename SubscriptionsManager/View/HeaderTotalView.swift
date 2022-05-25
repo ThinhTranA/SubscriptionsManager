@@ -76,9 +76,10 @@ class HeaderTotalView: UIView, MSegmentedControlDelegate {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        
         titleLb.sizeToFit()
-        titleLb.frame = CGRect(x: 8, y: 48, width: titleLb.width, height: titleLb.height)
-        priceLb.frame = CGRect(x: 0, y: 128, width: width, height: 50)
+        titleLb.frame = CGRect(x: 8, y: safeAreaInsets.top+8, width: titleLb.width, height: titleLb.height)
+        priceLb.frame = CGRect(x: 0, y: titleLb.bottom+24, width: width, height: 50)
         descriptionLb.sizeToFit()
         descriptionLb.frame = CGRect(x: (width-descriptionLb.width)/2, y: priceLb.bottom+8, width: descriptionLb.width, height: descriptionLb.height)
         
@@ -155,3 +156,5 @@ class HeaderTotalView: UIView, MSegmentedControlDelegate {
     }
     
 }
+
+
