@@ -91,9 +91,6 @@ class AddExpenseViewController: UIViewController {
     func didSelectExpense(expense: Expense){
         let vc = AddUpdateSubViewController()
         vc.delegate = addUpdateSubDelegate
-        if(!expense.name.isEmpty){
-            vc.title = expense.name
-        }
         vc.configure(with: expense)
         
         let navVC = UINavigationController(rootViewController: vc)

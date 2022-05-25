@@ -76,6 +76,8 @@ class AddUpdateSubViewController: FormViewController {
     }
     
     private func configureNavigationBar(){
+        title = viewModel.name
+        
         let newBtn = UIButton(frame: CGRect(x: 0, y: 0, width: 56, height: 24))
         newBtn.setTitle("Save", for: .normal)
         newBtn.setTitleColor(viewModel.color, for: .normal)
