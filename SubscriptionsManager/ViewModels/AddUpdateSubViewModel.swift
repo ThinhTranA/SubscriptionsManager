@@ -106,13 +106,12 @@ struct AddUpdateSubViewModel {
             var body: String
             let dayBefore = sub.remind.remindOnDayBefore
             switch(dayBefore){
+            case -1: return
             case 0:  body = "\(sub.name) bill is due Today"
             case 1:  body = "\(sub.name) bill is due Tomorrow"
             default:
                 body = "\(sub.name) bill is due in \(dayBefore) date is on \(sub.nextBill.getFormattedDate(format: "dd/MM/yyyy"))"
             }
-            
-            print(body)
             
             var recurringDate = DateComponents()
             let calendarDate = Calendar.current.dateComponents([.day, .year, .month], from: sub.nextBill)
@@ -130,14 +129,13 @@ struct AddUpdateSubViewModel {
             recurringDate.minute = Calendar.current.component(.minute, from: date)
             recurringDate.second = Calendar.current.component(.second, from: date) + 10
             
-            let isRepeat = true
             
             let notification = NotificationModel(
                 id: notificationId,
                 title: name,
                 body: body,
                 recurringDate: recurringDate,
-                isRepeat: isRepeat
+                isRepeat: true
             )
             NotificationsService.shared.scheduleNotification(targetVC: vc, with: notification)
             
