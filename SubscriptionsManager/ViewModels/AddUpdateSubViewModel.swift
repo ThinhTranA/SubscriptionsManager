@@ -50,7 +50,7 @@ struct AddUpdateSubViewModel {
         }
     }
     
-    func saveSubscription() {
+    mutating func saveSubscription() {
         if let sub = subObj {
           updateSubValues(with: sub)
         } else {
@@ -64,7 +64,7 @@ struct AddUpdateSubViewModel {
         }
     }
     
-    private func updateSubValues(with sub: SubscriptionCD){
+    private mutating func updateSubValues(with sub: SubscriptionCD){
         sub.createdAt = Date()
         sub.updatedAt = Date()
         sub.category = category
@@ -83,6 +83,8 @@ struct AddUpdateSubViewModel {
         sub.remindBefore = remind.before
         sub.currencyCode = currencyCode
         sub.isCustom = isCustom
+        
+        subObj = sub
     }
     
     func deleteSubscription() {
