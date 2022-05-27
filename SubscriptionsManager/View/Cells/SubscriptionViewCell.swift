@@ -77,6 +77,9 @@ class SubscriptionViewCell: UITableViewCell {
         nameLabel.text = nil
         dueInLb.text = nil
         costLb.text = nil
+        logoImageView.image = nil
+        logoImageView.isHidden = false
+        logoEmojiView.isHidden = true
         expiredLabel.isHidden = true
     }
     
