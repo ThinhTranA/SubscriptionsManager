@@ -79,7 +79,8 @@ class SettingsViewController: UIViewController {
                 self?.dismiss(animated: true)
             }),
             SettingsOption(title: "Privacy policy", icon: .init(systemName: "car"), handler: { [weak self] in
-                let url = URL(string: "https://myfuellens.wordpress.com/")
+                //Email: mysubscriptions0522@gmail.com
+                let url = URL(string: "https://subscriptions120228906.wordpress.com/")
                 if let url = url {
                     UIApplication.shared.open(url)
                 }
