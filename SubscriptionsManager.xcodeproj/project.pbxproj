@@ -674,6 +674,7 @@
 				DEVELOPMENT_TEAM = 589ZKTU4Y4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SubscriptionsManager/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Subscriptions Tracker";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -703,6 +704,7 @@
 				DEVELOPMENT_TEAM = 589ZKTU4Y4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SubscriptionsManager/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Subscriptions Tracker";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
